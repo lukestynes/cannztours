@@ -1,38 +1,40 @@
 // import Link from "next/link";
+import ReviewStack from "@/components/ReviewStack";
 import Image from "next/image";
+import Link from "next/link";
 
-const confidenceCards = [
-  {
-    title: "25+ Years Experience",
-    description:
-      "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
-    image: "/images/experience.svg",
-  },
-  {
-    title: "Tours in English or Japanese",
-    description:
-      "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
-    image: "/images/speak.svg",
-  },
-  {
-    title: "Extensive Local Knowledge",
-    description:
-      "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
-    image: "/images/local.svg",
-  },
-  {
-    title: "Custom Tours Available",
-    description:
-      "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
-    image: "/images/custom.svg",
-  },
-];
+// const confidenceCards = [
+//   {
+//     title: "25+ Years Experience",
+//     description:
+//       "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
+//     image: "/images/experience.svg",
+//   },
+//   {
+//     title: "Tours in English or Japanese",
+//     description:
+//       "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
+//     image: "/images/speak.svg",
+//   },
+//   {
+//     title: "Extensive Local Knowledge",
+//     description:
+//       "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
+//     image: "/images/local.svg",
+//   },
+//   {
+//     title: "Custom Tours Available",
+//     description:
+//       "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
+//     image: "/images/custom.svg",
+//   },
+// ];
 
 export default function HomePage() {
   return (
-    <main className=" bg-stone-100">
+    <main className="pb-20">
       {/* Hero Section */}
-      <div className="flex flex-row items-center justify-center bg-stone-200">
+      <div className="flex flex-row items-center justify-center bg-neutral-100">
         <div className="hero min-h-[calc(100vh-68px)] max-w-7xl justify-center pb-7">
           <div className="hero">
             <div className="grid-rows-2">
@@ -50,10 +52,12 @@ export default function HomePage() {
                     captivating beauty of Christchurch and the South Island of
                     New Zealand.
                   </p>
-                  <button className="btn btn-primary mr-2 text-white">
+                  <Link href="/contact" className="btn btn-primary mr-2">
                     Book a Tour
-                  </button>
-                  <button className="btn btn-outline">Learn More</button>
+                  </Link>
+                  <Link href="/about" className="btn btn-outline">
+                    Learn More
+                  </Link>
                 </div>
               </div>
               <div className="hero">
@@ -92,24 +96,23 @@ export default function HomePage() {
               <p className="py-6">
                 With 25+ years experience guiding tours around the South Island
                 of New Zealand, I look forward to welcoming you to our paradise.
-                With fluency in both English and Japanese, our tours are offered
-                in either language. Whether you want to see the many things to
-                do in Christchurch or view the Southern Alps from the
+                Having fluency in both English and Japanese, our tours are
+                offered in either language. Whether you want to see the many
+                things to do in Christchurch or view the Southern Alps from the
                 TranzAlpine train. See Aoraki Mount Cook, go whale watching in
                 Kaikoura or take a Waipara winery tour. Explore my many full day
                 or half day tours from Christchurch or my multi day tours around
                 the South Island.
               </p>
             </div>
-            <button className="btn btn-primary text-white">
+            <Link href="/about" className="btn btn-primary">
               Learn About Us
-            </button>
+            </Link>
           </div>
         </div>
       </div>
-
       {/* Triple Tour Card */}
-      <div className=" py-20">
+      <div className=" bg-neutral-100 py-20">
         <h3 className="mb-10 text-center text-5xl font-bold">
           Choose an Unforgettable Experience
         </h3>
@@ -173,12 +176,13 @@ export default function HomePage() {
           </div>
         </div>
         <div className="mt-20 flex justify-center">
-          <button className="btn btn-primary text-white">View our Tours</button>
+          <Link href="/tours" className="btn btn-primary">
+            View our Tours
+          </Link>
         </div>
       </div>
-
       {/* Why Choose Us Cards */}
-      <div className="bg-stone-200 py-20">
+      <div className="py-20">
         <h3 className="mb-10 text-center text-5xl font-bold">Why choose us?</h3>
         <div className="flex justify-center gap-10 py-10">
           {/* Card One */}
@@ -284,30 +288,12 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      {/* Big Review Card */}
-      <div className="flex justify-center py-20">
-        <div className="card card-side max-w-3xl bg-stone-100">
-          <div className="card-body">
-            <Image
-              className="card-title"
-              src="/images/stars.svg"
-              width="116"
-              height="31"
-              alt="rating stars"
-            />
-            <p className="text-xl">
-              The tour was absolutely amazing! The guides were knowledgeable and
-              friendly, and the scenery was breathtaking. Highly recommended!
-            </p>
-            <p>Yuki Nakamura</p>
-            <div className=" card-actions">
-              <button className="justify-left btn btn-primary mt-2 text-white">
-                View Testimonials
-              </button>
-              <p className="pt-5 text-right">Via TripAdvisor</p>
-            </div>
-          </div>
-        </div>
+      <h2 className="mb-20 text-center text-5xl font-bold">Our Reviews</h2>
+      <ReviewStack />
+      <div className="flex justify-center">
+        <Link href="/reviews" className="justify-left btn btn-primary mt-2">
+          View Testimonials
+        </Link>
       </div>
     </main>
   );
