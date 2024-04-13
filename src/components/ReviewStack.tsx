@@ -8,11 +8,11 @@ const CARDS = [
     designation: "TripAdvisor",
     content: (
       <p>
-        We just completed a tour to Arthur's Pass today. I would not hesitate to
-        recommend this tour to anyone who wants to sit back, relax, and enjoy
-        the best of NZ's wonderful nature. The organisation of the tour was
-        perfect: Craig tweaked the schedule slightly to suit the weather of the
-        day. Craig is extremely knowledgeable.
+        We just completed a tour to Arthur&apos;s Pass today. I would not
+        hesitate to recommend this tour to anyone who wants to sit back, relax,
+        and enjoy the best of NZ&apos;s wonderful nature. The organisation of
+        the tour was perfect: Craig tweaked the schedule slightly to suit the
+        weather of the day. Craig is extremely knowledgeable.
       </p>
     ),
   },
@@ -37,11 +37,11 @@ const CARDS = [
     content: (
       <p>
         Craig picked us up at our hotel and from start to finish he customized
-        our tour to meet our wishes. We drove to Arthur's Pass where we were
-        served a delightful picnic with views of the mountains. Along the way
-        ther and back, he answered a thousand questions about flora, fauna,
+        our tour to meet our wishes. We drove to Arthur&apos;s Pass where we
+        were served a delightful picnic with views of the mountains. Along the
+        way ther and back, he answered a thousand questions about flora, fauna,
         history, geology, you name it. Craig goes out of his way to make your
-        tour something you will always remember. You can't go wrong!
+        tour something you will always remember. You can&apos;t go wrong!
       </p>
     ),
   },

@@ -1,33 +1,34 @@
 // import Link from "next/link";
 import ReviewStack from "@/components/ReviewStack";
 import Image from "next/image";
+import Link from "next/link";
 
-const confidenceCards = [
-  {
-    title: "25+ Years Experience",
-    description:
-      "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
-    image: "/images/experience.svg",
-  },
-  {
-    title: "Tours in English or Japanese",
-    description:
-      "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
-    image: "/images/speak.svg",
-  },
-  {
-    title: "Extensive Local Knowledge",
-    description:
-      "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
-    image: "/images/local.svg",
-  },
-  {
-    title: "Custom Tours Available",
-    description:
-      "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
-    image: "/images/custom.svg",
-  },
-];
+// const confidenceCards = [
+//   {
+//     title: "25+ Years Experience",
+//     description:
+//       "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
+//     image: "/images/experience.svg",
+//   },
+//   {
+//     title: "Tours in English or Japanese",
+//     description:
+//       "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
+//     image: "/images/speak.svg",
+//   },
+//   {
+//     title: "Extensive Local Knowledge",
+//     description:
+//       "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
+//     image: "/images/local.svg",
+//   },
+//   {
+//     title: "Custom Tours Available",
+//     description:
+//       "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
+//     image: "/images/custom.svg",
+//   },
+// ];
 
 export default function HomePage() {
   return (
@@ -51,8 +52,12 @@ export default function HomePage() {
                     captivating beauty of Christchurch and the South Island of
                     New Zealand.
                   </p>
-                  <button className="btn btn-primary mr-2">Book a Tour</button>
-                  <button className="btn btn-outline">Learn More</button>
+                  <Link href="/contact" className="btn btn-primary mr-2">
+                    Book a Tour
+                  </Link>
+                  <Link href="/about" className="btn btn-outline">
+                    Learn More
+                  </Link>
                 </div>
               </div>
               <div className="hero">
@@ -91,16 +96,18 @@ export default function HomePage() {
               <p className="py-6">
                 With 25+ years experience guiding tours around the South Island
                 of New Zealand, I look forward to welcoming you to our paradise.
-                With fluency in both English and Japanese, our tours are offered
-                in either language. Whether you want to see the many things to
-                do in Christchurch or view the Southern Alps from the
+                Having fluency in both English and Japanese, our tours are
+                offered in either language. Whether you want to see the many
+                things to do in Christchurch or view the Southern Alps from the
                 TranzAlpine train. See Aoraki Mount Cook, go whale watching in
                 Kaikoura or take a Waipara winery tour. Explore my many full day
                 or half day tours from Christchurch or my multi day tours around
                 the South Island.
               </p>
             </div>
-            <button className="btn btn-primary">Learn About Us</button>
+            <Link href="/about" className="btn btn-primary">
+              Learn About Us
+            </Link>
           </div>
         </div>
       </div>
@@ -169,7 +176,9 @@ export default function HomePage() {
           </div>
         </div>
         <div className="mt-20 flex justify-center">
-          <button className="btn btn-primary">View our Tours</button>
+          <Link href="/tours" className="btn btn-primary">
+            View our Tours
+          </Link>
         </div>
       </div>
       {/* Why Choose Us Cards */}
@@ -282,9 +291,9 @@ export default function HomePage() {
       <h2 className="mb-20 text-center text-5xl font-bold">Our Reviews</h2>
       <ReviewStack />
       <div className="flex justify-center">
-        <button className="justify-left btn btn-primary mt-2">
+        <Link href="/reviews" className="justify-left btn btn-primary mt-2">
           View Testimonials
-        </button>
+        </Link>
       </div>
     </main>
   );

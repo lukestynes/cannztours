@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer h-20 items-center bg-neutral-200 p-4">
+    <footer className="footer h-20 items-center bg-neutral-100 p-4">
       <aside>
         {/* <Image src="/images/logo.png" alt="logo" width="150" height="150" /> */}
         <p>&copy; CanNZ Tours {new Date().getFullYear()}</p>
