@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <div className="navbar sticky top-0 z-50 bg-stone-200">
+    <div className="navbar sticky top-0 z-50 bg-neutral-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,7 +62,7 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
-        <Link className="btn btn-primary text-white" href="/contact-us">
+        <Link className="btn btn-primary" href="/contact-us">
           Contact Us
         </Link>
       </div>
