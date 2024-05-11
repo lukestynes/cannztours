@@ -60,7 +60,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center bg-neutral-100 px-7 md:px-20 md:py-10">
         <div className="hero">
-          <div className="grid-rows-2">
+          <div className="max-w-7xl grid-rows-2">
             <div className="py-5 md:columns-2 md:gap-10">
               <div>
                 <h1 className="pb-5 text-4xl font-bold md:text-5xl">
