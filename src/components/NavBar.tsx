@@ -101,7 +101,7 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
-        <Link className="btn btn-primary" href="/contact-us">
+        <Link className="btn btn-primary text-white" href="/contact-us">
           Contact Us
         </Link>
       </div>

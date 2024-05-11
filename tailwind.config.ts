@@ -89,9 +89,10 @@ const config = {
     themes: [
       {
         mytheme: {
-          primary: "#E0C567",
+          primary: "#1fa67a",
           dark: "#262626",
           neutral: "#897D53",
+          special: "#1fa67a",
         },
       },
     ],
