@@ -30,11 +30,35 @@ const confidenceCards = [
   },
 ];
 
+const tourCards = [
+  {
+    title: "Full Day Tours",
+    imageSrc: "/images/full-tour.png",
+    description:
+      "Ride the TranzAlpine train tour, explore the snow peaks of Mount Cook, or watch the whales in Kaikoura! There is something scenice for everyone with our full day tours.",
+    link: "/tours/#full-day",
+  },
+  {
+    title: "Half Day Tours",
+    imageSrc: "/images/half-day.png",
+    description:
+      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that&apos;s right for you.",
+    link: "/tours/#half-day",
+  },
+  {
+    title: "Custom Tours",
+    imageSrc: "/images/custom-tour.png",
+    description:
+      "Want something different? Already have the perfect idea in mind? We can design a custom tour that's personalised and caters to your individual wants and needs.",
+    link: "/tours/#custom",
+  },
+];
+
 export default function HomePage() {
   return (
     <main className="pb-10">
       {/* Hero Section */}
-      <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center bg-neutral-100 px-7">
+      <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center bg-neutral-100 px-7 md:px-20 md:py-10">
         <div className="hero">
           <div className="grid-rows-2">
             <div className="py-5 md:columns-2 md:gap-10">
@@ -45,13 +69,13 @@ export default function HomePage() {
                 </h1>
               </div>
               <div>
-                <p className="pb-5">
+                <p className="pb-5 md:pb-0">
                   Embark on an unforgettable journey with CanNZ Tours, where we
                   bring 25+ years of guiding expertise to showcase the
                   captivating beauty of Christchurch and the South Island of New
                   Zealand.
                 </p>
-                <div className="flex justify-center pt-5">
+                <div className="flex justify-center pt-5 md:justify-start">
                   <Link href="/contact" className="btn btn-primary mr-2">
                     Book a Tour
                   </Link>
@@ -61,7 +85,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="hero pt-10">
+            <div className="hero pt-10 md:pt-0">
               <Image
                 src="/images/hero.png"
                 alt="New Zealand mountain range"
@@ -105,7 +129,7 @@ export default function HomePage() {
                 the South Island.
               </p>
             </div>
-            <div className="flex justify-center pt-10">
+            <div className="flex justify-center pt-10 md:justify-start">
               <Link href="/about" className="btn btn-primary">
                 Learn About Us
               </Link>
@@ -118,64 +142,27 @@ export default function HomePage() {
         <h3 className="mb-10 text-center text-4xl font-bold  md:text-5xl">
           Choose an Unforgettable Experience
         </h3>
-        <div className="flex flex-col justify-center gap-12 md:flex-row">
-          {/* Card One */}
-          <div className="card bg-white text-center md:w-96">
-            <figure>
-              <Image
-                src="/images/full-tour.png"
-                width="450"
-                height="300"
-                alt="Tour photo"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title justify-center">Full Day Tours</h2>
-              <p>
-                Ride the TranzAlpine train tour, explore the snow peaks of Mount
-                Cook, or watch the whales in Kaikoura! There is something
-                scenice for everyone with our full day tours.
-              </p>
+        <div className="flex flex-wrap justify-center gap-12 md:flex-row">
+          {tourCards.map((card) => (
+            <div key={card.title} className="card w-96 bg-white text-center">
+              <Link href={card.link}>
+                <figure>
+                  <Image
+                    src={card.imageSrc}
+                    width="450"
+                    height="300"
+                    alt="Tour photo"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="link-hover card-title justify-center">
+                    {card.title}
+                  </h2>
+                  <p>{card.description}</p>
+                </div>
+              </Link>
             </div>
-          </div>
-          {/* Card Two */}
-          <div className="card bg-white text-center md:w-96">
-            <figure>
-              <Image
-                src="/images/half-day.png"
-                width="450"
-                height="300"
-                alt="Tour photo"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title justify-center">Half Day Tours</h2>
-              <p>
-                Whether you would like to take a Garden Tour through private and
-                award-winning gardens or discover the many highlights in our
-                Christchurch City Tour – find a tour that&apos;s right for you.
-              </p>
-            </div>
-          </div>
-          {/* Card Three */}
-          <div className="card bg-white text-center md:w-96">
-            <figure>
-              <Image
-                src="/images/custom-tour.png"
-                width="450"
-                height="300"
-                alt="Tour photo"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title justify-center">Custom Tours</h2>
-              <p>
-                Want something different? Already have the perfect idea in mind?
-                We can design a custom tour that&apos;s personalised and caters
-                to your individual wants and needs.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
         <div className="mt-10 flex justify-center">
           <Link href="/tours" className="btn btn-primary">
@@ -227,7 +214,7 @@ export default function HomePage() {
           ))}
         </div>
       </div>
-      <div className="hidden md:display">
+      <div className="hidden md:block">
         <h2 className="mb-20 text-center text-5xl font-bold">Our Reviews</h2>
         <ReviewStack />
         <div className="flex justify-center">
