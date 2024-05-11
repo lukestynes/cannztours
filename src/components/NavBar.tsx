@@ -80,16 +80,24 @@ export default function NavBar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/tours">Our Tours</Link>
+              <Link className="link-hover" href="/tours">
+                Our Tours
+              </Link>
             </li>
             <li>
-              <Link href="/homestay">Homestay</Link>
+              <Link className="link-hover" href="/homestay">
+                Homestay
+              </Link>
             </li>
             <li>
-              <Link href="/reviews">Client Reviews</Link>
+              <Link className="link-hover" href="/reviews">
+                Client Reviews
+              </Link>
             </li>
             <li>
-              <Link href="/about">About Us</Link>
+              <Link className="link-hover" href="/about">
+                About Us
+              </Link>
             </li>
           </ul>
         </div>
