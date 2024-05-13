@@ -33,21 +33,21 @@ const confidenceCards = [
 const tourCards = [
   {
     title: "Full Day Tours",
-    imageSrc: "/images/full-tour.png",
+    imageSrc: "/images/tours/full-tour.png",
     description:
       "Ride the TranzAlpine train tour, explore the snow peaks of Mount Cook, or watch the whales in Kaikoura! There is something scenice for everyone with our full day tours.",
     link: "/tours/#full-day",
   },
   {
     title: "Half Day Tours",
-    imageSrc: "/images/half-day.png",
+    imageSrc: "/images/tours/half-day.png",
     description:
       "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that&apos;s right for you.",
     link: "/tours/#half-day",
   },
   {
     title: "Custom Tours",
-    imageSrc: "/images/custom-tour.png",
+    imageSrc: "/images/tours/custom-tour.png",
     description:
       "Want something different? Already have the perfect idea in mind? We can design a custom tour that's personalised and caters to your individual wants and needs.",
     link: "/tours/#custom",
@@ -58,7 +58,7 @@ export default function HomePage() {
   return (
     <main className="pb-10">
       {/* Hero Section */}
-      <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center bg-neutral-100 px-7 md:px-20 md:py-10">
+      <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
           <div className="max-w-7xl grid-rows-2">
             <div className="py-5 md:columns-2 md:gap-10">
@@ -77,7 +77,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex justify-center pt-5 md:justify-start">
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="btn btn-primary mr-2 text-white"
                   >
                     Book a Tour
@@ -91,7 +91,7 @@ export default function HomePage() {
             <div className="hero pt-10 md:pt-0">
               <Image
                 className="rounded-2xl"
-                src="/images/hero.png"
+                src="/images/home/hero.png"
                 alt="New Zealand mountain range"
                 width="1400"
                 height="800"
@@ -105,7 +105,7 @@ export default function HomePage() {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
             className="rounded-2xl"
-            src="/images/craig.png"
+            src="/images/home/craig.png"
             alt="Photo of Craig Rome"
             width="500"
             height="500"
@@ -186,12 +186,12 @@ export default function HomePage() {
         </div>
       </div>
       {/* Why Choose Us Cards */}
-      <div className="bg-neutral-100 py-10">
+      <div className="py-10">
         <h3 className="mb-10 text-center text-5xl font-bold">Why choose us?</h3>
         <div className="flex flex-wrap justify-center gap-10 py-10">
           {confidenceCards.slice(0, 2).map((card) => (
             <div
-              className="card w-96 bg-white text-center shadow"
+              className="card w-96 bg-neutral-100 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
@@ -214,7 +214,7 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10">
           {confidenceCards.slice(2, 4).map((card) => (
             <div
-              className="card w-96 bg-white text-center shadow"
+              className="card w-96 bg-neutral-100 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">

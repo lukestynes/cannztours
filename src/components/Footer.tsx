@@ -36,7 +36,7 @@ export default function Footer() {
           target="_blank"
         >
           <Image
-            src="/images/tripadvisor.svg"
+            src="/images/icons/tripadvisor.svg"
             alt="TripAdvisor"
             width="25"
             height="25"

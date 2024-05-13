@@ -1,7 +1,18 @@
 import IconText from "@/components/icontext";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useMemo } from "react";
 
 export default function ContactUsPage() {
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("@/components/Map"), {
+        loading: () => <p>A map is loading</p>,
+        ssr: false,
+      }),
+    [],
+  );
+
   return (
     <div className="py-20" id="contact">
       <h1 className="mb-10 text-center text-5xl font-extrabold">
@@ -44,7 +55,7 @@ export default function ContactUsPage() {
             <div className="">
               <h3 className="text-xl font-bold ">Contact Details</h3>
               <IconText
-                src="/images/email.svg"
+                src="/images/icons/email.svg"
                 alt="Email"
                 text="info@cannztours.com"
                 link="mailto:info@cannztours.com"
@@ -52,7 +63,7 @@ export default function ContactUsPage() {
                 height={20}
               />
               <IconText
-                src="/images/phone.svg"
+                src="/images/icons/phone.svg"
                 alt="Phone"
                 text="+64 21 1811 570 (mobile)"
                 link="tel:+64211811570"
@@ -71,7 +82,7 @@ export default function ContactUsPage() {
               <div className="py-2">
                 <div className="flex">
                   <Image
-                    src="/images/location.svg"
+                    src="/images/icons/location.svg"
                     alt="Location"
                     width={20}
                     height={20}

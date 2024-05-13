@@ -73,7 +73,7 @@ export default function NavBar() {
         </div>
         <Link href="/" className="btn btn-ghost text-xl">
           <Image src="/images/logo.svg" alt="logo" width="50" height="50" />
-          Can NZ Tours
+          CanNZ Tours
         </Link>
       </div>
       <div className="navbar-end">

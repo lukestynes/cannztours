@@ -1,36 +1,79 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const tourCards = [
+  {
+    title: "Aoraki Mount Cook Tour",
+    imageSrc: "/images/full-tour.png",
+    description:
+      "Visit NZ's biggest and most spectacular mountain, Aoraki, Mt Cook, nestled amongst the Southern Alps, while also enjoying the surrounding lakes and panoramic views.",
+    link: "/tours/aoraki-mount-cook-tour",
+    badges: ["Full Day"],
+  },
+  {
+    title: "Tranz Alpine Tour",
+    imageSrc: "/images/tours/tranz-alpine.webp",
+    description:
+      "Enjoy the beauty of the Southern Alps and the surrounding landscapes as you pass through Arthur's Pass National Park from the tranquility of the Tranz Alpine steam train.",
+    link: "/tours/tranz-alpine-tour",
+    badges: ["Full Day"],
+  },
+  {
+    title: "Whale Watch Kaikoura Tour",
+    imageSrc: "/images/tours/whale-watch.webp",
+    description:
+      "Get up close and personal with the magestic giant sperm whales, dusky dolphins, and other marine life on the picturesque Kaikoura coastline.",
+    link: "/tours/whale-watch-kaikoura-tour",
+    badges: ["Full Day"],
+  },
+  {
+    title: "Christchurch Hiking Tour",
+    imageSrc: "/images/tours/hiking-tour.webp",
+    description:
+      "For the outdoor lovers, take in the beautiful scenes of Christchurch and it's unique landscape from one of many incredible nature walks or mountainous hikes.",
+    link: "/tours/christchurch-city-tour",
+    badges: ["Half Day"],
+  },
+  {
+    title: "Christchurch City Tour",
+    imageSrc: "/images/full-tour.png",
+    description:
+      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
+    link: "/tours/christchurch-city-tour",
+    badges: ["Full Day"],
+  },
+];
+
 const fullDayTourCards = [
   {
-    title: "Christchurch City Tour",
+    title: "Aoraki Mount Cook Tour",
     imageSrc: "/images/full-tour.png",
     description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
-    link: "/tours/christchurch-city-tour",
+      "Visit NZ's biggest and most spectacular mountain, Aoraki, Mt Cook, nestled amongst the Southern Alps, while also enjoying the surrounding lakes and panoramic views.",
+    link: "/tours/aoraki-mount-cook-tour",
   },
   {
-    title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
+    title: "Tranz Alpine Tour",
+    imageSrc: "/images/tours/tranz-alpine.webp",
     description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
-    link: "/tours/christchurch-city-tour",
+      "Enjoy the beauty of the Southern Alps and the surrounding landscapes as you pass through Arthur's Pass National Park from the tranquility of the Tranz Alpine steam train.",
+    link: "/tours/tranz-alpine-tour",
   },
   {
-    title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
+    title: "Whale Watch Kaikoura Tour",
+    imageSrc: "/images/tours/whale-watch.webp",
     description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
-    link: "/tours/christchurch-city-tour",
+      "Get up close and personal with the magestic giant sperm whales, dusky dolphins, and other marine life on the picturesque Kaikoura coastline.",
+    link: "/tours/whale-watch-kaikoura-tour",
   },
 ];
 
 const halfDayTourCards = [
   {
-    title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
+    title: "Christchurch Hiking Tour",
+    imageSrc: "/images/tours/hiking-tour.webp",
     description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
+      "For the outdoor lovers, take in the beautiful scenes of Christchurch and it's unique landscape from one of many incredible nature walks or mountainous hikes.",
     link: "/tours/christchurch-city-tour",
   },
   {
@@ -51,9 +94,9 @@ const halfDayTourCards = [
 
 export default function ToursPage() {
   return (
-    <div className="">
-      <div className="bg-neutral-100 px-20 py-10">
-        <div className="grid grid-cols-2 gap-10">
+    <div>
+      <div className="justify-center px-20 py-10">
+        <div className="grid gap-10 md:grid-cols-2">
           <div className="my-auto flex flex-col items-center">
             <h1 className="w-full pb-10 text-left text-5xl font-bold">
               Our Tours
@@ -73,13 +116,12 @@ export default function ToursPage() {
               you're immersing yourself in the beauty and excitement of one of
               the world&apos;s most stunning destinations. Each tour is a
               perfect blend of comfort, excitement, and awe-inspiring moments.
-              View our range of tour packages below, or get in touch to design a
-              custom experience
             </p>
           </div>
-          <div>
+          <div className="flex justify-center">
             <Image
-              src="/images/card.png"
+              className="rounded-xl"
+              src="/images/tours/garden-tour.webp"
               alt="Sunset photo"
               width="1000"
               height="900"
@@ -87,12 +129,38 @@ export default function ToursPage() {
           </div>
         </div>
       </div>
+      <div
+        id="custom"
+        className="flex justify-center bg-neutral-100 px-20 py-10"
+      >
+        <div className="max-w-7xl">
+          <h2 className="mb-5 text-center text-4xl font-bold">
+            Customised Tours
+          </h2>
+          <p>
+            Custom tours are at the heart of Can NZ Tours. Whether you are
+            staying for a day or a week in the beautiful South Island, we can
+            help you plan the perfect getaway. Our expert tour guides will
+            tailor your trip to be exactly what you are looking for. Have a look
+            at the tours below for some inspiration and get in touch with us to
+            organise the perfect customised itinierary for you.
+          </p>
+          <div className="mt-5 flex justify-center">
+            <Link
+              href="/contact-us"
+              className="btn btn-primary mr-2 text-white"
+            >
+              Book a Custom Tour
+            </Link>
+          </div>
+        </div>
+      </div>
       <div id="full-day" className="pt-10">
-        <h2 className="text-center text-4xl font-bold">Full Day Tours</h2>
+        <h2 className="text-center text-4xl font-bold">Our Tour Options</h2>
         <div className="px-7 py-10">
-          <div className="flex flex-col justify-center gap-12 md:flex-row">
-            {fullDayTourCards.map((card) => (
-              <div className="card bg-neutral-100 text-center md:w-96">
+          <div className="flex flex-wrap justify-center gap-12">
+            {tourCards.map((card) => (
+              <div className="card max-w-96 bg-neutral-100 text-center shadow md:w-1/3">
                 <Link href={card.link} className="card">
                   <figure>
                     <Image
@@ -107,6 +175,11 @@ export default function ToursPage() {
                       {card.title}
                     </h2>
                     <p>{card.description}</p>
+                    <div className="mt-3 flex flex-row gap-2">
+                      {card.badges.map((badge) => (
+                        <span className="badge">{badge}</span>
+                      ))}
+                    </div>
                   </div>
                 </Link>
               </div>
@@ -115,12 +188,12 @@ export default function ToursPage() {
         </div>
       </div>
       <hr className="px-20" />
-      <div id="half-day" className="pt-10">
+      {/* <div id="half-day" className="pt-10">
         <h2 className="text-center text-4xl font-bold">Half Day Tours</h2>
         <div className="px-7 py-10">
           <div className="flex flex-col justify-center gap-12 md:flex-row">
-            {fullDayTourCards.map((card) => (
-              <div className="card bg-neutral-100 text-center md:w-96">
+            {halfDayTourCards.map((card) => (
+              <div className="card bg-neutral-100 text-center shadow md:w-96">
                 <Link href={card.link} className="card">
                   <figure>
                     <Image
@@ -135,17 +208,18 @@ export default function ToursPage() {
                       {card.title}
                     </h2>
                     <p>{card.description}</p>
+                    <div className="mt-3 flex flex-row gap-2">
+                      <span className="badge">Full Day</span>
+                      <span className="badge">~7 hours</span>
+                    </div>
                   </div>
                 </Link>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       <hr className="px-20" />
-      <div id="custom" className="py-10">
-        <h2 className="text-center text-4xl font-bold">Customised Tours</h2>
-      </div>
     </div>
   );
 }
