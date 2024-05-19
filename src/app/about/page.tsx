@@ -1,3 +1,4 @@
+import ReviewStack from "@/components/ReviewStack";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,21 +30,14 @@ const tourCards = [
 
 export default function AboutUsPage() {
   return (
-    <div>
-      <div className="flex justify-center">
+    <div key="1">
+      <div className="flex justify-center bg-neutral-100">
         <div className="max-w-7xl justify-center px-20 py-10">
           <div className="grid gap-10 md:grid-cols-2">
             <div className="my-auto flex flex-col items-center">
               <h1 className="w-full pb-10 text-left text-5xl font-bold">
-                About Us
+                About Me
               </h1>
-              {/* <p>
-              Welcome to CanNZ Tours, your gateway to unforgettable journeys in
-              and around Christchurch & New Zealand. With over 30 years of
-              experience, Craig Rome, the heart and soul behind CanNZ Tours,
-              takes pride in offering personalized and memorable experiences for
-              independent travelers.
-            </p> */}
               <p>
                 My name is Craig Rome, a Scottish-born Kiwi with a passion for
                 showcasing the beauty of New Zealand. Having grown up on a farm
@@ -73,10 +67,36 @@ export default function AboutUsPage() {
           </div>
         </div>
       </div>
-      <div
-        id="custom"
-        className="flex justify-center bg-neutral-100 px-20 py-10"
-      >
+      <div className="flex justify-center px-20 py-10">
+        <div className="max-w-7xl">
+          <div className="grid grid-cols-2">
+            <div className="flex justify-center">
+              <Image
+                className="rounded-xl"
+                src="/images/about/craig-shirt.jpg"
+                alt="Craig and Keiko"
+                width="400"
+                height="400"
+              />
+            </div>
+            <div>
+              <h3 className="my-10 text-3xl font-bold">My Mission</h3>
+              <p>
+                At CanNZ Tours, our mission is to provide exceptional and
+                personalized experiences that showcase the beauty of New
+                Zealand. With over 30 years of experience, we are committed to
+                offering tailor-made itineraries, friendly local guides, and
+                authentic cultural experiences. We aim to create unforgettable
+                memories for our guests while promoting sustainable tourism
+                practices and supporting local communities. Join us and discover
+                the true essence of New Zealand through the eyes of a Kiwi
+                local.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center bg-neutral-100 px-20 py-10">
         <div className="max-w-7xl">
           <h2 className="my-10 text-center text-4xl font-bold">
             Why Book With Us?
@@ -109,48 +129,19 @@ export default function AboutUsPage() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center px-20 py-10">
-        <div className="max-w-7xl">
-          <h2 className="my-10 text-center text-4xl font-bold">Our Services</h2>
-          <div className="mb-10 grid gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="text-3xl font-medium underline">Custom Tours</h3>
-              <p>
-                Words words words words words. Embark on an unforgettable
-                journey with CanNZ Tours, where we bring 25+ years of guiding
-                expertise to showcase the captivating beauty of Christchurch and
-                the South Island of New Zealand.
-              </p>
-            </div>
-            <div>
-              <Image
-                className="rounded-xl"
-                src="/images/about/hero.png"
-                alt="Sunset photo"
-                width="1000"
-                height="900"
-              />
-            </div>
-          </div>
-          <div className="grid gap-10 md:grid-cols-2">
-            <div>
-              <Image
-                className="rounded-xl"
-                src="/images/about/hero.png"
-                alt="Sunset photo"
-                width="1000"
-                height="900"
-              />
-            </div>
-            <div>
-              <h3 className="text-3xl font-medium underline">Homestays</h3>
-              <p>
-                Words words words words words. Embark on an unforgettable
-                journey with CanNZ Tours, where we bring 25+ years of guiding
-                expertise to showcase the captivating beauty of Christchurch and
-                the South Island of New Zealand.
-              </p>
-            </div>
+      <div className="w-full justify-center px-20 pb-20">
+        <div>
+          <h2 className="mb-20 mt-10 text-center text-4xl font-bold">
+            Testimonials
+          </h2>
+          <ReviewStack />
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/reviews"
+              className="btn btn-outline btn-primary mr-2 text-white"
+            >
+              View Testimonials
+            </Link>
           </div>
         </div>
       </div>

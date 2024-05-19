@@ -1,18 +1,7 @@
 import IconText from "@/components/icontext";
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useMemo } from "react";
 
 export default function ContactUsPage() {
-  const Map = useMemo(
-    () =>
-      dynamic(() => import("@/components/Map"), {
-        loading: () => <p>A map is loading</p>,
-        ssr: false,
-      }),
-    [],
-  );
-
   return (
     <div className="py-20" id="contact">
       <h1 className="mb-10 text-center text-5xl font-extrabold">
@@ -25,7 +14,7 @@ export default function ContactUsPage() {
               Ready to book your dream tour?
             </p>
             <p className="mb-10 pt-2 text-2xl font-normal">
-              Let us know how we can help
+              Let us know how we can help.
             </p>
             <form>
               <div className="flex-col justify-center">
@@ -55,7 +44,7 @@ export default function ContactUsPage() {
             <div className="">
               <h3 className="text-xl font-bold ">Contact Details</h3>
               <IconText
-                src="/images/icons/email.svg"
+                src="/icons/email.svg"
                 alt="Email"
                 text="info@cannztours.com"
                 link="mailto:info@cannztours.com"
@@ -63,7 +52,7 @@ export default function ContactUsPage() {
                 height={20}
               />
               <IconText
-                src="/images/icons/phone.svg"
+                src="/icons/phone.svg"
                 alt="Phone"
                 text="+64 21 1811 570 (mobile)"
                 link="tel:+64211811570"
@@ -82,7 +71,7 @@ export default function ContactUsPage() {
               <div className="py-2">
                 <div className="flex">
                   <Image
-                    src="/images/icons/location.svg"
+                    src="/icons/location.svg"
                     alt="Location"
                     width={20}
                     height={20}

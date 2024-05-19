@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer h-auto items-center bg-neutral-100 p-4">
+    <footer className="footer h-auto items-center bg-neutral-200 p-4">
       <aside>
-        {/* <Image src="/images/logo.png" alt="logo" width="150" height="150" /> */}
+        <Image src="/images/logo.svg" alt="logo" width="150" height="150" />
         <p>&copy; CanNZ Tours {new Date().getFullYear()}</p>
         <p>
           Website design and development by{" "}
@@ -36,7 +36,7 @@ export default function Footer() {
           target="_blank"
         >
           <Image
-            src="/images/icons/tripadvisor.svg"
+            src="/icons/tripadvisor.svg"
             alt="TripAdvisor"
             width="25"
             height="25"

@@ -8,7 +8,7 @@ const tourCards = [
     description:
       "Visit NZ's biggest and most spectacular mountain, Aoraki, Mt Cook, nestled amongst the Southern Alps, while also enjoying the surrounding lakes and panoramic views.",
     link: "/tours/aoraki-mount-cook-tour",
-    badges: ["Full Day"],
+    badges: ["Full Day", "Popular!"],
   },
   {
     title: "Tranz Alpine Tour",
@@ -95,8 +95,8 @@ const halfDayTourCards = [
 export default function ToursPage() {
   return (
     <div>
-      <div className="justify-center px-20 py-10">
-        <div className="grid gap-10 md:grid-cols-2">
+      <div className="flex justify-center px-20 py-10">
+        <div className="grid max-w-7xl gap-10 md:grid-cols-2">
           <div className="my-auto flex flex-col items-center">
             <h1 className="w-full pb-10 text-left text-5xl font-bold">
               Our Tours
@@ -143,7 +143,8 @@ export default function ToursPage() {
             help you plan the perfect getaway. Our expert tour guides will
             tailor your trip to be exactly what you are looking for. Have a look
             at the tours below for some inspiration and get in touch with us to
-            organise the perfect customised itinierary for you.
+            organise the perfect customised itinierary for you. All of ours
+            tours can be modified to suit your unique requirements!
           </p>
           <div className="mt-5 flex justify-center">
             <Link
@@ -156,7 +157,8 @@ export default function ToursPage() {
         </div>
       </div>
       <div id="full-day" className="pt-10">
-        <h2 className="text-center text-4xl font-bold">Our Tour Options</h2>
+        <h2 className="text-center text-4xl font-bold">Our Tour Options:</h2>
+        <div className="w-52"></div>
         <div className="px-7 py-10">
           <div className="flex flex-wrap justify-center gap-12">
             {tourCards.map((card) => (
@@ -171,10 +173,16 @@ export default function ToursPage() {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="link-hover card-title justify-center">
-                      {card.title}
-                    </h2>
-                    <p>{card.description}</p>
+                    <div className="card-title grid-cols-2 items-start justify-between">
+                      <h2 className="link-hover w-2/3 text-left">
+                        {card.title}
+                      </h2>
+                      <p className="w-1/3 text-right">
+                        <span className="text-sm font-normal">From</span> $525
+                      </p>
+                      {/* TODO: Update price */}
+                    </div>
+                    <p className="text-left">{card.description}</p>
                     <div className="mt-3 flex flex-row gap-2">
                       {card.badges.map((badge) => (
                         <span className="badge">{badge}</span>
@@ -187,39 +195,6 @@ export default function ToursPage() {
           </div>
         </div>
       </div>
-      <hr className="px-20" />
-      {/* <div id="half-day" className="pt-10">
-        <h2 className="text-center text-4xl font-bold">Half Day Tours</h2>
-        <div className="px-7 py-10">
-          <div className="flex flex-col justify-center gap-12 md:flex-row">
-            {halfDayTourCards.map((card) => (
-              <div className="card bg-neutral-100 text-center shadow md:w-96">
-                <Link href={card.link} className="card">
-                  <figure>
-                    <Image
-                      src={card.imageSrc}
-                      width="450"
-                      height="300"
-                      alt="Tour photo"
-                    />
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="link-hover card-title justify-center">
-                      {card.title}
-                    </h2>
-                    <p>{card.description}</p>
-                    <div className="mt-3 flex flex-row gap-2">
-                      <span className="badge">Full Day</span>
-                      <span className="badge">~7 hours</span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
-      <hr className="px-20" />
     </div>
   );
 }
