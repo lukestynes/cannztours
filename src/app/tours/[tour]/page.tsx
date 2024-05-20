@@ -273,7 +273,7 @@ export default function MountCookPage({
                 </div>
               </div>
 
-              <div className="card w-full flex-col justify-between rounded-lg bg-white p-5 shadow md:col-span-1">
+              <div className="card mt-2 w-full flex-col justify-between rounded-lg bg-white p-5 shadow md:col-span-1 md:mt-0">
                 <div>
                   <h2 className="mb-5 flex text-2xl font-bold">
                     <Image
