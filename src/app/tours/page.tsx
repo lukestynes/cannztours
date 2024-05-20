@@ -36,7 +36,7 @@ const tourCards = [
   },
   {
     title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
+    imageSrc: "/images/tours/full-tour.png",
     description:
       "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
     link: "/tours/christchurch-city-tour",
