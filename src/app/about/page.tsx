@@ -5,24 +5,24 @@ import Link from "next/link";
 const tourCards = [
   {
     title: "Personalised Service",
-    imageSrc: "/images/icons/personalised.svg",
+    imageSrc: "/icons/personalised.svg",
     description: "We craft handcrafted tours tailored to your preferences.",
   },
   {
     title: "Flexible Itineraries",
-    imageSrc: "/images/icons/custom.svg",
+    imageSrc: "/icons/custom.svg",
     description:
       "Explore at your own pace with flexible and customizable plans.",
   },
   {
     title: "Local Expertise",
-    imageSrc: "/images/icons/local.svg",
+    imageSrc: "/icons/local.svg",
     description:
       "Benefit from the guidance of a friendly, local tour guide with extensive knowledge of the region.",
   },
   {
     title: "Outstanding Reputation",
-    imageSrc: "/images/icons/awards.svg",
+    imageSrc: "/icons/awards.svg",
     description:
       "Join us based on outstanding TripAdvisor reviews and a commitment to excellence.",
   },
