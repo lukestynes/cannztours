@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 import { DM_Sans } from "next/font/google";
 
@@ -21,7 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="nord">
+    <html lang="en">
+      <Analytics />
       <body className={`${dmSans.className}`}>
         <NavBar />
         {children}

@@ -59,7 +59,7 @@ export const CardStack = ({
             <div className="card-body">
               <Image
                 className="card-title pb-5"
-                src="/images/stars.svg"
+                src="/icons/stars.svg"
                 width="116"
                 height="31"
                 alt="rating stars"
