@@ -49,9 +49,9 @@ export default function HomestayPage() {
                 Experience the warmth of Kiwi hospitality at our homestay with
                 CanNZ Tours. Our cozy, traditional home provides all the
                 comforts and amenities you need for a perfect stay in
-                Christchurch. Whether it's your first visit to New Zealand or
-                you're a seasoned traveler, we aim to make your stay memorable
-                and enjoyable.
+                Christchurch. Whether it&apos;s your first visit to New Zealand
+                or you&apos;re a seasoned traveler, we aim to make your stay
+                memorable and enjoyable.
               </p>
               <br />
               <p className="text-justify text-lg md:pr-10">
