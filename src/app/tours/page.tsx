@@ -111,12 +111,12 @@ export default function ToursPage() {
       <div id="full-day" className="pt-10">
         <h2 className="text-center text-4xl font-bold">Our Tour Options:</h2>
         <div className="w-52"></div>
-        <div className="px-7 py-10">
-          <div className="flex flex-wrap justify-center gap-12">
+        <div className="flex justify-center px-7 py-10">
+          <div className="grid max-w-6xl grid-cols-1 justify-center gap-12 md:grid-cols-2 lg:grid-cols-3">
             {tourCards.map((card, index) => (
               <div
                 key={index}
-                className="card max-w-96 bg-neutral-100 text-center shadow md:w-1/3"
+                className="card max-w-96 bg-neutral-100 text-center shadow"
               >
                 <Link href={card.link} className="card">
                   <figure>
