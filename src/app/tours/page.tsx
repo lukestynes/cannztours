@@ -4,7 +4,7 @@ import Link from "next/link";
 const tourCards = [
   {
     title: "Aoraki Mount Cook Tour",
-    imageSrc: "/images/full-tour.png",
+    imageSrc: "/images/tours/full-tour.png",
     description:
       "Visit NZ's biggest and most spectacular mountain, Aoraki, Mt Cook, nestled amongst the Southern Alps, while also enjoying the surrounding lakes and panoramic views.",
     link: "/tours/aoraki-mount-cook-tour",
