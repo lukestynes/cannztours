@@ -157,7 +157,7 @@ export default function MountCookPage({
               <h2 className="mb-5 flex text-2xl font-bold">
                 <Image
                   className="mr-2"
-                  src="/icons/tour.svg"
+                  src="/icons/options.svg"
                   alt=""
                   width="30"
                   height="30"
