@@ -44,54 +44,6 @@ const tourCards = [
   },
 ];
 
-const fullDayTourCards = [
-  {
-    title: "Aoraki Mount Cook Tour",
-    imageSrc: "/images/full-tour.png",
-    description:
-      "Visit NZ's biggest and most spectacular mountain, Aoraki, Mt Cook, nestled amongst the Southern Alps, while also enjoying the surrounding lakes and panoramic views.",
-    link: "/tours/aoraki-mount-cook-tour",
-  },
-  {
-    title: "Tranz Alpine Tour",
-    imageSrc: "/images/tours/tranz-alpine.webp",
-    description:
-      "Enjoy the beauty of the Southern Alps and the surrounding landscapes as you pass through Arthur's Pass National Park from the tranquility of the Tranz Alpine steam train.",
-    link: "/tours/tranz-alpine-tour",
-  },
-  {
-    title: "Whale Watch Kaikoura Tour",
-    imageSrc: "/images/tours/whale-watch.webp",
-    description:
-      "Get up close and personal with the magestic giant sperm whales, dusky dolphins, and other marine life on the picturesque Kaikoura coastline.",
-    link: "/tours/whale-watch-kaikoura-tour",
-  },
-];
-
-const halfDayTourCards = [
-  {
-    title: "Christchurch Hiking Tour",
-    imageSrc: "/images/tours/hiking-tour.webp",
-    description:
-      "For the outdoor lovers, take in the beautiful scenes of Christchurch and it's unique landscape from one of many incredible nature walks or mountainous hikes.",
-    link: "/tours/christchurch-city-tour",
-  },
-  {
-    title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
-    description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
-    link: "/tours/christchurch-city-tour",
-  },
-  {
-    title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
-    description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
-    link: "/tours/christchurch-city-tour",
-  },
-];
-
 export default function ToursPage() {
   return (
     <div>
@@ -106,15 +58,15 @@ export default function ToursPage() {
               specialize in unforgettable guided tours across the breathtaking
               landscapes of the South Island. From the serene waters of Milford
               Sound to the panoramic views of Mt Cook, our expert guides ensure
-              you experience New Zealand to it's full potential.
+              you experience New Zealand to it&apos;s full potential.
             </p>
             <br />
             <p>
               Experience the vibrant wildlife, rich history, and warm local
               culture with packages that include everything from hiking and
               cycling to boat tours and helicopter rides. With Can NZ Tours,
-              you're immersing yourself in the beauty and excitement of one of
-              the world&apos;s most stunning destinations. Each tour is a
+              you&apos;re immersing yourself in the beauty and excitement of one
+              of the world&apos;s most stunning destinations. Each tour is a
               perfect blend of comfort, excitement, and awe-inspiring moments.
             </p>
           </div>
@@ -161,8 +113,11 @@ export default function ToursPage() {
         <div className="w-52"></div>
         <div className="px-7 py-10">
           <div className="flex flex-wrap justify-center gap-12">
-            {tourCards.map((card) => (
-              <div className="card max-w-96 bg-neutral-100 text-center shadow md:w-1/3">
+            {tourCards.map((card, index) => (
+              <div
+                key={index}
+                className="card max-w-96 bg-neutral-100 text-center shadow md:w-1/3"
+              >
                 <Link href={card.link} className="card">
                   <figure>
                     <Image
@@ -184,8 +139,10 @@ export default function ToursPage() {
                     </div>
                     <p className="text-left">{card.description}</p>
                     <div className="mt-3 flex flex-row gap-2">
-                      {card.badges.map((badge) => (
-                        <span className="badge">{badge}</span>
+                      {card.badges.map((badge, index) => (
+                        <span key={index} className="badge">
+                          {badge}
+                        </span>
                       ))}
                     </div>
                   </div>

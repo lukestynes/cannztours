@@ -102,8 +102,11 @@ export default function AboutUsPage() {
             Why Book With Us?
           </h2>
           <div className="flex flex-wrap justify-center gap-12">
-            {tourCards.map((card) => (
-              <div className="card min-w-60 max-w-72 bg-white text-center shadow md:w-1/5">
+            {tourCards.map((card, index) => (
+              <div
+                key={index}
+                className="card min-w-60 max-w-72 bg-white text-center shadow md:w-1/5"
+              >
                 <figure className="h-40 py-0">
                   <Image
                     src={card.imageSrc}

@@ -2,7 +2,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import EmblaCarousel from "@/components/EmblaCarousel";
-import { EmblaOptionsType } from "embla-carousel";
 
 const tourPages: Array<Tour> = [
   {
@@ -86,7 +85,6 @@ export default function MountCookPage({
   params: { tour: string };
 }) {
   const accessedPage = params.tour;
-  let validPage: boolean = false;
 
   for (const tour of tourPages) {
     if (tour.slug === accessedPage) {
@@ -105,8 +103,8 @@ export default function MountCookPage({
                 <div>
                   <h3 className="my-3 text-2xl font-bold ">Highlights:</h3>
                   <ul className="mb-3 list-inside list-disc">
-                    {tour.highlights.map((highlight) => (
-                      <li>{highlight}</li>
+                    {tour.highlights.map((highlight, index) => (
+                      <li key={index}>{highlight}</li>
                     ))}
                   </ul>
                 </div>
@@ -147,8 +145,8 @@ export default function MountCookPage({
                 />
                 About Tour:
               </h2>
-              {tour.description.map((paragraph) => (
-                <p>
+              {tour.description.map((paragraph, index) => (
+                <p key={index}>
                   {paragraph}
                   <br />
                   <br />
@@ -169,8 +167,8 @@ export default function MountCookPage({
               <div className="overflow-x-auto">
                 <table className="table max-w-2xl">
                   <tbody>
-                    {tour.optionalExtras.map((row) => (
-                      <tr>
+                    {tour.optionalExtras.map((row, index) => (
+                      <tr key={index}>
                         <th>{row[0]}</th>
                         <td>{row[1]}</td>
                       </tr>
@@ -195,8 +193,8 @@ export default function MountCookPage({
                 <div className="overflow-x-auto">
                   <table className="table max-w-2xl">
                     <tbody>
-                      {tour.itinerary.map((row) => (
-                        <tr>
+                      {tour.itinerary.map((row, index) => (
+                        <tr key={index}>
                           <th>{row[0]}</th>
                           <td>{row[1]}</td>
                         </tr>
@@ -256,8 +254,8 @@ export default function MountCookPage({
                 <div className="overflow-x-auto">
                   <table className="table max-w-2xl">
                     <tbody>
-                      {tour.inclusions.map((row) => (
-                        <tr>
+                      {tour.inclusions.map((row, index) => (
+                        <tr key={index}>
                           <th>
                             <Image
                               className="mr-2"
@@ -290,8 +288,8 @@ export default function MountCookPage({
                   <div className="overflow-x-auto">
                     <table className="table max-w-2xl">
                       <tbody>
-                        {tour.pricing.map((row) => (
-                          <tr>
+                        {tour.pricing.map((row, index) => (
+                          <tr key={index}>
                             <th>{row[0]}</th>
                             <td>{row[1]}</td>
                           </tr>

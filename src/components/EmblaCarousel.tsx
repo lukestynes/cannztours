@@ -1,14 +1,9 @@
 "use client";
 import React from "react";
-import { EmblaOptionsType } from "embla-carousel";
+import type { EmblaOptionsType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
 
 export default function EmblaCarousel({ images }: { images: string[] }) {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
