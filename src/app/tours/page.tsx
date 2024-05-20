@@ -47,7 +47,7 @@ const tourCards = [
 export default function ToursPage() {
   return (
     <div>
-      <div className="flex justify-center px-20 py-10">
+      <div className="flex justify-center px-10 py-10">
         <div className="grid max-w-7xl gap-10 md:grid-cols-2">
           <div className="my-auto flex flex-col items-center">
             <h1 className="w-full pb-10 text-left text-5xl font-bold">
@@ -83,7 +83,7 @@ export default function ToursPage() {
       </div>
       <div
         id="custom"
-        className="flex justify-center bg-neutral-100 px-20 py-10"
+        className="flex justify-center bg-neutral-100 px-10 py-10"
       >
         <div className="max-w-7xl">
           <h2 className="mb-5 text-center text-4xl font-bold">
