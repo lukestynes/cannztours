@@ -16,6 +16,6 @@ type Tour = {
   };
   itinerary: ItineraryItem[];
   inclusions: Array<{ name: string }>;
-  optionalExtras: string[];
+  optionalExtras: ItineraryItem[];
   pricing: ItineraryItem[];
 };

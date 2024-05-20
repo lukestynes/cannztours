@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Carousel from "@/components/Carousel";
+import EmblaCarousel from "@/components/EmblaCarousel";
+import { EmblaOptionsType } from "embla-carousel";
 
 const tourPages: Array<Tour> = [
   {
@@ -9,7 +10,15 @@ const tourPages: Array<Tour> = [
     title: "Aoraki Mount Cook Tour",
     blurb:
       "Discover the stunning landscapes of Aoraki Mount Cook. This tour includes guided hikes, visits to scenic viewpoints, and educational talks about the area's rich history and geology.  Perfect for adventurers and nature lovers, this tour promises an unforgettable experience.",
-    images: ["/images/tours/half-day.png", "/images/tours/trans-alpine.jpeg"],
+    images: [
+      "/images/tours/mt-cook/mtcook-tours-01.jpg",
+      "/images/tours/mt-cook/mtcook-tours-02.jpg",
+      "/images/tours/mt-cook/mtcook-tours-03.jpg",
+      "/images/tours/mt-cook/mtcook-tours-05.jpg",
+      "/images/tours/mt-cook/mtcook-tours-06.jpg",
+      "/images/tours/mt-cook/mtcook-tours-07.jpg",
+      "/images/tours/mt-cook/mtcook-tours-08.jpg",
+    ],
     highlights: [
       "Guided hikes through alpine landscapes",
       "Scenic viewpoints and photo opportunities",
@@ -71,25 +80,6 @@ const tourPages: Array<Tour> = [
   },
 ];
 
-const reviews = [
-  {
-    name: "John Doe",
-    review:
-      "Amazing tour! The guide was knowledgeable and the views were breathtaking.",
-    rating: 5,
-  },
-  {
-    name: "Jane Smith",
-    review: "A wonderful experience. Highly recommend!",
-    rating: 4,
-  },
-  {
-    name: "Sam Wilson",
-    review: "Loved every moment of this tour. Perfect for nature lovers.",
-    rating: 5,
-  },
-];
-
 export default function MountCookPage({
   params,
 }: {
@@ -102,45 +92,50 @@ export default function MountCookPage({
     if (tour.slug === accessedPage) {
       return (
         <div>
-          <div className="container mx-auto my-10 grid max-w-7xl grid-cols-2 rounded-xl bg-stone-100 p-5 shadow">
-            <div className="flex flex-col justify-between">
-              <div>
-                <h2 className="mb-5 text-3xl font-bold">{tour.title}</h2>
-                <p className="mb-5 text-lg">{tour.blurb}</p>
+          <div className="flex justify-center">
+            <div className="mx-5 my-10 grid max-w-7xl rounded-xl bg-stone-100 p-5 shadow lg:grid-cols-2">
+              <div className="flex flex-col justify-between">
+                <div className="px-2">
+                  <h2 className="mb-5 text-3xl font-bold">{tour.title}</h2>
+                  <p className="mb-5 text-lg">{tour.blurb}</p>
+                </div>
+                <div className="block lg:hidden">
+                  <EmblaCarousel images={tour.images} />
+                </div>
+                <div>
+                  <h3 className="my-3 text-2xl font-bold ">Highlights:</h3>
+                  <ul className="mb-3 list-inside list-disc">
+                    {tour.highlights.map((highlight) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="mb-1 text-xl">
+                    <span className="font-bold">Duration: </span>
+                    {tour.details.timeLength}
+                  </h3>
+                  <h3 className="mb-1 text-xl">
+                    <span className="font-bold">Price: </span>
+                    {tour.details.price}
+                  </h3>
+                </div>
+                <div className=" flex justify-center lg:justify-start">
+                  <Link
+                    href="/contact-us"
+                    className="btn btn-primary mt-1 text-white"
+                  >
+                    Book Now!
+                  </Link>
+                </div>
               </div>
-              <div>
-                <h3 className="mb-3 text-2xl font-bold">Highlights:</h3>
-                <ul className="mb-3 list-inside list-disc">
-                  {tour.highlights.map((highlight) => (
-                    <li>{highlight}</li>
-                  ))}
-                </ul>
+              <div className="hidden lg:block">
+                <EmblaCarousel images={tour.images} />
               </div>
-              <div>
-                <h3 className="mb-1 text-xl">
-                  <span className="font-bold">Duration: </span>
-                  {tour.details.timeLength}
-                </h3>
-                <h3 className="mb-1 text-xl">
-                  <span className="font-bold">Price: </span>
-                  {tour.details.price}
-                </h3>
-              </div>
-              <div>
-                <Link
-                  href="/contact-us"
-                  className="btn btn-primary mt-1 text-white"
-                >
-                  Book Now!
-                </Link>
-              </div>
-            </div>
-            <div>
-              <Carousel images={tour.images} />
             </div>
           </div>
           {/* Rest of the Details */}
-          <div className="bg-neutral-100 pt-5">
+          <div className="bg-neutral-100 px-5 py-5">
             <div className="card mx-auto max-w-6xl rounded-lg bg-white p-5 shadow">
               <h2 className="mb-5 flex text-2xl font-bold">
                 <Image
@@ -185,7 +180,7 @@ export default function MountCookPage({
               </div>
             </div>
 
-            <div className="mx-auto grid max-w-6xl grid-cols-3 gap-2">
+            <div className="mx-auto max-w-6xl gap-2 md:grid md:grid-cols-3">
               <div className="card col-span-2 my-2 rounded-lg bg-white p-5 shadow">
                 <h2 className="mb-5 flex text-2xl font-bold">
                   <Image
@@ -211,7 +206,7 @@ export default function MountCookPage({
                 </div>
               </div>
 
-              <div className="card col-span-1 my-2 rounded-lg bg-white p-5 shadow">
+              <div className="card my-2 w-full rounded-lg bg-white p-5 shadow md:col-span-1">
                 <h2 className="mb-5 flex text-2xl font-bold">
                   <Image
                     className="mr-2"
@@ -246,8 +241,8 @@ export default function MountCookPage({
                 </div>
               </div>
             </div>
-            <div className="mx-auto grid max-w-6xl grid-cols-3 gap-2">
-              <div className="card col-span-2 mb-2 rounded-lg bg-white p-5 shadow">
+            <div className="mx-auto max-w-6xl gap-2 md:grid md:grid-cols-3">
+              <div className="card col-span-2 w-full rounded-lg bg-white p-5 shadow">
                 <h2 className="mb-5 flex text-2xl font-bold">
                   <Image
                     className="mr-2"
@@ -280,7 +275,7 @@ export default function MountCookPage({
                 </div>
               </div>
 
-              <div className="card col-span-1 mb-2 flex flex-col justify-between rounded-lg bg-white p-5 shadow">
+              <div className="card w-full flex-col justify-between rounded-lg bg-white p-5 shadow md:col-span-1">
                 <div>
                   <h2 className="mb-5 flex text-2xl font-bold">
                     <Image
