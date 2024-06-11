@@ -7,25 +7,25 @@ const confidenceCards = [
     title: "25+ Years Experience",
     description:
       "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
-    image: "/images/home/experience.svg",
+    image: "/icons/experience.svg",
   },
   {
     title: "Tours in English or Japanese",
     description:
       "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
-    image: "/images/home/speak.svg",
+    image: "/icons/speak.svg",
   },
   {
     title: "Extensive Local Knowledge",
     description:
       "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
-    image: "/images/home/local.svg",
+    image: "/icons/local.svg",
   },
   {
     title: "Custom Tours Available",
     description:
       "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
-    image: "/images/home/custom.svg",
+    image: "/icons/custom.svg",
   },
 ];
 
@@ -56,6 +56,13 @@ const tourCards = [
 export default function HomePage() {
   return (
     <main className="pb-10">
+      <div className="h-screen">
+        <div className="grid grid-cols-2">
+          <div>01</div>
+          <div>02</div>
+          <div className="col-span-2 bg-red-100">03</div>
+        </div>
+      </div>
       {/* Hero Section */}
       <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
@@ -81,7 +88,11 @@ export default function HomePage() {
                   >
                     Book a Tour
                   </Link>
-                  <Link href="/about" className="btn btn-outline">
+                  <Link
+                    href="/about"
+                    type="button"
+                    className="btn-dark btn btn-outline"
+                  >
                     Learn More
                   </Link>
                 </div>
@@ -141,7 +152,7 @@ export default function HomePage() {
             </div>
             <div className="flex justify-center pt-10 md:justify-start">
               <Link href="/about" className="btn btn-primary text-white">
-                Learn About Us
+                Learn About Me
               </Link>
             </div>
           </div>
@@ -186,7 +197,7 @@ export default function HomePage() {
       </div>
       {/* Why Choose Us Cards */}
       <div className="py-10">
-        <h3 className="mb-10 text-center text-5xl font-bold">Why choose us?</h3>
+        <h3 className="mb-10 text-center text-5xl font-bold">Why choose me?</h3>
         <div className="flex flex-wrap justify-center gap-10 py-10">
           {confidenceCards.slice(0, 2).map((card) => (
             <div

@@ -36,7 +36,7 @@ const tourCards = [
   },
   {
     title: "Christchurch City Tour",
-    imageSrc: "/images/full-tour.png",
+    imageSrc: "/images/tours/full-tour.png",
     description:
       "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
     link: "/tours/christchurch-city-tour",
@@ -47,7 +47,7 @@ const tourCards = [
 export default function ToursPage() {
   return (
     <div>
-      <div className="flex justify-center px-20 py-10">
+      <div className="flex justify-center px-10 py-10">
         <div className="grid max-w-7xl gap-10 md:grid-cols-2">
           <div className="my-auto flex flex-col items-center">
             <h1 className="w-full pb-10 text-left text-5xl font-bold">
@@ -81,12 +81,9 @@ export default function ToursPage() {
           </div>
         </div>
       </div>
-      <div
-        id="custom"
-        className="flex justify-center bg-neutral-100 px-20 py-10"
-      >
-        <div className="max-w-7xl">
-          <h2 className="mb-5 text-center text-4xl font-bold">
+      <div id="custom" className="flex justify-center  px-10 py-10">
+        <div className="max-w-7xl rounded-xl bg-neutral-100 p-5">
+          <h2 className="mb-5  text-center text-4xl font-bold">
             Customised Tours
           </h2>
           <p>
@@ -111,12 +108,12 @@ export default function ToursPage() {
       <div id="full-day" className="pt-10">
         <h2 className="text-center text-4xl font-bold">Our Tour Options:</h2>
         <div className="w-52"></div>
-        <div className="px-7 py-10">
-          <div className="flex flex-wrap justify-center gap-12">
+        <div className="flex justify-center px-7 py-10">
+          <div className="grid max-w-6xl grid-cols-1 justify-center gap-12 md:grid-cols-2 lg:grid-cols-3">
             {tourCards.map((card, index) => (
               <div
                 key={index}
-                className="card max-w-96 bg-neutral-100 text-center shadow md:w-1/3"
+                className="card max-w-96 bg-neutral-100 text-center shadow"
               >
                 <Link href={card.link} className="card">
                   <figure>

@@ -95,7 +95,9 @@ export default function MountCookPage({
               <div className="flex flex-col justify-between">
                 <div className="px-2">
                   <h2 className="mb-5 text-3xl font-bold">{tour.title}</h2>
-                  <p className="mb-5 text-lg">{tour.blurb}</p>
+                  <p className="mb-5 text-justify text-lg md:pr-10">
+                    {tour.blurb}
+                  </p>
                 </div>
                 <div className="block lg:hidden">
                   <EmblaCarousel images={tour.images} />
@@ -134,8 +136,11 @@ export default function MountCookPage({
           </div>
           {/* Rest of the Details */}
           <div className="bg-neutral-100 px-5 py-5">
-            <div className="card mx-auto max-w-6xl rounded-lg bg-white p-5 shadow">
-              <h2 className="mb-5 flex text-2xl font-bold">
+            <div className="card mx-auto max-w-7xl rounded-lg bg-white p-5 shadow">
+              <h2
+                className="mb-5 flex text-2xl font-bold"
+                style={{ color: "#68956F" }}
+              >
                 <Image
                   className="mr-2"
                   src="/icons/tour.svg"
@@ -153,11 +158,11 @@ export default function MountCookPage({
                 </p>
               ))}
             </div>
-            <div className="card mx-auto mt-2 max-w-6xl rounded-lg bg-white p-5 shadow">
+            <div className="card mx-auto mt-2 max-w-7xl rounded-lg bg-white p-5 shadow">
               <h2 className="mb-5 flex text-2xl font-bold">
                 <Image
                   className="mr-2"
-                  src="/icons/tour.svg"
+                  src="/icons/options.svg"
                   alt=""
                   width="30"
                   height="30"
@@ -178,8 +183,8 @@ export default function MountCookPage({
               </div>
             </div>
 
-            <div className="mx-auto max-w-6xl gap-2 md:grid md:grid-cols-3">
-              <div className="card col-span-2 my-2 rounded-lg bg-white p-5 shadow">
+            <div className="mx-auto max-w-7xl gap-2 md:grid md:grid-cols-3">
+              <div className="card my-2 rounded-lg bg-white p-5 shadow md:col-span-2">
                 <h2 className="mb-5 flex text-2xl font-bold">
                   <Image
                     className="mr-2"
@@ -239,8 +244,8 @@ export default function MountCookPage({
                 </div>
               </div>
             </div>
-            <div className="mx-auto max-w-6xl gap-2 md:grid md:grid-cols-3">
-              <div className="card col-span-2 w-full rounded-lg bg-white p-5 shadow">
+            <div className="mx-auto max-w-7xl gap-2 md:grid md:grid-cols-3">
+              <div className="card w-full rounded-lg bg-white p-5 shadow md:col-span-2">
                 <h2 className="mb-5 flex text-2xl font-bold">
                   <Image
                     className="mr-2"
@@ -273,7 +278,7 @@ export default function MountCookPage({
                 </div>
               </div>
 
-              <div className="card w-full flex-col justify-between rounded-lg bg-white p-5 shadow md:col-span-1">
+              <div className="card mt-2 w-full flex-col justify-between rounded-lg bg-white p-5 shadow md:col-span-1 md:mt-0">
                 <div>
                   <h2 className="mb-5 flex text-2xl font-bold">
                     <Image
