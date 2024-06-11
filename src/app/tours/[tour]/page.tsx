@@ -137,7 +137,10 @@ export default function MountCookPage({
           {/* Rest of the Details */}
           <div className="bg-neutral-100 px-5 py-5">
             <div className="card mx-auto max-w-7xl rounded-lg bg-white p-5 shadow">
-              <h2 className="mb-5 flex text-2xl font-bold">
+              <h2
+                className="mb-5 flex text-2xl font-bold"
+                style={{ color: "#68956F" }}
+              >
                 <Image
                   className="mr-2"
                   src="/icons/tour.svg"

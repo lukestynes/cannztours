@@ -90,9 +90,12 @@ const config = {
       {
         mytheme: {
           primary: "#68956F",
-          dark: "#262626",
+          secondary: "#E0C567",
+          accent: "#ACC6B0",
           neutral: "#897D53",
-          special: "#1fa67a",
+          "base-100": "#ffffff",
+          // dark: "#262626",
+          // special: "#1fa67a",
         },
       },
     ],

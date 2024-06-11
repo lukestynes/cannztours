@@ -56,6 +56,13 @@ const tourCards = [
 export default function HomePage() {
   return (
     <main className="pb-10">
+      <div className="h-screen">
+        <div className="grid grid-cols-2">
+          <div>01</div>
+          <div>02</div>
+          <div className="col-span-2 bg-red-100">03</div>
+        </div>
+      </div>
       {/* Hero Section */}
       <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">

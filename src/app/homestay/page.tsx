@@ -179,7 +179,7 @@ export default function HomestayPage() {
               />
               See what our guests had to say:
             </h2>
-            <blockquote className="border-l-4 border-teal-500 pl-4 italic">
+            <blockquote className="border-l-4 border-green-600 pl-4 italic">
               “The owner operator, Craig, worked with us to arrange sightseeing
               activities, doing the calling to get tickets, preparing breakfast,
               and driving us around. His place is a real house, not a luxury

@@ -81,12 +81,9 @@ export default function ToursPage() {
           </div>
         </div>
       </div>
-      <div
-        id="custom"
-        className="flex justify-center bg-neutral-100 px-10 py-10"
-      >
-        <div className="max-w-7xl">
-          <h2 className="mb-5 text-center text-4xl font-bold">
+      <div id="custom" className="flex justify-center  px-10 py-10">
+        <div className="max-w-7xl rounded-xl bg-neutral-100 p-5">
+          <h2 className="mb-5  text-center text-4xl font-bold">
             Customised Tours
           </h2>
           <p>
