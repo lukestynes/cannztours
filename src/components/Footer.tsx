@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer h-auto items-center bg-neutral-200 p-4">
+    <footer className="footer h-auto items-center bg-secondary p-4">
       <aside>
         <Image src="/images/logo.svg" alt="logo" width="150" height="150" />
         <p>&copy; CanNZ Tours {new Date().getFullYear()}</p>
@@ -12,10 +12,10 @@ export default function Footer() {
           Website design and development by{" "}
           <Link
             className="link-hover"
-            href="https://www.lukestynes.dev/"
+            href="https://www.stynesdigital.nz/"
             target="_blank"
           >
-            lukestynes.dev
+            Stynes Digital
           </Link>
         </p>
       </aside>

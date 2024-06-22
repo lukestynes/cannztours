@@ -32,14 +32,14 @@ const confidenceCards = [
 const tourCards = [
   {
     title: "Full Day Tours",
-    imageSrc: "/images/tours/full-tour.png",
+    imageSrc: "/images/home/full-day.jpg",
     description:
       "Ride the TranzAlpine train tour, explore the snow peaks of Mount Cook, or watch the whales in Kaikoura! There is something scenice for everyone with our full day tours.",
     link: "/tours/#full-day",
   },
   {
     title: "Half Day Tours",
-    imageSrc: "/images/tours/half-day.png",
+    imageSrc: "/images/home/half-day.jpg",
     description:
       "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that&apos;s right for you.",
     link: "/tours/#half-day",
@@ -56,42 +56,33 @@ const tourCards = [
 export default function HomePage() {
   return (
     <main className="pb-10">
-      <div className="h-screen">
-        <div className="grid grid-cols-2">
-          <div>01</div>
-          <div>02</div>
-          <div className="col-span-2 bg-red-100">03</div>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <div className="hero flex min-h-[calc(100vh-68px)] flex-row items-center justify-center px-7 md:px-20 md:py-10">
+      {/* Hero Section min-h-[calc(100vh-80px)]*/}
+      <div className="hero flex h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
           <div className="max-w-7xl grid-rows-2">
             <div className="py-5 md:columns-2 md:gap-10">
-              <div>
-                <h1 className="pb-5 text-4xl font-bold md:text-5xl">
-                  Explore the <br /> breathtaking beauty <br /> of the South
-                  Island
+              <div className="pt-5">
+                <h1 className="mt-3 text-4xl font-medium md:text-6xl">
+                  Discover the beauty <br /> of the South Island
                 </h1>
               </div>
-              <div>
-                <p className="pb-5 md:pb-0">
-                  Embark on an unforgettable journey with CanNZ Tours, where we
-                  bring 25+ years of guiding expertise to showcase the
-                  captivating beauty of Christchurch and the South Island of New
-                  Zealand.
+              <div className="pt-8">
+                <p className="pb-5 pt-3 text-lg md:pb-0 md:text-xl">
+                  Embark on an unforgettable journey with CanNZ Tours, where I
+                  bring 25+ years of guiding expertise to showcase the beauty of
+                  the South Island of New Zealand.
                 </p>
                 <div className="flex justify-center pt-5 md:justify-start">
                   <Link
                     href="/contact-us"
-                    className="btn btn-primary mr-2 text-white"
+                    className="btn btn-primary mr-2 rounded-none text-white"
                   >
                     Book a Tour
                   </Link>
                   <Link
                     href="/about"
                     type="button"
-                    className="btn-dark btn btn-outline"
+                    className="btn-dark btn btn-outline rounded-none"
                   >
                     Learn More
                   </Link>
@@ -100,7 +91,7 @@ export default function HomePage() {
             </div>
             <div className="hero pt-10 md:pt-0">
               <Image
-                className="rounded-2xl"
+                className="rounded-none"
                 src="/images/home/hero.png"
                 alt="New Zealand mountain range"
                 width="1400"
@@ -111,47 +102,42 @@ export default function HomePage() {
         </div>
       </div>
       {/* Your Personal Tour Guide */}
-      <div className="hero px-7 py-10">
+      <div className="hero bg-secondary px-7 py-10">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
-            className="rounded-2xl"
-            src="/images/home/craig.png"
-            alt="Photo of Craig Rome"
+            className="shadow-lg"
+            src="/images/home/craig-mt-cook.png"
+            alt="Craig Rome"
             width="500"
             height="500"
           />
-          <div>
-            <h1 className="text-4xl font-bold md:text-5xl">
+          <div className="pt-10">
+            <h1 className="text-4xl font-medium  md:text-5xl">
               Looking for a personal tour guide?
             </h1>
             <div className="">
-              <p className="py-6">
-                Discover the wonders of Christchurch with tours offered in both
-                English and Japanese, ensuring a personalised and immersive
-                experience. Delve into the richness of our region by exploring
-                the many attractions, from the vibrant city life to the
-                breathtaking Southern Alps.
+              <p className="py-6 pb-0">
+                Discover the wonders of Christchurch and the South Island with
+                personalized tours in English or Japanese. With over 25 years of
+                experience, CanNZ Tours offers immersive experiences, from
+                vibrant city life to the stunning Southern Alps. Explore
+                Christchurch, enjoy the TranzAlpine train, visit Aoraki Mount
+                Cook, go whale watching in Kaikoura, or indulge in a Waipara
+                winery tour. Whether for a full day, half day, or multi-day
+                adventure, we look forward to welcoming you to our paradise.
               </p>
-              <p className="md:py-6">
-                With 25+ years experience guiding tours around the South Island
-                of New Zealand, I look forward to welcoming you to our paradise.
-                Having fluency in both English and Japanese, our tours are
-                offered in either language. Whether you want to see the many
-                things to do in Christchurch or view the Southern Alps from the
-                TranzAlpine train. See Aoraki Mount Cook, go whale watching in
-                Kaikoura or take a Waipara winery tour. Explore my many full day
-                or half day tours from Christchurch or my multi day tours around
-                the South Island.
-              </p>
-              <Image
+              {/* <Image
                 src="/images/home/signature.png"
                 width="220"
                 height="110"
                 alt="Craig"
-              />
+              /> */}
             </div>
-            <div className="flex justify-center pt-10 md:justify-start">
-              <Link href="/about" className="btn btn-primary text-white">
+            <div className="flex justify-center pt-10 md:justify-center">
+              <Link
+                href="/about"
+                className="btn-dark btn  btn-outline rounded-none text-black"
+              >
                 Learn About Me
               </Link>
             </div>
@@ -159,20 +145,20 @@ export default function HomePage() {
         </div>
       </div>
       {/* Triple Tour Card */}
-      <div className=" bg-neutral-100 px-7 py-10">
-        <h3 className="mb-10 text-center text-4xl font-bold  md:text-5xl">
+      <div className="px-7 py-10">
+        <h3 className="mb-10 text-center text-4xl font-medium  md:text-5xl">
           Choose an Unforgettable Experience
         </h3>
         <div className="flex flex-wrap justify-center gap-12 md:flex-row">
           {tourCards.map((card) => (
             <div
               key={card.title}
-              className="card w-96 bg-white text-center shadow"
+              className="card w-96 rounded-none bg-white text-center shadow-md"
             >
               <Link href={card.link}>
                 <figure>
                   <Image
-                    className="rounded-2xl rounded-b-none"
+                    className="rounded-none"
                     src={card.imageSrc}
                     width="450"
                     height="300"
@@ -180,9 +166,9 @@ export default function HomePage() {
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="link-hover card-title justify-center">
+                  <p className="link-hover card-title justify-center">
                     {card.title}
-                  </h2>
+                  </p>
                   <p>{card.description}</p>
                 </div>
               </Link>
@@ -190,18 +176,23 @@ export default function HomePage() {
           ))}
         </div>
         <div className="mt-10 flex justify-center">
-          <Link href="/tours" className="btn btn-primary text-white">
-            View our Tours
+          <Link
+            href="/tours"
+            className="btn btn-primary rounded-none text-white"
+          >
+            View Tours
           </Link>
         </div>
       </div>
       {/* Why Choose Us Cards */}
-      <div className="py-10">
-        <h3 className="mb-10 text-center text-5xl font-bold">Why choose me?</h3>
+      <div className="bg-neutral-100 py-10">
+        <h3 className="mb-10 text-center text-5xl font-medium">
+          Why choose me?
+        </h3>
         <div className="flex flex-wrap justify-center gap-10 py-10">
           {confidenceCards.slice(0, 2).map((card) => (
             <div
-              className="card w-96 bg-neutral-100 text-center shadow"
+              className="card w-96 bg-secondary text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
@@ -213,9 +204,9 @@ export default function HomePage() {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title justify-center pt-1 text-2xl">
+                <p className="card-title justify-center pt-1 text-2xl">
                   {card.title}
-                </h2>
+                </p>
                 <p className="pt-3">{card.description}</p>
               </div>
             </div>
@@ -224,21 +215,21 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10">
           {confidenceCards.slice(2, 4).map((card) => (
             <div
-              className="card w-96 bg-neutral-100 text-center shadow"
+              className="card w-96 bg-secondary text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
                 <Image
                   src={card.image}
-                  width="100"
-                  height="100"
+                  width="90"
+                  height="90"
                   alt="Tour photo"
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title justify-center pt-1 text-2xl">
+                <p className="card-title justify-center pt-1 text-2xl">
                   {card.title}
-                </h2>
+                </p>
                 <p className="pt-3">{card.description}</p>
               </div>
             </div>
@@ -246,12 +237,12 @@ export default function HomePage() {
         </div>
       </div>
       <div className="hidden py-10 md:block">
-        <h2 className="mb-20 text-center text-5xl font-bold">Our Reviews</h2>
+        <h2 className="mb-20 text-center text-5xl font-medium">My Reviews</h2>
         <ReviewStack />
         <div className="flex justify-center">
           <Link
             href="/reviews"
-            className="justify-left btn btn-primary mt-2 text-white"
+            className="justify-left btn btn-primary mt-2 rounded-none text-white"
           >
             View Testimonials
           </Link>
