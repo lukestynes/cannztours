@@ -125,7 +125,7 @@ export default function HomePage() {
         </div>
       </div>
       {/* Your Personal Tour Guide */}
-      <div className="hero bg-secondary px-7 py-10">
+      <div className="hero bg-neutral px-7 py-10 text-white">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
             className="shadow-lg"
@@ -159,7 +159,7 @@ export default function HomePage() {
             <div className="flex justify-center pt-10 md:justify-center">
               <Link
                 href="/about"
-                className="btn-dark btn  btn-outline rounded-none text-black"
+                className="btn  btn-outline rounded-none text-white"
               >
                 Learn About Me
               </Link>

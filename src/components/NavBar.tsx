@@ -21,6 +21,12 @@ export default function NavBar() {
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
+          onClick={() => {
+            if (dropdownOpen) {
+              handleClick();
+            }
+            setDropdownOpen(!dropdownOpen);
+          }}
         >
           <Image
             src="/images/logo.svg"
