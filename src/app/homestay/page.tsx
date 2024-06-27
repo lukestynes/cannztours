@@ -31,8 +31,8 @@ export default async function HomestayPage() {
   return (
     <div style={{ marginTop: "80px" }}>
       {/* Hero Section */}
-      <div className="flex justify-center bg-neutral text-white">
-        <div className="mx-5 my-10 grid max-w-7xl py-5 lg:grid-cols-2">
+      <div className="flex justify-center bg-secondary">
+        <div className="mx-5 my-10 grid max-w-7xl bg-secondary py-5 lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <div className="">
               <h2 className="pb-10 text-5xl font-medium">Homestay</h2>
