@@ -82,7 +82,7 @@ export default function HomePage() {
                 </p>
                 <div className="hidden justify-center pt-5 md:flex md:justify-start">
                   <Link
-                    href="/contact-us"
+                    href="/contact"
                     className="btn btn-primary mr-2 rounded-none text-white"
                   >
                     Book a Tour
@@ -107,7 +107,7 @@ export default function HomePage() {
               />
               <div className="flex justify-center pt-5 md:hidden">
                 <Link
-                  href="/contact-us"
+                  href="/contact"
                   className="btn btn-primary mr-2 rounded-none text-white"
                 >
                   Book a Tour

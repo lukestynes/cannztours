@@ -46,7 +46,7 @@ export default async function HomestayPage() {
             </div>
             <div className="justify-left hidden md:flex">
               <Link
-                href="/contact-us"
+                href="/contact"
                 className="btn btn-info mt-3 rounded-none text-white"
               >
                 Enquire Now!
@@ -58,7 +58,7 @@ export default async function HomestayPage() {
           </div>
           <div className="flex justify-center pt-5 md:hidden">
             <Link
-              href="/contact-us"
+              href="/contact"
               className="btn btn-info mt-3 rounded-none text-white"
             >
               Enquire Now!

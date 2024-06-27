@@ -70,7 +70,7 @@ export default async function ToursPage() {
           </p>
           <div className="mt-5 flex justify-center">
             <Link
-              href="/contact-us"
+              href="/contact"
               className="btn btn-primary mr-2 rounded-none text-white"
             >
               Book a Custom Tour

@@ -84,7 +84,7 @@ export default async function TourPage({
               </div>
               <div className="flex justify-center pt-5 lg:justify-start">
                 <Link
-                  href="/contact-us"
+                  href="/contact"
                   className="btn btn-info mt-3 rounded-none text-white"
                 >
                   Book Now!
@@ -112,7 +112,7 @@ export default async function TourPage({
               </div>
               <div className="flex justify-center pt-5 lg:justify-start">
                 <Link
-                  href="/contact-us"
+                  href="/contact"
                   className="btn btn-info mt-3 rounded-none text-white"
                 >
                   Book Now!
