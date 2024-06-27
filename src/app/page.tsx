@@ -42,7 +42,7 @@ const tourCards = [
     title: "Half Day Tours",
     imageSrc: "/images/home/half-day.jpg",
     description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that&apos;s right for you.",
+      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
     link: "/tours/#half-day",
   },
   {
