@@ -65,8 +65,8 @@ export default async function TourPage({
 
   return (
     <div style={{ marginTop: "80px" }}>
-      <div className="flex justify-center bg-secondary">
-        <div className="mx-5 grid max-w-7xl bg-secondary p-5 md:my-10  lg:grid-cols-2">
+      <div className="flex justify-center bg-neutral text-white">
+        <div className="mx-5 grid max-w-7xl p-5 md:my-10  lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <h1 className="mb-5 text-5xl font-medium">{tour.title}</h1>
             <div className="hidden md:block">
@@ -88,7 +88,7 @@ export default async function TourPage({
               <div className="flex justify-center pt-5 lg:justify-start">
                 <Link
                   href="/contact"
-                  className="btn btn-info mt-3 rounded-none text-white"
+                  className="btn mt-3 rounded-none bg-white text-black"
                 >
                   Book Now!
                 </Link>
