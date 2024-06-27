@@ -16,13 +16,40 @@ export default function NavBar() {
   };
 
   return (
-    <div className="navbar sticky top-0 z-50 bg-neutral-100 shadow">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost lg:hidden"
+    <nav className="fixed start-0 top-0 z-20 w-full border-b bg-white">
+      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+        <Link
+          href="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <Image
+            src="/images/logo.svg"
+            alt="CanNZ Tours"
+            width="75"
+            height="75"
+          />
+        </Link>
+        <div className="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
+          <Link href="#">
+            <Image
+              src="/icons/japan.svg"
+              width={80}
+              height={40}
+              alt="Japanese"
+            />
+          </Link>
+          <Link
+            className="btn btn-primary rounded-none text-white"
+            href="/contact"
+          >
+            Contact Us
+          </Link>
+          <button
+            data-collapse-toggle="navbar-sticky"
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 md:hidden"
+            aria-controls="navbar-sticky"
+            aria-expanded={dropdownOpen ? "true" : "false"}
             onClick={() => {
               if (dropdownOpen) {
                 handleClick();
@@ -30,81 +57,70 @@ export default function NavBar() {
               setDropdownOpen(!dropdownOpen);
             }}
           >
+            <span className="sr-only">Open main menu</span>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              viewBox="0 0 17 14"
             >
               <path
+                stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
+                d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content menu-sm z-[1] mt-3 w-[calc(100vw-14px)] rounded-box bg-base-100 p-2 shadow"
-          >
+          </button>
+        </div>
+        <div
+          className={`${
+            dropdownOpen ? "block" : "hidden"
+          } w-full items-center justify-between md:order-1 md:flex md:w-auto`}
+          id="navbar-sticky"
+        >
+          <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse">
             <li>
-              <Link onClick={handleClick} href="/tours">
+              <Link
+                href="/tours"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                onClick={() => setDropdownOpen(false)}
+              >
                 Our Tours
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick} href="/homestay">
+              <Link
+                href="/homestay"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                onClick={() => setDropdownOpen(false)}
+              >
                 Homestay
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick} href="/reviews">
+              <Link
+                href="/client-reviews"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                onClick={() => setDropdownOpen(false)}
+              >
                 Client Reviews
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick} href="/about">
-                About Us
+              <Link
+                href="/about"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                onClick={() => setDropdownOpen(false)}
+              >
+                About
               </Link>
             </li>
           </ul>
         </div>
-        <Link href="/" className="btn btn-ghost text-xl">
-          <Image src="/images/logo.svg" alt="logo" width="50" height="50" />
-          CanNZ Tours
-        </Link>
       </div>
-      <div className="navbar-end">
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link className="link-hover" href="/tours">
-                Our Tours
-              </Link>
-            </li>
-            <li>
-              <Link className="link-hover" href="/homestay">
-                Homestay
-              </Link>
-            </li>
-            <li>
-              <Link className="link-hover" href="/reviews">
-                Client Reviews
-              </Link>
-            </li>
-            <li>
-              <Link className="link-hover" href="/about">
-                About Us
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <Link className="btn btn-primary text-white" href="/contact-us">
-          Contact Us
-        </Link>
-      </div>
-    </div>
+    </nav>
   );
 }
