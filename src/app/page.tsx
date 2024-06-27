@@ -215,7 +215,7 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10 py-10">
           {confidenceCards.slice(0, 2).map((card) => (
             <div
-              className="card w-96 bg-neutral-100 text-center shadow"
+              className="card mx-5 w-96 bg-neutral-100 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
@@ -238,7 +238,7 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10">
           {confidenceCards.slice(2, 4).map((card) => (
             <div
-              className="card w-96 bg-neutral-50 text-center shadow"
+              className="card mx-5 w-96 bg-neutral-50 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">

@@ -149,7 +149,7 @@ export default function AboutUsPage() {
           <ReviewStack />
           <div className="mt-10 flex justify-center">
             <Link
-              href="/reviews"
+              href="/client-reviews"
               className="btn btn-outline btn-primary mr-2 rounded-none text-white"
             >
               View Testimonials
