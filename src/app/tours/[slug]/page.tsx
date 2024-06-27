@@ -37,7 +37,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: tour.metaTitle,
+    title: `${tour.title} | CanNZ Tours`,
     description: tour.metaDescription,
   };
 }
@@ -55,7 +55,10 @@ export default async function TourPage({
 
   const itinerary = tour.itinerary.map((item) => item.split(": "));
   const pricing = tour.pricing.map((item) => item.split(": "));
-  const optionalExtras = tour.optionalExtras.map((item) => item.split(": "));
+  let optionalExtras;
+  if (tour.optionalExtras) {
+    optionalExtras = tour.optionalExtras.map((item) => item.split(": "));
+  }
   const imagesCollection: string[] = tour.imagesCollection.items.map(
     (item) => item.url,
   );
@@ -145,31 +148,32 @@ export default async function TourPage({
               </p>
             ))}
         </div>
-        <div className="card mx-auto mt-2 max-w-7xl rounded-none bg-white p-5 shadow">
-          <h2 className="mb-5 flex text-2xl font-medium">
-            <Image
-              className="mr-2"
-              src="/icons/options.svg"
-              alt=""
-              width="30"
-              height="30"
-            />
-            Optional Extras:
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="table max-w-2xl">
-              <tbody>
-                {optionalExtras.map((row: string[], index: number) => (
-                  <tr key={index}>
-                    <th>{row[0]}</th>
-                    <td>{row[1]}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {optionalExtras && (
+          <div className="card mx-auto mt-2 max-w-7xl rounded-none bg-white p-5 shadow">
+            <h2 className="mb-5 flex text-2xl font-medium">
+              <Image
+                className="mr-2"
+                src="/icons/options.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              Optional Extras:
+            </h2>
+            <div className="overflow-x-auto">
+              <table className="table max-w-2xl">
+                <tbody>
+                  {optionalExtras?.map((row: string[], index: number) => (
+                    <tr key={index}>
+                      <th>{row[0]}</th>
+                      <td>{row[1]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-
+        )}
         <div className="mx-auto max-w-7xl gap-2 md:grid md:grid-cols-3">
           <div className="card my-2 rounded-none bg-white p-5 shadow md:col-span-2">
             <h2 className="mb-5 flex text-2xl font-medium">
