@@ -1,25 +1,26 @@
 import ReviewStack from "@/components/ReviewStack";
 import Image from "next/image";
 import Link from "next/link";
+import { type Metadata } from "next";
 
 const confidenceCards = [
   {
     title: "25+ Years Experience",
     description:
       "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
-    image: "/icons/experience.svg",
+    image: "/icons/honour.svg",
   },
   {
     title: "Tours in English or Japanese",
     description:
       "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
-    image: "/icons/speak.svg",
+    image: "/icons/dual-language.svg",
   },
   {
     title: "Extensive Local Knowledge",
     description:
       "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
-    image: "/icons/local.svg",
+    image: "/icons/route.svg",
   },
   {
     title: "Custom Tours Available",
@@ -53,9 +54,16 @@ const tourCards = [
   },
 ];
 
+export const metadata: Metadata = {
+  title:
+    "CanNZ Tours | Personalised Guided Tours in New Zealand's South Island",
+  description:
+    "Explore the beauty of New Zealand's South Island with CanNZ Tours. Offering personalised tours in both English and Japanese, I cater to your desires with experiences from vibrant city life to breathtaking natural wonders. Book your unforgettable journey today!",
+};
+
 export default function HomePage() {
   return (
-    <main className="pb-10">
+    <main className="">
       {/* Hero Section min-h-[calc(100vh-80px)]*/}
       <div className="hero flex h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
@@ -72,7 +80,7 @@ export default function HomePage() {
                   bring 25+ years of guiding expertise to showcase the beauty of
                   the South Island of New Zealand.
                 </p>
-                <div className="flex justify-center pt-5 md:justify-start">
+                <div className="hidden justify-center pt-5 md:flex md:justify-start">
                   <Link
                     href="/contact-us"
                     className="btn btn-primary mr-2 rounded-none text-white"
@@ -89,7 +97,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="hero pt-10 md:pt-0">
+            <div className="md:pt-0">
               <Image
                 className="rounded-none"
                 src="/images/home/hero.png"
@@ -97,6 +105,21 @@ export default function HomePage() {
                 width="1400"
                 height="800"
               />
+              <div className="flex justify-center pt-5 md:hidden">
+                <Link
+                  href="/contact-us"
+                  className="btn btn-primary mr-2 rounded-none text-white"
+                >
+                  Book a Tour
+                </Link>
+                <Link
+                  href="/about"
+                  type="button"
+                  className="btn-dark btn btn-outline rounded-none"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -153,7 +176,7 @@ export default function HomePage() {
           {tourCards.map((card) => (
             <div
               key={card.title}
-              className="card w-96 rounded-none bg-white text-center shadow-md"
+              className="hover-card card w-96 rounded-none bg-white text-center shadow-md"
             >
               <Link href={card.link}>
                 <figure>
@@ -185,14 +208,14 @@ export default function HomePage() {
         </div>
       </div>
       {/* Why Choose Us Cards */}
-      <div className="bg-neutral-100 py-10">
-        <h3 className="mb-10 text-center text-5xl font-medium">
+      <div className="py-10">
+        <h3 className="mb-10 text-center text-4xl font-medium md:text-5xl">
           Why choose me?
         </h3>
         <div className="flex flex-wrap justify-center gap-10 py-10">
           {confidenceCards.slice(0, 2).map((card) => (
             <div
-              className="card w-96 bg-secondary text-center shadow"
+              className="card w-96 bg-neutral-100 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
@@ -215,7 +238,7 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10">
           {confidenceCards.slice(2, 4).map((card) => (
             <div
-              className="card w-96 bg-secondary text-center shadow"
+              className="card w-96 bg-neutral-50 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
@@ -237,7 +260,9 @@ export default function HomePage() {
         </div>
       </div>
       <div className="hidden py-10 md:block">
-        <h2 className="mb-20 text-center text-5xl font-medium">My Reviews</h2>
+        <h2 className="mb-20 text-center text-5xl font-medium">
+          See what people have to say
+        </h2>
         <ReviewStack />
         <div className="flex justify-center">
           <Link

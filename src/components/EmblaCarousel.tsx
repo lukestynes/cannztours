@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import type { EmblaOptionsType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
@@ -15,12 +14,12 @@ export default function EmblaCarousel({ images }: { images: string[] }) {
           {images.map((image, index) => (
             <div className="embla__slide" key={index}>
               <Image
-                style={{ maxHeight: "450px" }}
-                className="rounded-xl"
+                style={{ maxHeight: "460px", objectFit: "cover" }}
+                className="shadow-xl"
                 src={image}
                 alt="Tour image"
-                width="1000"
-                height="450"
+                width="620"
+                height="460"
               />
             </div>
           ))}
