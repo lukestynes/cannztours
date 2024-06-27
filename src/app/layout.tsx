@@ -32,9 +32,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sourceSerif4.variable} ${dmSans.variable}`}>
-      <Analytics />
-      <SpeedInsights />
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg" sizes="any" />
+      </head>
       <body>
+        <Analytics />
+        <SpeedInsights />
         <NavBar />
         {children}
         <Footer />
