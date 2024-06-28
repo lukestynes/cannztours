@@ -65,13 +65,13 @@ export default function HomePage() {
   return (
     <main className="">
       {/* Hero Section min-h-[calc(100vh-80px)]*/}
-      <div className="hero flex h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
+      <div className="hero flex min-h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
           <div className="max-w-7xl grid-rows-2">
             <div className="py-5 md:columns-2 md:gap-10">
               <div className="pt-5">
                 <h1 className="mt-3 text-4xl font-medium md:text-6xl">
-                  Discover the beauty <br /> of the South Island
+                  Personalised <br /> Guided Tours <br /> of the South Island
                 </h1>
               </div>
               <div className="pt-8">
