@@ -104,6 +104,7 @@ export default function HomePage() {
                 alt="New Zealand mountain range"
                 width="1400"
                 height="800"
+                priority
               />
               <div className="flex justify-center pt-5 md:hidden">
                 <Link

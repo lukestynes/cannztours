@@ -16,7 +16,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="fixed start-0 top-0 z-20 w-full border-b bg-white">
+    <nav className="fixed start-0 top-0 z-20 w-full border-b bg-neutral-50">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Link
           href="/"
@@ -87,7 +87,7 @@ export default function NavBar() {
           } w-full items-center justify-between md:order-1 md:flex md:w-auto`}
           id="navbar-sticky"
         >
-          <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse">
+          <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-neutral-50 md:p-0 rtl:space-x-reverse">
             <li>
               <Link
                 href="/tours"

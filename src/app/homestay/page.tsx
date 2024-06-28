@@ -1,4 +1,4 @@
-import EmblaCarousel from "@/components/EmblaCarousel";
+import ImageCarousel from "@/components/ImageCarousel";
 import { getHomestayPage } from "@/lib/contentful";
 import { type HomestayItem } from "@/types/contentful";
 import { type Metadata } from "next";
@@ -32,20 +32,20 @@ export default async function HomestayPage() {
     <div style={{ marginTop: "80px" }}>
       {/* Hero Section */}
       <div className="flex justify-center bg-secondary text-white">
-        <div className="mx-5 my-10 grid max-w-7xl py-5 lg:grid-cols-2">
+        <div className="mx-5 my-10 grid max-w-7xl grid-cols-1 py-5 lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <div className="">
               <h2 className="pb-10 text-5xl font-medium">Homestay</h2>
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 {blurb.map((paragraph: string, index: number) => (
-                  <p key={index} className="text-lg md:pr-10">
+                  <p key={index} className="text-lg lg:pr-10">
                     {paragraph}
                     <br />
                     <br />
                   </p>
                 ))}
               </div>
-              <div className="justify-left hidden md:flex">
+              <div className="justify-left hidden lg:flex">
                 <Link
                   href="/contact"
                   className="btn mt-3 rounded-none bg-white text-black"
@@ -56,17 +56,17 @@ export default async function HomestayPage() {
             </div>
           </div>
           <div>
-            <EmblaCarousel images={imagesCollection} />
-            <div className="block pt-10 md:hidden">
+            <ImageCarousel images={imagesCollection} />
+            <div className="block pt-10 lg:hidden">
               {/* {blurb.map((paragraph: string, index: number) => ( */}
-              {/*   <p key={index} className="text-lg md:pr-10"> */}
+              {/*   <p key={index} className="text-lg lg:pr-10"> */}
               {/*     {paragraph} */}
               {/*     <br /> */}
               {/*     <br /> */}
               {/*   </p> */}
               {/* ))} */}
               {<p className="text-lg ">{blurb[0]}</p>}
-              <div className="flex justify-center pt-5 md:hidden">
+              <div className="flex justify-center pt-5 lg:hidden">
                 <Link
                   href="/contact"
                   className="btn mt-3 rounded-none bg-white text-black"

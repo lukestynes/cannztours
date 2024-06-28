@@ -100,6 +100,7 @@ export default function AboutUsPage() {
                 alt="Craig Rome in Christchurch City"
                 width="550"
                 height="400"
+                priority
               />
             </div>
           </div>

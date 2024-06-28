@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import EmblaCarousel from "@/components/EmblaCarousel";
+import EmblaCarousel from "@/components/ImageCarousel";
 import { type Metadata } from "next";
 import { getAllTours } from "@/lib/contentful";
+import Swiper from "swiper/bundle";
+import ImageCarousel from "@/components/ImageCarousel";
 
 export async function generateStaticParams() {
   const tours = await getAllTours();
@@ -66,11 +68,11 @@ export default async function TourPage({
   return (
     <div style={{ marginTop: "80px" }} className="min-h-screen">
       <div className="flex justify-center bg-secondary text-white">
-        <div className="mx-5 grid max-w-7xl p-5 md:my-10  lg:grid-cols-2">
+        <div className="mx-5 grid max-w-7xl grid-cols-1 p-5 lg:my-10 lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <h1 className="mb-5 text-5xl font-medium">{tour.title}</h1>
-            <div className="hidden md:block">
-              <p className="mb-5 text-lg md:pr-10">{tour.blurb}</p>
+            <div className="hidden lg:block">
+              <p className="mb-5 text-lg lg:pr-10">{tour.blurb}</p>
               <div>
                 <h3 className="my-3 text-2xl font-medium ">Highlights:</h3>
                 <ul className="mb-3 list-inside list-disc">
@@ -95,12 +97,12 @@ export default async function TourPage({
               </div>
             </div>
           </div>
-          <div className="">
-            <EmblaCarousel images={imagesCollection} />
-            <div className="display md:hidden">
-              <p className="mb-5 text-lg md:pr-10">{tour.blurb}</p>
+          <div className="relative">
+            <ImageCarousel images={imagesCollection} />
+            <div className="display mt-5 lg:hidden">
+              <p className="mb-5 text-lg lg:pr-10">{tour.blurb}</p>
               <div>
-                <h3 className="my-3 text-2xl font-medium ">Highlights:</h3>
+                <h3 className="my-3 text-2xl font-medium">Highlights:</h3>
                 <ul className="mb-3 list-inside list-disc">
                   {tour.highlights.map((highlight: string, index: number) => (
                     <li key={index}>{highlight}</li>

@@ -63,6 +63,7 @@ export default async function ToursPage() {
               alt="Sunset photo"
               width="1000"
               height="600"
+              priority
             />
             <div className="block pt-10 md:hidden">
               <p className="text-lg">
