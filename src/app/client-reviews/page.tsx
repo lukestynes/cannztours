@@ -38,25 +38,35 @@ export const metadata: Metadata = {
 export default function ReviewsPage() {
   return (
     <div style={{ marginTop: "80px" }} className="min-h-[calc(100vh-80px)]">
-      <div className="flex justify-center bg-secondary px-10 py-10">
+      <div className="flex justify-center bg-secondary px-10 py-10 text-white">
         <div className="grid max-w-7xl gap-10 md:grid-cols-2">
           <div className="my-auto flex flex-col">
             <Image
               className="card-title my-5"
-              src="/icons/stars-black.svg"
+              src="/icons/stars-white.svg"
               width="116"
               height="31"
               alt="rating stars"
             />
-            <h1 className="w-full pb-10 text-left text-5xl font-medium">
+            <h1 className="w-full text-left text-5xl font-medium md:pb-10">
               Customers Love Us
             </h1>
-            <p className="text-left text-lg">
-              Read what our customers have to say about their amazing
-              experiences.
-            </p>
+            <div className="hidden md:block">
+              <p className="text-left text-lg">
+                Read what our customers have to say about their amazing
+                experiences.
+              </p>
+              <div className="pt-5">
+                <Link
+                  href="/tours"
+                  className="btn mt-3 rounded-none bg-white text-black"
+                >
+                  View Our Tours
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center">
+          <div className="">
             <Image
               className="shadow-xl"
               src="/images/reviews/hero.png"
@@ -64,6 +74,21 @@ export default function ReviewsPage() {
               width="1000"
               height="600"
             />
+
+            <div className="block pt-10 md:hidden">
+              <p className="text-left text-lg">
+                Read what our customers have to say about their amazing
+                experiences.
+              </p>
+              <div className="flex justify-center pt-5">
+                <Link
+                  href="/tours"
+                  className="btn mt-3 rounded-none bg-white text-black"
+                >
+                  View Our Tours
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -89,10 +114,10 @@ export default function ReviewsPage() {
           <p className="font-bold">Arthur&apos;s Pass Tour</p>
           <div className="mt-5 flex justify-center">
             <Link
-              href="/tours"
+              href="/contact#BOOK"
               className="btn btn-primary mr-2 rounded-none text-white"
             >
-              View Tours
+              Book Now!
             </Link>
           </div>
         </div>

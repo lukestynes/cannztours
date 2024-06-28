@@ -64,9 +64,9 @@ export default async function TourPage({
   );
 
   return (
-    <div style={{ marginTop: "80px" }}>
-      <div className="flex justify-center bg-secondary">
-        <div className="mx-5 grid max-w-7xl bg-secondary p-5 md:my-10  lg:grid-cols-2">
+    <div style={{ marginTop: "80px" }} className="min-h-screen">
+      <div className="flex justify-center bg-secondary text-white">
+        <div className="mx-5 grid max-w-7xl p-5 md:my-10  lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <h1 className="mb-5 text-5xl font-medium">{tour.title}</h1>
             <div className="hidden md:block">
@@ -88,7 +88,7 @@ export default async function TourPage({
               <div className="flex justify-center pt-5 lg:justify-start">
                 <Link
                   href="/contact"
-                  className="btn btn-info mt-3 rounded-none text-white"
+                  className="btn mt-3 rounded-none bg-white text-black"
                 >
                   Book Now!
                 </Link>
@@ -97,7 +97,7 @@ export default async function TourPage({
           </div>
           <div className="">
             <EmblaCarousel images={imagesCollection} />
-            <div className="display pt-5 md:hidden">
+            <div className="display md:hidden">
               <p className="mb-5 text-lg md:pr-10">{tour.blurb}</p>
               <div>
                 <h3 className="my-3 text-2xl font-medium ">Highlights:</h3>
@@ -116,7 +116,7 @@ export default async function TourPage({
               <div className="flex justify-center pt-5 lg:justify-start">
                 <Link
                   href="/contact"
-                  className="btn btn-info mt-3 rounded-none text-white"
+                  className="btn mt-3 rounded-none bg-white text-black"
                 >
                   Book Now!
                 </Link>
@@ -126,8 +126,8 @@ export default async function TourPage({
         </div>
       </div>
       {/* Rest of the Details */}
-      <div className="bg-neutral-100 px-5 py-5">
-        <div className="card mx-auto max-w-7xl rounded-none bg-white p-5 shadow">
+      <div className="bg-white px-5 py-5">
+        <div className="card mx-auto max-w-7xl rounded-none bg-white p-5 shadow-xl">
           <h2 className="mb-5 flex text-2xl font-medium">
             <Image
               className="mr-2"
@@ -149,7 +149,7 @@ export default async function TourPage({
             ))}
         </div>
         {optionalExtras && (
-          <div className="card mx-auto mt-2 max-w-7xl rounded-none bg-white p-5 shadow">
+          <div className="card mx-auto mt-2 max-w-7xl rounded-none bg-white p-5 shadow-xl">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"
@@ -175,7 +175,7 @@ export default async function TourPage({
           </div>
         )}
         <div className="mx-auto max-w-7xl gap-2 md:grid md:grid-cols-3">
-          <div className="card my-2 rounded-none bg-white p-5 shadow md:col-span-2">
+          <div className="card my-2 rounded-none bg-white p-5 shadow-xl md:col-span-2">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"
@@ -200,7 +200,7 @@ export default async function TourPage({
             </div>
           </div>
 
-          <div className="card my-2 w-full rounded-none bg-white p-5 shadow md:col-span-1">
+          <div className="card my-2 w-full rounded-none bg-white p-5 shadow-xl md:col-span-1">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"
@@ -236,7 +236,7 @@ export default async function TourPage({
           </div>
         </div>
         <div className="mx-auto max-w-7xl gap-2 md:grid md:grid-cols-3">
-          <div className="card w-full rounded-none bg-white p-5 shadow md:col-span-2">
+          <div className="card w-full rounded-none bg-white p-5 shadow-xl md:col-span-2">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"
@@ -269,7 +269,7 @@ export default async function TourPage({
             </div>
           </div>
 
-          <div className="card mt-2 w-full flex-col justify-between rounded-none bg-white p-5 shadow md:col-span-1 md:mt-0">
+          <div className="card mt-2 w-full flex-col justify-between rounded-none bg-white p-5 shadow-xl md:col-span-1 md:mt-0">
             <div>
               <h2 className="mb-5 flex text-2xl font-medium">
                 <Image

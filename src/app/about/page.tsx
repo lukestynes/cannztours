@@ -23,7 +23,7 @@ const tourCards = [
   },
   {
     title: "Outstanding Reputation",
-    imageSrc: "/icons/awards.svg",
+    imageSrc: "/icons/honour.svg",
     description:
       "Join us based on outstanding TripAdvisor reviews and a commitment to excellence.",
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <div style={{ marginTop: "80px" }} key={1}>
-      <div className="flex justify-center bg-secondary">
+      <div className="flex justify-center bg-secondary text-white">
         <div className="max-w-7xl justify-center px-10 py-10">
           <div className="grid gap-10 md:grid-cols-2">
             <div className="order-2 my-auto flex flex-col items-center">
@@ -141,7 +141,7 @@ export default function AboutUsPage() {
           </div>
         </div>
       </div>
-      <div className="hidden w-full justify-center px-20 pb-20 md:block">
+      <div className="hidden w-full justify-center px-20 pb-20 lg:block">
         <div>
           <h2 className="mb-20 mt-10 text-center text-4xl font-medium">
             Testimonials
@@ -152,7 +152,7 @@ export default function AboutUsPage() {
               href="/client-reviews"
               className="btn btn-outline btn-primary mr-2 rounded-none text-white"
             >
-              View Testimonials
+              View More Reviews
             </Link>
           </div>
         </div>

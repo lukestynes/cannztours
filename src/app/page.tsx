@@ -244,8 +244,8 @@ export default function HomePage() {
               <figure className="card-body">
                 <Image
                   src={card.image}
-                  width="90"
-                  height="90"
+                  width="100"
+                  height="100"
                   alt="Tour photo"
                 />
               </figure>

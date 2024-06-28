@@ -19,31 +19,44 @@ export default async function ToursPage() {
   }
 
   return (
-    <div style={{ marginTop: "80px" }}>
-      <div className="flex justify-center bg-secondary px-10 py-10">
+    <div style={{ marginTop: "80px" }} className="min-h-screen">
+      <div className="flex min-h-[calc(100vh-80px)] justify-center bg-secondary px-10 py-10 text-white md:min-h-0">
         <div className="grid max-w-7xl gap-10 md:grid-cols-2">
-          <div className="my-auto flex flex-col items-center">
-            <h1 className="w-full pb-10 text-left text-5xl font-medium">
+          <div className="my-auto flex flex-col">
+            <h1 className="w-full text-left text-5xl font-medium md:pb-10">
               Our Tours
             </h1>
-            <p className="text-lg">
-              Welcome to the heart of New Zealand adventure! At Can NZ Tours, we
-              specialize in unforgettable guided tours across the breathtaking
-              landscapes of the South Island. From the serene waters of Milford
-              Sound to the panoramic views of Mt Cook, our expert guides ensure
-              you experience New Zealand to it&apos;s full potential.
-            </p>
-            <br />
-            <p className="text-lg">
-              Experience the vibrant wildlife, rich history, and warm local
-              culture with packages that include everything from hiking and
-              cycling to boat tours and helicopter rides. With Can NZ Tours,
-              you&apos;re immersing yourself in the beauty and excitement of one
-              of the world&apos;s most stunning destinations. Each tour is a
-              perfect blend of comfort, excitement, and awe-inspiring moments.
-            </p>
+            <div className="hidden md:block">
+              <p className="text-lg">
+                Welcome to the heart of New Zealand adventure! At Can NZ Tours,
+                we specialize in unforgettable guided tours across the
+                breathtaking landscapes of the South Island. From the serene
+                waters of Milford Sound to the panoramic views of Mt Cook, our
+                expert guides ensure you experience New Zealand to it&apos;s
+                full potential.
+              </p>
+              <br />
+              <p className="text-lg">
+                Experience the vibrant wildlife, rich history, and warm local
+                culture with packages that include everything from hiking and
+                cycling to boat tours and helicopter rides. With Can NZ Tours,
+                you&apos;re immersing yourself in the beauty and excitement of
+                one of the world&apos;s most stunning destinations. Each tour is
+                a perfect blend of comfort, excitement, and awe-inspiring
+                moments.
+              </p>
+
+              <div className="mt-5">
+                <Link
+                  href="/contact#BOOK"
+                  className="btn mr-2 rounded-none bg-white text-black"
+                >
+                  Book a Tour
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center">
+          <div className="">
             <Image
               className="shadow-xl"
               src="/images/tours/hero.jpg"
@@ -51,6 +64,24 @@ export default async function ToursPage() {
               width="1000"
               height="600"
             />
+            <div className="block pt-10 md:hidden">
+              <p className="text-lg">
+                Welcome to the heart of New Zealand adventure! At Can NZ Tours,
+                we specialize in unforgettable guided tours across the
+                breathtaking landscapes of the South Island. From the serene
+                waters of Milford Sound to the panoramic views of Mt Cook, our
+                expert guides ensure you experience New Zealand to it&apos;s
+                full potential.
+              </p>
+              <div className="mt-10 flex justify-center">
+                <Link
+                  href="/contact#BOOK"
+                  className="btn mr-2 rounded-none bg-white text-black"
+                >
+                  Book a Tour
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

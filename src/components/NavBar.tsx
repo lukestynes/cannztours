@@ -91,7 +91,7 @@ export default function NavBar() {
             <li>
               <Link
                 href="/tours"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 Our Tours
@@ -100,7 +100,7 @@ export default function NavBar() {
             <li>
               <Link
                 href="/homestay"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 Homestay
@@ -109,7 +109,7 @@ export default function NavBar() {
             <li>
               <Link
                 href="/client-reviews"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 Client Reviews
@@ -118,7 +118,7 @@ export default function NavBar() {
             <li>
               <Link
                 href="/about"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 About
