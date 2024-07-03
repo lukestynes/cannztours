@@ -55,11 +55,11 @@ export default async function TourPage({
     notFound();
   }
 
-  const itinerary = tour.itinerary.map((item) => item.split(": "));
-  const pricing = tour.pricing.map((item) => item.split(": "));
+  const itinerary = tour.itinerary.map((item) => item.split("| "));
+  const pricing = tour.pricing.map((item) => item.split("| "));
   let optionalExtras;
   if (tour.optionalExtras) {
-    optionalExtras = tour.optionalExtras.map((item) => item.split(": "));
+    optionalExtras = tour.optionalExtras.map((item) => item.split("| "));
   }
   const imagesCollection: string[] = tour.imagesCollection.items.map(
     (item) => item.url,

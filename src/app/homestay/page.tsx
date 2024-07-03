@@ -22,7 +22,7 @@ export default async function HomestayPage() {
   const blurb = data.blurb.split("\n\n");
   const description = data.description.split("\n\n");
   const activities = data.activities.map(
-    (item: string) => item.split(": ") as [string, string],
+    (item: string) => item.split("| ") as [string, string],
   );
   const imagesCollection: string[] = data.imagesCollection.items.map(
     (item) => item.url,
