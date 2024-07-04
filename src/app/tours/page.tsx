@@ -1,3 +1,4 @@
+import TourCards from "@/components/TourCards";
 import { getTourCards } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
@@ -112,48 +113,7 @@ export default async function ToursPage() {
       </div>
       <div id="full-day" className="pt-10">
         <h2 className="text-center text-4xl font-medium">Our Tour Options:</h2>
-        <div className="w-52"></div>
-        <div className="flex justify-center px-7 py-10">
-          <div className="grid max-w-6xl grid-cols-1 justify-center gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {tourCards.map((card, index) => (
-              <div
-                key={index}
-                className="hover-card card max-w-96 rounded-none bg-neutral-100 text-center shadow"
-              >
-                <Link
-                  href={`/tours/${card.urlSlug}`}
-                  className="card rounded-none"
-                >
-                  <figure>
-                    <Image
-                      src={card.thumbnail.url}
-                      width="450"
-                      height="300"
-                      alt="Tour photo"
-                    />
-                  </figure>
-                  <div className="card-body">
-                    <div className="card-title grid-cols-2 items-start justify-between">
-                      <p className="link-hover w-2/3 text-left">{card.title}</p>
-                      <p className="w-1/3 text-right">
-                        <span className="text-sm font-normal">From</span> $
-                        {card.price}
-                      </p>
-                    </div>
-                    <p className="text-left">{card.tagline}</p>
-                    <div className="mt-3 flex flex-row gap-2">
-                      {card.tags.map((badge, index) => (
-                        <span key={index} className="badge">
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
+        <TourCards tourCards={tourCards} />
       </div>
     </div>
   );
