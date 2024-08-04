@@ -8,8 +8,9 @@ import {
   type HomestayCollectionResponse,
   type GraphQLErrorResponse,
   TourNameCollection,
-  TourOrderingResponse,
+  type TourOrderingResponse,
   TourOrderingItem,
+  type TourOrderItem,
 } from "@/types/contentful";
 
 async function fetchGraphQl<T>(

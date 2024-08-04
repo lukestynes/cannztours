@@ -2,6 +2,8 @@ import ReviewStack from "@/components/ReviewStack";
 import Image from "next/image";
 import Link from "next/link";
 import { type Metadata } from "next";
+import { type Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
 
 const confidenceCards = [
   {
@@ -61,7 +63,14 @@ export const metadata: Metadata = {
     "Explore the beauty of New Zealand's South Island with CanNZ Tours. Offering personalised tours in both English and Japanese, I cater to your desires with experiences from vibrant city life to breathtaking natural wonders. Book your unforgettable journey today!",
 };
 
-export default function HomePage() {
+export default async function HomePage({
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
+  const { page } = await getDictionary(lang);
+  console.log("Result: ", page);
+
   return (
     <main className="">
       {/* Hero Section min-h-[calc(100vh-80px)]*/}

@@ -2,9 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { type Locale } from "@/i18n.config";
+import CustomLink from "./CustomLink";
+import LocaleSwitcher from "./LocaleSwitcher";
 
-export default function NavBar() {
+export default function NavBar({ lang }: { lang: Locale }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const showJapaneseFlag = lang === "en";
 
   const handleClick = () => {
     const elem = document.activeElement as HTMLElement;
@@ -18,8 +23,9 @@ export default function NavBar() {
   return (
     <nav className="fixed start-0 top-0 z-20 w-full border-b bg-neutral-50">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <Link
+        <CustomLink
           href="/"
+          lang={lang}
           className="flex items-center space-x-3 rtl:space-x-reverse"
           onClick={() => {
             if (dropdownOpen) {
@@ -34,22 +40,16 @@ export default function NavBar() {
             width="75"
             height="75"
           />
-        </Link>
+        </CustomLink>
         <div className="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-          <Link href="#">
-            <Image
-              src="/icons/japan.svg"
-              width={80}
-              height={40}
-              alt="Japanese"
-            />
-          </Link>
-          <Link
+          <LocaleSwitcher />
+          <CustomLink
             className="btn btn-primary rounded-none text-white"
             href="/contact"
+            lang={lang}
           >
             Contact Us
-          </Link>
+          </CustomLink>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -89,40 +89,44 @@ export default function NavBar() {
         >
           <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-neutral-50 md:p-0 rtl:space-x-reverse">
             <li>
-              <Link
+              <CustomLink
+                lang={lang}
                 href="/tours"
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 Our Tours
-              </Link>
+              </CustomLink>
             </li>
             <li>
-              <Link
+              <CustomLink
+                lang={lang}
                 href="/homestay"
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 Homestay
-              </Link>
+              </CustomLink>
             </li>
             <li>
-              <Link
+              <CustomLink
+                lang={lang}
                 href="/client-reviews"
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 Client Reviews
-              </Link>
+              </CustomLink>
             </li>
             <li>
-              <Link
+              <CustomLink
+                lang={lang}
                 href="/about"
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
                 About
-              </Link>
+              </CustomLink>
             </li>
           </ul>
         </div>
