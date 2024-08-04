@@ -10,50 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContactUsPage() {
-  // const [selectedOption, setSelectedOption] = useState("");
-  // const [state, setState] = useState(initState);
-  //
-  // const { values } = state;
-  //
-  // const handleChange = (
-  //   event: ChangeEvent<
-  //     HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-  //   >,
-  // ) => {
-  //   const { target } = event;
-  //   setState((prev) => ({
-  //     ...prev,
-  //     values: {
-  //       ...prev.values,
-  //       [target.name]: target.value,
-  //     },
-  //   }));
-  // };
-  //
-  // const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   console.log("Data");
-  //   console.log("Test: ", values);
-  //   await sendContactForm(values);
-  // };
-  //
-  // const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setSelectedOption(event.target.value);
-  //
-  //   if (event.target.value !== "Book a Tour") {
-  //     setState((prev) => ({
-  //       ...prev,
-  //       values: {
-  //         ...prev.values,
-  //         tour: "",
-  //       },
-  //     }));
-  //   }
-  // };
-
   return (
     <div style={{ marginTop: "80px" }} key={1} className="pb-10">
-      <div className="flex justify-center bg-secondary">
+      <div className="flex justify-center bg-secondary text-white">
         <div className="max-w-7xl justify-center px-10 py-10">
           <div className="grid gap-10 md:grid-cols-2">
             <div className="my-auto flex flex-col items-center">

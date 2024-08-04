@@ -1,4 +1,4 @@
-import EmblaCarousel from "@/components/EmblaCarousel";
+import ImageCarousel from "@/components/ImageCarousel";
 import { getHomestayPage } from "@/lib/contentful";
 import { type HomestayItem } from "@/types/contentful";
 import { type Metadata } from "next";
@@ -22,7 +22,7 @@ export default async function HomestayPage() {
   const blurb = data.blurb.split("\n\n");
   const description = data.description.split("\n\n");
   const activities = data.activities.map(
-    (item: string) => item.split(": ") as [string, string],
+    (item: string) => item.split("|") as [string, string],
   );
   const imagesCollection: string[] = data.imagesCollection.items.map(
     (item) => item.url,
@@ -31,44 +31,56 @@ export default async function HomestayPage() {
   return (
     <div style={{ marginTop: "80px" }}>
       {/* Hero Section */}
-      <div className="flex justify-center bg-secondary">
-        <div className="mx-5 my-10 grid max-w-7xl bg-secondary py-5 lg:grid-cols-2">
+      <div className="flex justify-center bg-secondary text-white">
+        <div className="mx-5 my-10 grid max-w-7xl grid-cols-1 py-5 lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <div className="">
               <h2 className="pb-10 text-5xl font-medium">Homestay</h2>
-              {blurb.map((paragraph: string, index: number) => (
-                <p key={index} className="text-lg md:pr-10">
-                  {paragraph}
-                  <br />
-                  <br />
-                </p>
-              ))}
-            </div>
-            <div className="justify-left hidden md:flex">
-              <Link
-                href="/contact-us"
-                className="btn btn-info mt-3 rounded-none text-white"
-              >
-                Enquire Now!
-              </Link>
+              <div className="hidden lg:block">
+                {blurb.map((paragraph: string, index: number) => (
+                  <p key={index} className="text-lg lg:pr-10">
+                    {paragraph}
+                    <br />
+                    <br />
+                  </p>
+                ))}
+              </div>
+              <div className="justify-left hidden lg:flex">
+                <Link
+                  href="/contact"
+                  className="btn mt-3 rounded-none bg-white text-black"
+                >
+                  Enquire Now!
+                </Link>
+              </div>
             </div>
           </div>
           <div>
-            <EmblaCarousel images={imagesCollection} />
-          </div>
-          <div className="flex justify-center pt-5 md:hidden">
-            <Link
-              href="/contact-us"
-              className="btn btn-info mt-3 rounded-none text-white"
-            >
-              Enquire Now!
-            </Link>
+            <ImageCarousel images={imagesCollection} />
+            <div className="block pt-10 lg:hidden">
+              {/* {blurb.map((paragraph: string, index: number) => ( */}
+              {/*   <p key={index} className="text-lg lg:pr-10"> */}
+              {/*     {paragraph} */}
+              {/*     <br /> */}
+              {/*     <br /> */}
+              {/*   </p> */}
+              {/* ))} */}
+              {<p className="text-lg ">{blurb[0]}</p>}
+              <div className="flex justify-center pt-5 lg:hidden">
+                <Link
+                  href="/contact"
+                  className="btn mt-3 rounded-none bg-white text-black"
+                >
+                  Enquire Now!
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       {/* Rest of the Details */}
-      <div className="bg-neutral-100 px-5 py-5">
-        <div className="card mx-auto max-w-7xl rounded-none bg-white p-5 shadow">
+      <div className="px-5 py-5">
+        <div className="card mx-auto max-w-7xl rounded-none bg-white p-5 shadow-xl">
           <h2 className="mb-5 flex text-2xl font-medium">
             <Image
               className="mr-2"
@@ -88,7 +100,7 @@ export default async function HomestayPage() {
           ))}
         </div>
         <div className="mx-auto max-w-7xl gap-2 md:grid md:grid-cols-5">
-          <div className="card my-2 rounded-none bg-white p-5 shadow md:col-span-3">
+          <div className="card my-2 rounded-none bg-white p-5 shadow-xl md:col-span-3">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"
@@ -121,7 +133,7 @@ export default async function HomestayPage() {
             </div>
           </div>
 
-          <div className="card my-2 w-full rounded-none bg-white p-5 shadow md:col-span-2">
+          <div className="card my-2 w-full rounded-none bg-white p-5 shadow-xl md:col-span-2">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"
@@ -151,7 +163,7 @@ export default async function HomestayPage() {
           </div>
         </div>
         <div className="mx-auto max-w-7xl">
-          <div className="card mb-2 w-full rounded-none bg-white p-5 shadow">
+          <div className="card mb-2 w-full rounded-none bg-white p-5 shadow-xl">
             <h2 className="mb-5 flex text-2xl font-medium">
               <Image
                 className="mr-2"

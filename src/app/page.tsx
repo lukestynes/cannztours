@@ -42,7 +42,7 @@ const tourCards = [
     title: "Half Day Tours",
     imageSrc: "/images/home/half-day.jpg",
     description:
-      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that&apos;s right for you.",
+      "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
     link: "/tours/#half-day",
   },
   {
@@ -65,13 +65,13 @@ export default function HomePage() {
   return (
     <main className="">
       {/* Hero Section min-h-[calc(100vh-80px)]*/}
-      <div className="hero flex h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
+      <div className="hero flex min-h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
           <div className="max-w-7xl grid-rows-2">
             <div className="py-5 md:columns-2 md:gap-10">
               <div className="pt-5">
                 <h1 className="mt-3 text-4xl font-medium md:text-6xl">
-                  Discover the beauty <br /> of the South Island
+                  Personalised <br /> Guided Tours <br /> of the South Island
                 </h1>
               </div>
               <div className="pt-8">
@@ -82,7 +82,7 @@ export default function HomePage() {
                 </p>
                 <div className="hidden justify-center pt-5 md:flex md:justify-start">
                   <Link
-                    href="/contact-us"
+                    href="/contact"
                     className="btn btn-primary mr-2 rounded-none text-white"
                   >
                     Book a Tour
@@ -104,10 +104,11 @@ export default function HomePage() {
                 alt="New Zealand mountain range"
                 width="1400"
                 height="800"
+                priority
               />
               <div className="flex justify-center pt-5 md:hidden">
                 <Link
-                  href="/contact-us"
+                  href="/contact"
                   className="btn btn-primary mr-2 rounded-none text-white"
                 >
                   Book a Tour
@@ -125,7 +126,7 @@ export default function HomePage() {
         </div>
       </div>
       {/* Your Personal Tour Guide */}
-      <div className="hero bg-secondary px-7 py-10">
+      <div className="hero bg-neutral px-7 py-10 text-white">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
             className="shadow-lg"
@@ -159,7 +160,7 @@ export default function HomePage() {
             <div className="flex justify-center pt-10 md:justify-center">
               <Link
                 href="/about"
-                className="btn-dark btn  btn-outline rounded-none text-black"
+                className="btn  btn-outline rounded-none text-white"
               >
                 Learn About Me
               </Link>
@@ -215,7 +216,7 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10 py-10">
           {confidenceCards.slice(0, 2).map((card) => (
             <div
-              className="card w-96 bg-neutral-100 text-center shadow"
+              className="card mx-5 w-96 bg-neutral-100 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
@@ -238,14 +239,14 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-10">
           {confidenceCards.slice(2, 4).map((card) => (
             <div
-              className="card w-96 bg-neutral-50 text-center shadow"
+              className="card mx-5 w-96 bg-neutral-50 text-center shadow"
               key={card.title}
             >
               <figure className="card-body">
                 <Image
                   src={card.image}
-                  width="90"
-                  height="90"
+                  width="100"
+                  height="100"
                   alt="Tour photo"
                 />
               </figure>

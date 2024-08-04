@@ -1,5 +1,6 @@
 "use client";
 import { sendContactForm } from "@/lib/api";
+import Image from "next/image";
 import React, { useState, type ChangeEvent } from "react";
 
 const initValues = {
@@ -15,6 +16,9 @@ const initState = { values: initValues };
 export default function ContactForm() {
   const [selectedOption, setSelectedOption] = useState("");
   const [state, setState] = useState(initState);
+  const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFailure, setShowFailure] = useState(false);
 
   const { values } = state;
 
@@ -34,10 +38,23 @@ export default function ContactForm() {
   };
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
+    setShowSuccess(false);
+    setShowFailure(false);
+
     event.preventDefault();
-    console.log("Data");
-    console.log("Test: ", values);
-    await sendContactForm(values);
+    const res = await sendContactForm(values);
+
+    if (res.ok) {
+      setLoading(false);
+      setShowSuccess(true);
+      setShowFailure(false);
+      setState(initState);
+    } else {
+      setLoading(false);
+      setShowSuccess(false);
+      setShowFailure(true);
+    }
   };
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -57,7 +74,37 @@ export default function ContactForm() {
   return (
     <div>
       <h2 className="pb-5 text-center text-4xl font-medium">Contact Me</h2>
-      <form className="mx-auto w-full max-w-lg" onSubmit={onSubmit}>
+      <div className="flex  justify-center">
+        {showSuccess && (
+          <div
+            role="alert"
+            className="alert alert-success max-w-3xl text-white"
+          >
+            <Image src="/icons/tick-white.svg" alt="" width="24" height="24" />
+            <span>Your message has been sent!</span>
+          </div>
+        )}
+        {showFailure && (
+          <div role="alert" className="alert alert-error max-w-3xl text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>Something went wrong, please try again!</span>
+          </div>
+        )}
+      </div>
+
+      <form className="mx-auto w-full max-w-3xl" onSubmit={onSubmit}>
         <label className="form-control mb-4 w-full">
           <div className="label">
             <span className="label-text">Full Name</span>
@@ -139,8 +186,14 @@ export default function ContactForm() {
           ></textarea>
         </label>
         <div className="flex justify-center">
-          <button className="btn btn-primary mt-5 rounded-none font-normal text-white">
+          <button
+            className="btn btn-primary mt-5 rounded-none font-normal text-white"
+            disabled={loading}
+          >
             Send Message
+            {loading && (
+              <span className="loading loading loading-spinner"></span>
+            )}
           </button>
         </div>
       </form>

@@ -1,4 +1,6 @@
+import TourCards from "@/components/TourCards";
 import { getTourCards, getTourOrdering } from "@/lib/contentful";
+import { type TourOrderItem } from "@/types/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,46 +16,76 @@ export const metadata: Metadata = {
 export default async function ToursPage() {
   const tourCards = await getTourCards();
   const tourOrder = await getTourOrdering();
-  console.log("Order" + tourOrder);
-  console.log(tourOrder[0]);
 
-  if (!tourCards) {
+  if (!tourCards || !tourOrder) {
     return notFound();
   }
 
   return (
-    <div style={{ marginTop: "80px" }}>
-      <div className="flex justify-center bg-secondary px-10 py-10">
+    <div style={{ marginTop: "80px" }} className="min-h-screen">
+      <div className="flex min-h-[calc(100vh-80px)] justify-center bg-secondary px-10 py-10 text-white md:min-h-0">
         <div className="grid max-w-7xl gap-10 md:grid-cols-2">
-          <div className="my-auto flex flex-col items-center">
-            <h1 className="w-full pb-10 text-left text-5xl font-medium">
+          <div className="my-auto flex flex-col">
+            <h1 className="w-full text-left text-5xl font-medium md:pb-10">
               Our Tours
             </h1>
-            <p className="text-lg">
-              Welcome to the heart of New Zealand adventure! At Can NZ Tours, we
-              specialize in unforgettable guided tours across the breathtaking
-              landscapes of the South Island. From the serene waters of Milford
-              Sound to the panoramic views of Mt Cook, our expert guides ensure
-              you experience New Zealand to it&apos;s full potential.
-            </p>
-            <br />
-            <p className="text-lg">
-              Experience the vibrant wildlife, rich history, and warm local
-              culture with packages that include everything from hiking and
-              cycling to boat tours and helicopter rides. With Can NZ Tours,
-              you&apos;re immersing yourself in the beauty and excitement of one
-              of the world&apos;s most stunning destinations. Each tour is a
-              perfect blend of comfort, excitement, and awe-inspiring moments.
-            </p>
+            <div className="hidden md:block">
+              <p className="text-lg">
+                Welcome to the heart of New Zealand adventure! At Can NZ Tours,
+                we specialize in unforgettable guided tours across the
+                breathtaking landscapes of the South Island. From the serene
+                waters of Milford Sound to the panoramic views of Mt Cook, our
+                expert guides ensure you experience New Zealand to it&apos;s
+                full potential.
+              </p>
+              <br />
+              <p className="text-lg">
+                Experience the vibrant wildlife, rich history, and warm local
+                culture with packages that include everything from hiking and
+                cycling to boat tours and helicopter rides. With Can NZ Tours,
+                you&apos;re immersing yourself in the beauty and excitement of
+                one of the world&apos;s most stunning destinations. Each tour is
+                a perfect blend of comfort, excitement, and awe-inspiring
+                moments.
+              </p>
+
+              <div className="mt-5">
+                <Link
+                  href="/contact#BOOK"
+                  className="btn mr-2 rounded-none bg-white text-black"
+                >
+                  Book a Tour
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center">
+          <div className="">
             <Image
               className="shadow-xl"
               src="/images/tours/hero.jpg"
               alt="Sunset photo"
               width="1000"
               height="600"
+              priority
             />
+            <div className="block pt-10 md:hidden">
+              <p className="text-lg">
+                Welcome to the heart of New Zealand adventure! At Can NZ Tours,
+                we specialize in unforgettable guided tours across the
+                breathtaking landscapes of the South Island. From the serene
+                waters of Milford Sound to the panoramic views of Mt Cook, our
+                expert guides ensure you experience New Zealand to it&apos;s
+                full potential.
+              </p>
+              <div className="mt-10 flex justify-center">
+                <Link
+                  href="/contact#BOOK"
+                  className="btn mr-2 rounded-none bg-white text-black"
+                >
+                  Book a Tour
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +105,7 @@ export default async function ToursPage() {
           </p>
           <div className="mt-5 flex justify-center">
             <Link
-              href="/contact-us"
+              href="/contact"
               className="btn btn-primary mr-2 rounded-none text-white"
             >
               Book a Custom Tour
@@ -83,48 +115,7 @@ export default async function ToursPage() {
       </div>
       <div id="full-day" className="pt-10">
         <h2 className="text-center text-4xl font-medium">Our Tour Options:</h2>
-        <div className="w-52"></div>
-        <div className="flex justify-center px-7 py-10">
-          <div className="grid max-w-6xl grid-cols-1 justify-center gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {tourCards.map((card, index) => (
-              <div
-                key={index}
-                className="hover-card card max-w-96 rounded-none bg-neutral-100 text-center shadow"
-              >
-                <Link
-                  href={`/tours/${card.urlSlug}`}
-                  className="card rounded-none"
-                >
-                  <figure>
-                    <Image
-                      src={card.thumbnail.url}
-                      width="450"
-                      height="300"
-                      alt="Tour photo"
-                    />
-                  </figure>
-                  <div className="card-body">
-                    <div className="card-title grid-cols-2 items-start justify-between">
-                      <p className="link-hover w-2/3 text-left">{card.title}</p>
-                      <p className="w-1/3 text-right">
-                        <span className="text-sm font-normal">From</span> $
-                        {card.price}
-                      </p>
-                    </div>
-                    <p className="text-left">{card.tagline}</p>
-                    <div className="mt-3 flex flex-row gap-2">
-                      {card.tags.map((badge, index) => (
-                        <span key={index} className="badge">
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
+        <TourCards tourCards={tourCards} tourOrder={tourOrder} />
       </div>
     </div>
   );

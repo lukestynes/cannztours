@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { DM_Sans } from "next/font/google";
 import { Source_Serif_4 } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -31,8 +32,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${sourceSerif4.variable} ${dmSans.variable}`}>
-      <Analytics />
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg" sizes="any" />
+      </head>
       <body>
+        <Analytics />
+        <SpeedInsights />
         <NavBar />
         {children}
         <Footer />

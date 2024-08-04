@@ -45,7 +45,6 @@ export async function POST(request: NextRequest) {
         ...generateEmailContent(data),
         subject: `Website Contact: ${data.messageType}`,
       });
-      console.log("Email should have sent!!");
     } catch (error) {
       console.log(error);
       return NextResponse.json(
@@ -53,7 +52,7 @@ export async function POST(request: NextRequest) {
         { status: 500 },
       );
     }
-
+    console.log("Email has been sent");
     return NextResponse.json({ success: true, receivedData: data });
   } catch (error) {
     return NextResponse.json(
