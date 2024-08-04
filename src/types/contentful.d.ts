@@ -38,9 +38,14 @@ export interface HomestayCollectionResponse {
   };
 }
 
+interface sys {
+  id: string;
+}
+
 // Tours
 export interface Tour {
   title: string;
+  sys: sys;
   urlSlug: string;
   blurb: string;
   highlights: string[];
@@ -100,4 +105,21 @@ export interface TourCardCollectionResponse {
   tourCollection: {
     items: TourCardItem[];
   };
+}
+
+export interface TourOrderItem {
+  sys: sys;
+  title: string;
+}
+
+export interface TourNameCollection {
+  items: Array<TourOrderItem>;
+}
+
+export interface TourOrderingCollection {
+  items: Array<TourNameCollection>;
+}
+
+export interface TourOrderingResponse {
+  tourOrderingCollection: TourOrderingCollection;
 }

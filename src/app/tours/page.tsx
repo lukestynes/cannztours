@@ -1,4 +1,4 @@
-import { getTourCards } from "@/lib/contentful";
+import { getTourCards, getTourOrdering } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
 
 export default async function ToursPage() {
   const tourCards = await getTourCards();
+  const tourOrder = await getTourOrdering();
+  console.log("Order" + tourOrder);
+  console.log(tourOrder[0]);
 
   if (!tourCards) {
     return notFound();

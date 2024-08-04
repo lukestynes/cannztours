@@ -7,6 +7,9 @@ import {
   type HomestayItem,
   type HomestayCollectionResponse,
   type GraphQLErrorResponse,
+  TourNameCollection,
+  TourOrderingResponse,
+  TourOrderingItem,
 } from "@/types/contentful";
 
 async function fetchGraphQl<T>(
@@ -46,7 +49,7 @@ async function fetchGraphQl<T>(
 export async function getAllTours(): Promise<Tour[] | undefined> {
   const tours = await fetchGraphQl<TourCollectionResponse>(
     "tours",
-    "query { tourCollection { items { title urlSlug blurb highlights timeLength distance price departureLocation departureTime itinerary inclusions optionalExtras pricing description imagesCollection { items { url }}} } }",
+    "query { tourCollection { items { sys { id } title urlSlug blurb highlights timeLength distance price departureLocation departureTime itinerary inclusions optionalExtras pricing description imagesCollection { items { url }}} } }",
   );
 
   if (!tours) {
@@ -80,4 +83,19 @@ export async function getHomestayPage(): Promise<HomestayItem | undefined> {
   }
 
   return homestay.homestayCollection.items[0];
+}
+
+export async function getTourOrdering(): Promise<
+  Array<TourOrderItem> | undefined
+> {
+  const tourOrdering = await fetchGraphQl<TourOrderingResponse>(
+    "tourOrdering",
+    "query { tourOrderingCollection {  items { tourNameCollection { items { sys { id } title } } } } }",
+  );
+
+  if (!tourOrdering) {
+    return undefined;
+  }
+
+  return tourOrdering.tourOrderingCollection.items[0].tourNameCollection.items;
 }
