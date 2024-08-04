@@ -28,9 +28,6 @@ export default function TourCards({
     );
   });
 
-  console.log("sorted");
-  console.log(sortedTourCards);
-
   const filteredCards = sortedTourCards.filter((card) => {
     return filter === "all" || card.tags.includes(filter);
   });

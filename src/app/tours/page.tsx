@@ -21,6 +21,18 @@ export default async function ToursPage() {
     return notFound();
   }
 
+  // Create a map for quick lookup of the order index
+  const tourOrderMap = new Map(
+    tourOrder.map((item: TourOrderItem, index) => [item.title, index]),
+  );
+
+  // Custom sorting function
+  const sortedTourCards = tourCards.sort((a, b) => {
+    return (
+      (tourOrderMap.get(a.title) ?? -1) - (tourOrderMap.get(b.title) ?? -1)
+    );
+  });
+
   return (
     <div style={{ marginTop: "80px" }} className="min-h-screen">
       <div className="flex min-h-[calc(100vh-80px)] justify-center bg-secondary px-10 py-10 text-white md:min-h-0">
