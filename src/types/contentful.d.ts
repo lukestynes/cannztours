@@ -107,25 +107,54 @@ export interface TourCardCollectionResponse {
   };
 }
 
+// Tour Ordering
+export interface TourOrderingResponse {
+  tourOrderingCollection: TourOrderingCollection;
+}
+
+export interface TourOrderingCollection {
+  items: TourOrderingCollectionItem[];
+}
+
+export interface TourOrderingCollectionItem {
+  tourNameCollection: TourNameCollection;
+}
+
+export interface TourNameCollection {
+  items: TourOrderItem[];
+}
+
 export interface TourOrderItem {
   sys: sys;
   title: string;
 }
 
-export interface TourNameCollection {
-  items: Array<TourOrderItem>;
-}
+//
+// export interface TourOrderItem {
+//   sys: sys;
+//   title: string;
+// }
+//
+// export interface TourNameCollection {
+//   items: Array<TourOrderItem>;
+// }
+//
+// export interface TourOrderingCollection {
+//   items: Array<TourNameCollection>;
+// }
+//
+// export interface TourOrderingResponse {
+//   tourOrderingCollection: TourOrderingCollection;
+// }
 
-export interface TourOrderingCollection {
-  items: Array<TourNameCollection>;
-}
-
-export interface TourOrderingResponse {
-  tourOrderingCollection: TourOrderingCollection;
-}
+// Home Page
 
 export interface HomePageResponse {
   homePageCollection: HomePageCollection;
+}
+
+export interface HomePageCollection {
+  items: Array<HomePageItem>;
 }
 
 export interface HomePageItem {
@@ -157,6 +186,20 @@ export interface HomePageItem {
   testimonialButton: string;
 }
 
-export interface HomePageCollection {
-  items: Array<HomePageItem>;
+export interface TourPageResponse {
+  tourPageCollection: TourPageCollection;
+}
+
+export interface TourPageCollection {
+  items: TourPageItem[];
+}
+
+export interface TourPageItem {
+  title: string;
+  blurb: string;
+  bookTourButton: string;
+  customTours: string;
+  customToursDescription: string;
+  bookACustomTourButton: string;
+  tourOptions: string;
 }

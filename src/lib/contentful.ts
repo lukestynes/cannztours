@@ -12,6 +12,8 @@ import {
   type TourOrderItem,
   type HomePageItem,
   type HomePageResponse,
+  type TourPageItem,
+  type TourPageResponse,
 } from "@/types/contentful";
 
 async function fetchGraphQl<T>(
@@ -87,22 +89,18 @@ export async function getHomestayPage(): Promise<HomestayItem | undefined> {
   return homestay.homestayCollection.items[0];
 }
 
-// export async function getTourOrdering(): Promise<
-//   Array<TourOrderItem> | undefined
-// > {
-//   const tourOrdering = await fetchGraphQl<TourOrderingResponse>(
-//     "tourOrdering",
-//     "query { tourOrderingCollection {  items { tourNameCollection { items { sys { id } title } } } } }",
-//   );
-//
-//   const strippedTourOrdering = tourOrdering?.tourOrderingCollection?.items?.[0]?.tourNameCollection?.items?;
-//
-//   if (!tourOrdering) {
-//     return undefined;
-//   }
-//
-//   return tourOrdering.tourOrderingCollection.items[0].tourNameCollection.items;
-// }
+export async function getTourOrdering(): Promise<TourOrderItem[] | undefined> {
+  const tourOrdering = await fetchGraphQl<TourOrderingResponse>(
+    "tourOrdering",
+    "query { tourOrderingCollection {  items { tourNameCollection { items { sys { id } title } } } } }",
+  );
+
+  if (!tourOrdering) {
+    return undefined;
+  }
+
+  return tourOrdering.tourOrderingCollection.items[0]?.tourNameCollection.items;
+}
 
 export async function getHomePage(
   lang: Locale,
@@ -117,4 +115,19 @@ export async function getHomePage(
   }
 
   return homePageResponse?.homePageCollection.items[0];
+}
+
+export async function getTourPage(
+  lang: Locale,
+): Promise<TourPageItem | undefined> {
+  const tourPageResponse = await fetchGraphQl<TourPageResponse>(
+    "tourPage",
+    `query { tourPageCollection(locale: \"${lang}\") {  items { title blurb bookTourButton customTours customToursDescription bookACustomTourButton tourOptions } } }`,
+  );
+
+  if (!tourPageResponse) {
+    return undefined;
+  }
+
+  return tourPageResponse?.tourPageCollection.items[0];
 }

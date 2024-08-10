@@ -1,10 +1,11 @@
+import CustomLink from "@/components/CustomLink";
 import TourCards from "@/components/TourCards";
-import { getTourCards, getTourOrdering } from "@/lib/contentful";
-import { type TourOrderItem } from "@/types/contentful";
+import { type Locale } from "@/i18n.config";
+import { getTourCards, getTourOrdering, getTourPage } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import React from "react";
 
 export const metadata: Metadata = {
   title:
@@ -13,25 +14,18 @@ export const metadata: Metadata = {
     "Discover a variety of guided tours across New Zealand's South Island with CanNZ Tours. Experience the best attractions and hidden gems. Custom tours are available on request.",
 };
 
-export default async function ToursPage() {
+export default async function ToursPage({
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
   const tourCards = await getTourCards();
   const tourOrder = await getTourOrdering();
+  const tourPageData = await getTourPage(lang);
 
   if (!tourCards || !tourOrder) {
     return notFound();
   }
-
-  // Create a map for quick lookup of the order index
-  const tourOrderMap = new Map(
-    tourOrder.map((item: TourOrderItem, index) => [item.title, index]),
-  );
-
-  // Custom sorting function
-  const sortedTourCards = tourCards.sort((a, b) => {
-    return (
-      (tourOrderMap.get(a.title) ?? -1) - (tourOrderMap.get(b.title) ?? -1)
-    );
-  });
 
   return (
     <div style={{ marginTop: "80px" }} className="min-h-screen">
@@ -39,35 +33,18 @@ export default async function ToursPage() {
         <div className="grid max-w-7xl gap-10 md:grid-cols-2">
           <div className="my-auto flex flex-col">
             <h1 className="w-full text-left text-5xl font-medium md:pb-10">
-              Our Tours
+              {tourPageData?.title}
             </h1>
             <div className="hidden md:block">
-              <p className="text-lg">
-                Welcome to the heart of New Zealand adventure! At Can NZ Tours,
-                we specialize in unforgettable guided tours across the
-                breathtaking landscapes of the South Island. From the serene
-                waters of Milford Sound to the panoramic views of Mt Cook, our
-                expert guides ensure you experience New Zealand to it&apos;s
-                full potential.
-              </p>
-              <br />
-              <p className="text-lg">
-                Experience the vibrant wildlife, rich history, and warm local
-                culture with packages that include everything from hiking and
-                cycling to boat tours and helicopter rides. With Can NZ Tours,
-                you&apos;re immersing yourself in the beauty and excitement of
-                one of the world&apos;s most stunning destinations. Each tour is
-                a perfect blend of comfort, excitement, and awe-inspiring
-                moments.
-              </p>
-
+              <p>{tourPageData?.blurb}</p>
               <div className="mt-5">
-                <Link
+                <CustomLink
+                  lang={lang}
                   href="/contact#BOOK"
                   className="btn mr-2 rounded-none bg-white text-black"
                 >
-                  Book a Tour
-                </Link>
+                  {tourPageData?.bookTourButton}
+                </CustomLink>
               </div>
             </div>
           </div>
@@ -81,21 +58,15 @@ export default async function ToursPage() {
               priority
             />
             <div className="block pt-10 md:hidden">
-              <p className="text-lg">
-                Welcome to the heart of New Zealand adventure! At Can NZ Tours,
-                we specialize in unforgettable guided tours across the
-                breathtaking landscapes of the South Island. From the serene
-                waters of Milford Sound to the panoramic views of Mt Cook, our
-                expert guides ensure you experience New Zealand to it&apos;s
-                full potential.
-              </p>
+              <p className="text-lg">{tourPageData?.blurb}</p>
               <div className="mt-10 flex justify-center">
-                <Link
+                <CustomLink
+                  lang={lang}
                   href="/contact#BOOK"
                   className="btn mr-2 rounded-none bg-white text-black"
                 >
-                  Book a Tour
-                </Link>
+                  {tourPageData?.bookTourButton}
+                </CustomLink>
               </div>
             </div>
           </div>
@@ -104,30 +75,25 @@ export default async function ToursPage() {
       <div id="custom" className="flex justify-center  px-10 py-10">
         <div className="max-w-7xl rounded-xl bg-neutral-100 p-5">
           <h2 className="mb-5  text-center text-4xl font-medium">
-            Custom Tours
+            {tourPageData?.customTours}
           </h2>
-          <p className="text-lg">
-            Custom tours are at the heart of Can NZ Tours. Whether you are
-            staying for a day or a week in the beautiful South Island, we can
-            help you plan the perfect getaway. We will tailor your trip to be
-            exactly what you are looking for. Have a look at the tours below for
-            some inspiration and get in touch with us to organise the perfect
-            customised itinierary for you. All of ours tours can be modified to
-            suit your unique requirements!
-          </p>
+          <p className="text-lg">{tourPageData?.customToursDescription}</p>
           <div className="mt-5 flex justify-center">
-            <Link
+            <CustomLink
+              lang={lang}
               href="/contact"
               className="btn btn-primary mr-2 rounded-none text-white"
             >
-              Book a Custom Tour
-            </Link>
+              {tourPageData?.bookACustomTourButton}
+            </CustomLink>
           </div>
         </div>
       </div>
       <div id="full-day" className="pt-10">
-        <h2 className="text-center text-4xl font-medium">Our Tour Options:</h2>
-        <TourCards tourCards={tourCards} tourOrder={tourOrder} />
+        <h2 className="text-center text-4xl font-medium">
+          {tourPageData?.tourOptions}
+        </h2>
+        <TourCards lang={lang} tourCards={tourCards} tourOrder={tourOrder} />
       </div>
     </div>
   );

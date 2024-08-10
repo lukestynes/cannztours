@@ -1,15 +1,30 @@
 "use client";
+import { type Locale } from "@/i18n.config";
 import type { TourCardItem, TourOrderItem } from "@/types/contentful";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+const filtersEnglish = {
+  all: "All Tours",
+  full: "Full Day Tours",
+  half: "Half Day Tours",
+};
+
+const filtersJapanese = {
+  all: "すべてのツアー",
+  full: "終日ツアー",
+  half: "半日ツアー",
+};
+
 export default function TourCards({
   tourCards,
   tourOrder,
+  lang,
 }: {
   tourCards: TourCardItem[];
   tourOrder: TourOrderItem[];
+  lang: Locale;
 }) {
   const [filter, setFilter] = useState("all");
 
@@ -28,6 +43,9 @@ export default function TourCards({
     );
   });
 
+  console.log("Sorted");
+  console.log(sortedTourCards);
+
   const filteredCards = sortedTourCards.filter((card) => {
     return filter === "all" || card.tags.includes(filter);
   });
@@ -35,20 +53,38 @@ export default function TourCards({
     <div>
       <div className="px-7 py-5">
         <div className="mx-auto max-w-6xl">
-          <label className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">Filter Tours</span>
-            </div>
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="select select-bordered"
-            >
-              <option value="all">All Tours</option>
-              <option value="Full Day">Full Day Tours</option>
-              <option value="Half Day">Half Day Tours</option>
-            </select>
-          </label>
+          {lang === "en-US" && (
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Filter Tours</span>
+              </div>
+              <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="select select-bordered"
+              >
+                <option value="all">All Tours</option>
+                <option value="Full Day">Full Day Tours</option>
+                <option value="Half Day">Half Day Tours</option>
+              </select>
+            </label>
+          )}
+          {lang === "ja" && (
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">フィルターツアー</span>
+              </div>
+              <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="select select-bordered"
+              >
+                <option value="all">{filtersJapanese.all}</option>
+                <option value="Full Day">{filtersJapanese.full}</option>
+                <option value="Half Day">{filtersJapanese.half}</option>
+              </select>
+            </label>
+          )}
         </div>
       </div>
       <div className="flex justify-center px-7 py-10">
