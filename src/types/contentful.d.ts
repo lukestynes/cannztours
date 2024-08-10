@@ -123,3 +123,39 @@ export interface TourOrderingCollection {
 export interface TourOrderingResponse {
   tourOrderingCollection: TourOrderingCollection;
 }
+
+export interface HomePageResponse {
+  homePageCollection: HomePageCollection;
+}
+
+export interface HomePageItem {
+  pageName: string;
+  title: string;
+  subheading: string;
+  bookATourButton: string;
+  learnMoreButton: string;
+  subHeroTitle: string;
+  subHeroDescription: string;
+  toursTitle: string;
+  fullDayToursCardTitle: string;
+  fullDayToursDescription: string;
+  hlafDayToursCardTitle: string;
+  halfDayToursCardDescription: string;
+  customToursCardTitle: string;
+  customToursCardDescription: string;
+  viewToursButton: string;
+  whyChooseMeTitle: string;
+  experienceCardTitle: string;
+  bilingualCardTitle: string;
+  bilingualCardDescription: string;
+  localKnowledgeCard: string;
+  localKnowledgeDescription: string;
+  customTourCard: string;
+  customTourDescription: string;
+  testimonialTitle: string;
+  testimonialButton: string;
+}
+
+export interface HomePageCollection {
+  items: Array<HomePageItem>;
+}

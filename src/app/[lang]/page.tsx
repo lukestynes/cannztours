@@ -4,6 +4,7 @@ import Link from "next/link";
 import { type Metadata } from "next";
 import { type Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
+import { getHomePage } from "@/lib/contentful";
 
 const confidenceCards = [
   {
@@ -68,8 +69,8 @@ export default async function HomePage({
 }: {
   params: { lang: Locale };
 }) {
-  const { page } = await getDictionary(lang);
-  console.log("Result: ", page);
+  const homePageItem = await getHomePage(lang);
+  console.log(homePageItem?.title);
 
   return (
     <main className="">

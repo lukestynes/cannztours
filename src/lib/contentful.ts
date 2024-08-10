@@ -1,3 +1,4 @@
+import { type Locale } from "@/i18n.config";
 import {
   type TourCollectionResponse,
   type GraphQLReturn,
@@ -7,10 +8,10 @@ import {
   type HomestayItem,
   type HomestayCollectionResponse,
   type GraphQLErrorResponse,
-  TourNameCollection,
   type TourOrderingResponse,
-  TourOrderingItem,
   type TourOrderItem,
+  type HomePageItem,
+  type HomePageResponse,
 } from "@/types/contentful";
 
 async function fetchGraphQl<T>(
@@ -86,17 +87,34 @@ export async function getHomestayPage(): Promise<HomestayItem | undefined> {
   return homestay.homestayCollection.items[0];
 }
 
-export async function getTourOrdering(): Promise<
-  Array<TourOrderItem> | undefined
-> {
-  const tourOrdering = await fetchGraphQl<TourOrderingResponse>(
-    "tourOrdering",
-    "query { tourOrderingCollection {  items { tourNameCollection { items { sys { id } title } } } } }",
+// export async function getTourOrdering(): Promise<
+//   Array<TourOrderItem> | undefined
+// > {
+//   const tourOrdering = await fetchGraphQl<TourOrderingResponse>(
+//     "tourOrdering",
+//     "query { tourOrderingCollection {  items { tourNameCollection { items { sys { id } title } } } } }",
+//   );
+//
+//   const strippedTourOrdering = tourOrdering?.tourOrderingCollection?.items?.[0]?.tourNameCollection?.items?;
+//
+//   if (!tourOrdering) {
+//     return undefined;
+//   }
+//
+//   return tourOrdering.tourOrderingCollection.items[0].tourNameCollection.items;
+// }
+
+export async function getHomePage(
+  lang: Locale,
+): Promise<HomePageItem | undefined> {
+  const homePageResponse = await fetchGraphQl<HomePageResponse>(
+    "homePage",
+    `query { homePageCollection(locale: \"${lang}\") {  items { pageName title subheading bookATourButton learnMoreButton subHeroTitle subHeroDescription toursTitle fullDayToursCardTitle fullDayToursDescription halfDayToursCardTitle halfDayToursCardDescription customToursCardTitle customToursCardDescription viewToursButton whyChooseMeTitle experienceCardTitle experienceCardDescription bilingualCardTitle bilingualCardDescription localKnowledgeCard localKnowledgeDescription customTourCard customTourDescription testimonialTitle testimonialButton } } }`,
   );
 
-  if (!tourOrdering) {
+  if (!homePageResponse) {
     return undefined;
   }
 
-  return tourOrdering.tourOrderingCollection.items[0].tourNameCollection.items;
+  return homePageResponse?.homePageCollection.items[0];
 }
