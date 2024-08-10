@@ -1,0 +1,63 @@
+{
+  "navigation": {
+    "tours": "Our Tours",
+    "homestay": "Homestay",
+    "clientReviews": "Client Reviews",
+    "about": "About",
+    "contact": "Contact Us"
+  },
+  "page": {
+    "home": {
+      "pageName": "Home Page",
+      "title": "Personalised <br />Guided Tours <br />of the South Island",
+      "subheading": "Embark on an unforgettable journey with CanNZ Tours, where I bring 25+ years of guiding expertise to showcase the beauty of the South Island of New Zealand.",
+      "bookATourButton": "Book a Tour",
+      "learnMoreButton": "Learn More",
+      "subHeroTitle": "Looking for a personal tour guide?",
+      "subHeroDescription": "Discover the wonders of Christchurch and the South Island with personalized tours in English or Japanese. With over 25 years of experience, CanNZ Tours offers immersive experiences, from vibrant city life to the stunning Southern Alps. Explore Christchurch, enjoy the TranzAlpine train, visit Aoraki Mount Cook, go whale watching in Kaikoura, or indulge in a Waipara winery tour. Whether for a full day, half day, or multi-day adventure, we look forward to welcoming you to our paradise.\n",
+      "toursTitle": "Choose an Unforgettable Experience",
+      "fullDayToursCardTitle": "Full Day Tours",
+      "fullDayToursDescription": " Ride the TranzAlpine train tour, explore the snow peaks of Mount Cook, or watch the whales in Kaikoura! There is something scenice for everyone with our full day tours.",
+      "halfDayToursCardTitle": "Half Day Tours",
+      "halfDayToursCardDescription": "Whether you would like to take a Garden Tour through private and award-winning gardens or discover the many highlights in our Christchurch City Tour – find a tour that's right for you.",
+      "customToursCardTitle": "Custom Tours",
+      "customToursCardDescription": "Want something different? Already have the perfect idea in mind? We can design a custom tour that's personalised and caters to your individual wants and needs.",
+      "viewToursButton": "View Tours",
+      "whyChooseMeTitle": "Why Choose Me?",
+      "experienceCardTitle": "25+ Years Experience",
+      "experienceCardDescription": "With over 25 years of expertise in crafting unforgettable New Zealand adventures, we guarantee a seamless, enriching travel experience tailored to your preferences.",
+      "bilingualCardTitle": "Tours in English or Japanese",
+      "bilingualCardDescription": "Feel at home with our bilingual tours, offered in both English and Japanese, designed to bridge cultures and make every moment of your journey accessible and engaging.",
+      "localKnowledgeCard": "Extensive Local Knowledge",
+      "localKnowledgeDescription": "Dive deep into the heart of New Zealand with us. Our extensive local knowledge unveils hidden gems and authentic experiences far beyond the typical tourist paths.",
+      "customTourCard": "Custom Tours Available",
+      "customTourDescription": "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
+      "testimonialTitle": "See What People Have to Say",
+      "testimonialButton": "View Testimonials",
+      "reviewCards": [
+        {
+          "id": 0,
+          "name": "Lam Z",
+          "designation": "TripAdvisor",
+          "content": "We just completed a tour to Arthur&apos;s Pass today. I would not hesitate to recommend this tour to anyone who wants to sit back, relax, and enjoy the best of NZ's wonderful nature. The organisation of the tour was perfect: Craig tweaked the schedule slightly to suit the weather of the day. Craig is extremely knowledgeable."
+        },
+        {
+          "id": 1,
+          "name": "Benjamin G.",
+          "designation": "TripAdvisor",
+          "content": "Craig was a very good host on our tour around Christchurch. He made sure we were well looked after by providing lots of activities that we could do on our tour around Christchurch and he was very very flexible with our needs. He helped out in as many ways he could always with a big smile on his face - great service. Would recommend."
+        },
+        {
+          "id": 2,
+          "name": "John B",
+          "designation": "TripAdvisor",
+          "content": " Craig picked us up at our hotel and from start to finish he customized our tour to meet our wishes. We drove to Arthur&apos;s Pass where we were served a delightful picnic with views of the mountains. Along the way there and back, he answered a thousand questions about flora, fauna, history, geology, you name it. Craig goes out of his way to make your tour something you will always remember. You can&apos;t go wrong!"
+        }
+      ]
+    },
+    "about": {
+      "title": "About Us",
+      "description": "This is the about page"
+    }
+  }
+}

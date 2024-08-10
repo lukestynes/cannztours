@@ -139,13 +139,14 @@ export interface HomePageItem {
   toursTitle: string;
   fullDayToursCardTitle: string;
   fullDayToursDescription: string;
-  hlafDayToursCardTitle: string;
+  halfDayToursCardTitle: string;
   halfDayToursCardDescription: string;
   customToursCardTitle: string;
   customToursCardDescription: string;
   viewToursButton: string;
   whyChooseMeTitle: string;
   experienceCardTitle: string;
+  experienceCardDescription: string;
   bilingualCardTitle: string;
   bilingualCardDescription: string;
   localKnowledgeCard: string;

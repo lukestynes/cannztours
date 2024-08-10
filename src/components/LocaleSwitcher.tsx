@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function LocaleSwitcher() {
   const pathName = usePathname();
 
-  const showEnglishFlag = pathName.startsWith("/jp");
+  const showEnglishFlag = pathName.startsWith("/ja");
 
   const redirectedPathName = (locale: string) => {
     if (!pathName) return "/";
@@ -41,7 +41,7 @@ export default function LocaleSwitcher() {
   return (
     <div>
       {showEnglishFlag && (
-        <Link href={redirectedPathName("en")}>
+        <Link href={redirectedPathName("en-US")}>
           <Image
             src="/icons/english.svg"
             width={80}
@@ -51,7 +51,7 @@ export default function LocaleSwitcher() {
         </Link>
       )}
       {!showEnglishFlag && (
-        <Link href={redirectedPathName("jp")}>
+        <Link href={redirectedPathName("ja")}>
           <Image src="/icons/japan.svg" width={80} height={40} alt="Japanese" />
         </Link>
       )}

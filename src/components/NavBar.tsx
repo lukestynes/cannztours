@@ -9,8 +9,6 @@ import LocaleSwitcher from "./LocaleSwitcher";
 export default function NavBar({ lang }: { lang: Locale }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const showJapaneseFlag = lang === "en";
-
   const handleClick = () => {
     const elem = document.activeElement as HTMLElement;
     setDropdownOpen(false);
