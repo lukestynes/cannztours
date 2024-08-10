@@ -1,16 +1,28 @@
 {
   "navigation": {
-    "home": "Home",
-    "about": "About"
+    "tours": "ツアー",
+    "homestay": "ホームステイ",
+    "clientReviews": "お客様の声",
+    "about": "会社概要",
+    "contact": "お問い合わせ"
   },
-  "page": {
-    "home": {
-      "title": "Welcome to NextJs i18n in Japanese",
-      "description": "Internationalization in NextJs 13 App router"
-    },
-    "about": {
-      "title": "About Us",
-      "description": "This is the about page"
-    }
+  "footer": {
+    "aboutTitle": "私たちについて",
+    "about": "会社概要",
+    "contact": "お問い合わせ",
+    "faqs": "よくある質問",
+    "servicesTitle": "サービス",
+    "tours": "ツアー",
+    "homestay": "ホームステイ",
+    "reviews": "レビュー",
+    "bookNow": "今すぐ予約",
+    "customerSupportTitle": "カスタマーサポート",
+    "paymentOptions": "支払い方法",
+    "cancellationPolicy": "キャンセルポリシー",
+    "refundPolicy": "返金ポリシー",
+    "tos": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "connectTitle": "私たちとつながる",
+    "myBit": "ウェブサイトのデザインと開発：Slo Atelier"
   }
 }

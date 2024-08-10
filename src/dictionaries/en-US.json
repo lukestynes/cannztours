@@ -6,6 +6,25 @@
     "about": "About",
     "contact": "Contact Us"
   },
+  "footer": {
+    "aboutTitle": "About Us",
+    "about": "About",
+    "contact": "Contact",
+    "faqs": "FAQs",
+    "servicesTitle": "Services",
+    "tours": "Tours",
+    "homestay": "Homestay",
+    "reviews": "Reviews",
+    "bookNow": "Book Now",
+    "customerSupportTitle": "Customer Support",
+    "paymentOptions": "Payment Options",
+    "cancellationPolicy": "Cancellation Policy",
+    "refundPolicy": "Refund Policy",
+    "tos": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "connectTitle": "Connect With Us",
+    "myBit": "Website design and development by Slo Atelier"
+  },
   "page": {
     "home": {
       "pageName": "Home Page",
@@ -33,31 +52,7 @@
       "customTourCard": "Custom Tours Available",
       "customTourDescription": "Craft your perfect New Zealand journey with us. Whether you seek thrilling adventures or tranquil retreats, our custom tours are designed to cater to your personal travel desires.",
       "testimonialTitle": "See What People Have to Say",
-      "testimonialButton": "View Testimonials",
-      "reviewCards": [
-        {
-          "id": 0,
-          "name": "Lam Z",
-          "designation": "TripAdvisor",
-          "content": "We just completed a tour to Arthur&apos;s Pass today. I would not hesitate to recommend this tour to anyone who wants to sit back, relax, and enjoy the best of NZ's wonderful nature. The organisation of the tour was perfect: Craig tweaked the schedule slightly to suit the weather of the day. Craig is extremely knowledgeable."
-        },
-        {
-          "id": 1,
-          "name": "Benjamin G.",
-          "designation": "TripAdvisor",
-          "content": "Craig was a very good host on our tour around Christchurch. He made sure we were well looked after by providing lots of activities that we could do on our tour around Christchurch and he was very very flexible with our needs. He helped out in as many ways he could always with a big smile on his face - great service. Would recommend."
-        },
-        {
-          "id": 2,
-          "name": "John B",
-          "designation": "TripAdvisor",
-          "content": " Craig picked us up at our hotel and from start to finish he customized our tour to meet our wishes. We drove to Arthur&apos;s Pass where we were served a delightful picnic with views of the mountains. Along the way there and back, he answered a thousand questions about flora, fauna, history, geology, you name it. Craig goes out of his way to make your tour something you will always remember. You can&apos;t go wrong!"
-        }
-      ]
-    },
-    "about": {
-      "title": "About Us",
-      "description": "This is the about page"
+      "testimonialButton": "View Testimonials"
     }
   }
 }
