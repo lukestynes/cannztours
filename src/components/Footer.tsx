@@ -1,80 +1,162 @@
 // import Link from "next/link";
+import { type Locale } from "@/i18n.config";
 import Image from "next/image";
 import Link from "next/link";
+import CustomLink from "./CustomLink";
 
-export default function Footer() {
+const footerEnglish = {
+  aboutTitle: "About Us",
+  about: "About",
+  contact: "Contact",
+  faqs: "FAQs",
+  servicesTitle: "Services",
+  tours: "Tours",
+  homestay: "Homestay",
+  reviews: "Reviews",
+  bookNow: "Book Now",
+  customerSupportTitle: "Customer Support",
+  paymentOptions: "Payment Options",
+  cancellationPolicy: "Cancellation Policy",
+  refundPolicy: "Refund Policy",
+  tos: "Terms of Service",
+  privacyPolicy: "Privacy Policy",
+  connectTitle: "Connect With Us",
+  myBit: "Website design and development by ",
+};
+
+const footerJapanese = {
+  aboutTitle: "私たちについて",
+  about: "会社概要",
+  contact: "お問い合わせ",
+  faqs: "よくある質問",
+  servicesTitle: "サービス",
+  tours: "ツアー",
+  homestay: "ホームステイ",
+  reviews: "レビュー",
+  bookNow: "今すぐ予約",
+  customerSupportTitle: "カスタマーサポート",
+  paymentOptions: "支払い方法",
+  cancellationPolicy: "キャンセルポリシー",
+  refundPolicy: "返金ポリシー",
+  tos: "利用規約",
+  privacyPolicy: "プライバシーポリシー",
+  connectTitle: "私たちとつながる",
+  myBit: "ウェブサイトのデザインと開発：",
+};
+
+export default function Footer({ lang }: { lang: Locale }) {
+  const pageData = lang === "en-US" ? footerEnglish : footerJapanese;
+
   return (
     <footer className="bg-neutral py-10 text-white">
       <div className="mx-auto max-w-7xl px-4">
         <div className="border-b border-t border-white py-10">
           <div className="grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <p className="mb-4 text-lg font-semibold">About Us</p>
+              <p className="mb-4 text-lg font-semibold">
+                {pageData.aboutTitle}
+              </p>
               <ul>
                 <li>
-                  <Link href="/about" className="link-hover">
-                    About
-                  </Link>
+                  <CustomLink lang={lang} href="/about" className="link-hover">
+                    {pageData.about}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/contact" className="link-hover">
-                    Contact
-                  </Link>
+                  <CustomLink
+                    lang={lang}
+                    href="/contact"
+                    className="link-hover"
+                  >
+                    {pageData.contact}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/contact#FAQs" className="link-hover">
-                    FAQs
-                  </Link>
+                  <CustomLink
+                    lang={lang}
+                    href="/contact#FAQs"
+                    className="link-hover"
+                  >
+                    {pageData.faqs}
+                  </CustomLink>
                 </li>
               </ul>
             </div>
             <div>
-              <p className="mb-4 text-lg font-semibold">Services</p>
+              <p className="mb-4 text-lg font-semibold">
+                {pageData.servicesTitle}
+              </p>
               <ul>
                 <li>
-                  <Link href="/tours" className="link-hover">
-                    Tours
-                  </Link>
+                  <CustomLink lang={lang} href="/tours" className="link-hover">
+                    {pageData.tours}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/homestay" className="link-hover">
-                    Homestay
-                  </Link>
+                  <CustomLink
+                    lang={lang}
+                    href="/homestay"
+                    className="link-hover"
+                  >
+                    {pageData.homestay}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/client-reviews" className="link-hover">
-                    Reviews
-                  </Link>
+                  <CustomLink
+                    lang={lang}
+                    href="/client-reviews"
+                    className="link-hover"
+                  >
+                    {pageData.reviews}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/contact#BOOK" className="link-hover">
-                    Book Now
-                  </Link>
+                  <CustomLink
+                    lang={lang}
+                    href="/contact#BOOK"
+                    className="link-hover"
+                  >
+                    {pageData.bookNow}
+                  </CustomLink>
                 </li>
               </ul>
             </div>
             <div>
-              <p className="mb-4 text-lg font-semibold">Customer Support</p>
+              <p className="mb-4 text-lg font-semibold">
+                {pageData.customerSupportTitle}
+              </p>
               <ul>
                 <li>
-                  <Link href="/payment-options">Payment Options</Link>
+                  <CustomLink lang={lang} href="/payment-options">
+                    {pageData.paymentOptions}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/cancellation-policy">Cancellation Policy</Link>
+                  <CustomLink lang={lang} href="/cancellation-policy">
+                    {pageData.cancellationPolicy}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/refund-policy">Refund Policy</Link>
+                  <CustomLink lang={lang} href="/refund-policy">
+                    {pageData.refundPolicy}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/terms-of-service">Terms of Service</Link>
+                  <CustomLink lang={lang} href="/terms-of-service">
+                    {pageData.tos}
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link href="/privacy-policy">Privacy Policy</Link>
+                  <CustomLink lang={lang} href="/privacy-policy">
+                    {pageData.privacyPolicy}
+                  </CustomLink>
                 </li>
               </ul>
             </div>
             <div>
-              <p className="mb-4 text-lg font-semibold">Connect With Us</p>
+              <p className="mb-4 text-lg font-semibold">
+                {pageData.connectTitle}
+              </p>
               <ul>
                 <li>
                   <Link
@@ -155,59 +237,18 @@ export default function Footer() {
           <div className="text-right">
             <p>&copy; CanNZ Tours {new Date().getFullYear()}</p>
             <p>
-              Website design and development by{" "}
+              {pageData.myBit}
               <Link
                 className="link-hover"
-                href="https://www.stynesdigital.nz/"
+                href="https://www.sloatelier.com/"
                 target="_blank"
               >
-                Stynes Digital
+                Slo Atelier
               </Link>
             </p>
           </div>
         </div>
       </div>
-    </footer>
-  );
-  return (
-    <footer className="footer h-auto items-center bg-secondary p-4">
-      <aside>
-        <p>&copy; CanNZ Tours {new Date().getFullYear()}</p>
-        <p>
-          Website design and development by{" "}
-          <Link
-            className="link-hover"
-            href="https://www.stynesdigital.nz/"
-            target="_blank"
-          >
-            Stynes Digital
-          </Link>
-        </p>
-      </aside>
-      <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-        <Link href="https://www.facebook.com/CanNZTours/" target="_blank">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          >
-            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-          </svg>
-        </Link>
-        <Link
-          href="https://www.tripadvisor.co.nz/Attraction_Review-g255118-d1600394-Reviews-CanNZ_Tours-Christchurch_Canterbury_Region_South_Island.html"
-          target="_blank"
-        >
-          <Image
-            src="/icons/tripadvisor.svg"
-            alt="TripAdvisor"
-            width="25"
-            height="25"
-          />
-        </Link>
-      </nav>
     </footer>
   );
 }

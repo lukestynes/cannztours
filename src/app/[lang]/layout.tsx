@@ -52,7 +52,7 @@ export default function RootLayout({
         <SpeedInsights />
         <NavBar lang={params.lang} />
         {children}
-        <Footer />
+        <Footer lang={params.lang} />
       </body>
     </html>
   );

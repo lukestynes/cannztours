@@ -1,13 +1,30 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { type Locale } from "@/i18n.config";
 import CustomLink from "./CustomLink";
 import LocaleSwitcher from "./LocaleSwitcher";
 
+const navigationEnglish = {
+  tours: "Our Tours",
+  homestay: "Homestay",
+  clientReviews: "Client Reviews",
+  about: "About",
+  contact: "Contact Us",
+};
+
+const navigationJapanese = {
+  tours: "ツアー",
+  homestay: "ホームステイ",
+  clientReviews: "お客様の声",
+  about: "会社概要",
+  contact: "お問い合わせ",
+};
+
 export default function NavBar({ lang }: { lang: Locale }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const pageData = lang === "en-US" ? navigationEnglish : navigationJapanese;
 
   const handleClick = () => {
     const elem = document.activeElement as HTMLElement;
@@ -46,7 +63,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
             href="/contact"
             lang={lang}
           >
-            Contact Us
+            {pageData.contact}
           </CustomLink>
           <button
             data-collapse-toggle="navbar-sticky"
@@ -93,7 +110,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
-                Our Tours
+                {pageData.tours}
               </CustomLink>
             </li>
             <li>
@@ -103,7 +120,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
-                Homestay
+                {pageData.homestay}
               </CustomLink>
             </li>
             <li>
@@ -113,7 +130,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
-                Client Reviews
+                {pageData.clientReviews}
               </CustomLink>
             </li>
             <li>
@@ -123,7 +140,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
                 className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
                 onClick={() => setDropdownOpen(false)}
               >
-                About
+                {pageData.about}
               </CustomLink>
             </li>
           </ul>
