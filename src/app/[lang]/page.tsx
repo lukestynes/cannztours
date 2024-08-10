@@ -1,10 +1,10 @@
 import ReviewStack from "@/components/ReviewStack";
 import Image from "next/image";
-import Link from "next/link";
 import { type Metadata } from "next";
 import { type Locale } from "@/i18n.config";
 import { getHomePage } from "@/lib/contentful";
 import React from "react";
+import CustomLink from "@/components/CustomLink";
 
 export const metadata: Metadata = {
   title:
@@ -89,19 +89,21 @@ export default async function HomePage({
                   {homePageData?.subheading}
                 </p>
                 <div className="hidden justify-center pt-5 md:flex md:justify-start">
-                  <Link
+                  <CustomLink
+                    lang={lang}
                     href="/contact"
                     className="btn btn-primary mr-2 rounded-none text-white"
                   >
                     {homePageData?.bookATourButton}
-                  </Link>
-                  <Link
+                  </CustomLink>
+                  <CustomLink
+                    lang={lang}
                     href="/about"
                     type="button"
                     className="btn-dark btn btn-outline rounded-none"
                   >
                     {homePageData?.learnMoreButton}
-                  </Link>
+                  </CustomLink>
                 </div>
               </div>
             </div>
@@ -115,19 +117,21 @@ export default async function HomePage({
                 priority
               />
               <div className="flex justify-center pt-5 md:hidden">
-                <Link
+                <CustomLink
+                  lang={lang}
                   href="/contact"
                   className="btn btn-primary mr-2 rounded-none text-white"
                 >
                   {homePageData?.bookATourButton}
-                </Link>
-                <Link
+                </CustomLink>
+                <CustomLink
+                  lang={lang}
                   href="/about"
                   type="button"
                   className="btn-dark btn btn-outline rounded-none"
                 >
                   {homePageData?.learnMoreButton}
-                </Link>
+                </CustomLink>
               </div>
             </div>
           </div>
@@ -151,12 +155,13 @@ export default async function HomePage({
               <p className="py-6 pb-0">{homePageData?.subHeroDescription}</p>
             </div>
             <div className="flex justify-center pt-10 md:justify-center">
-              <Link
+              <CustomLink
+                lang={lang}
                 href="/about"
                 className="btn  btn-outline rounded-none text-white"
               >
                 {homePageData?.learnMoreButton}
-              </Link>
+              </CustomLink>
             </div>
           </div>
         </div>
@@ -172,7 +177,7 @@ export default async function HomePage({
               key={card.title}
               className="hover-card card w-96 rounded-none bg-white text-center shadow-md"
             >
-              <Link href={card.link}>
+              <CustomLink lang={lang} href={card.link}>
                 <figure>
                   <Image
                     className="rounded-none"
@@ -188,17 +193,18 @@ export default async function HomePage({
                   </p>
                   <p>{card.description}</p>
                 </div>
-              </Link>
+              </CustomLink>
             </div>
           ))}
         </div>
         <div className="mt-10 flex justify-center">
-          <Link
+          <CustomLink
+            lang={lang}
             href="/tours"
             className="btn btn-primary rounded-none text-white"
           >
             View Tours
-          </Link>
+          </CustomLink>
         </div>
       </div>
       {/* Why Choose Us Cards */}
@@ -259,12 +265,13 @@ export default async function HomePage({
         </h2>
         <ReviewStack lang={lang} />
         <div className="flex justify-center">
-          <Link
-            href="/reviews"
+          <CustomLink
+            lang={lang}
+            href="/client-reviews"
             className="justify-left btn btn-primary mt-2 rounded-none text-white"
           >
             {homePageData?.testimonialButton}
-          </Link>
+          </CustomLink>
         </div>
       </div>
     </main>
