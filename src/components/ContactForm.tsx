@@ -1,7 +1,7 @@
 "use client";
-import { Locale } from "@/i18n.config";
+import { type Locale } from "@/i18n.config";
 import { sendContactForm } from "@/lib/api";
-import { TourOrderItem } from "@/types/contentful";
+import { type TourOrderItem } from "@/types/contentful";
 import Image from "next/image";
 import React, { useState, type ChangeEvent } from "react";
 

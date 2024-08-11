@@ -33,18 +33,12 @@ export default function TourCards({
     tourOrder.map((item, index) => [item.title, index]),
   );
 
-  console.log("Unsorted");
-  console.log(tourCards);
-
   // Custom sorting function
   const sortedTourCards = tourCards.sort((a, b) => {
     return (
       (tourOrderMap.get(a.title) ?? -1) - (tourOrderMap.get(b.title) ?? -1)
     );
   });
-
-  console.log("Sorted");
-  console.log(sortedTourCards);
 
   const filteredCards = sortedTourCards.filter((card) => {
     return filter === "all" || card.tags.includes(filter);
@@ -63,9 +57,9 @@ export default function TourCards({
                 onChange={(e) => setFilter(e.target.value)}
                 className="select select-bordered"
               >
-                <option value="all">All Tours</option>
-                <option value="Full Day">Full Day Tours</option>
-                <option value="Half Day">Half Day Tours</option>
+                <option value="all">{filtersEnglish.all}</option>
+                <option value="Full Day">{filtersEnglish.full}</option>
+                <option value="Half Day">{filtersEnglish.half}</option>
               </select>
             </label>
           )}

@@ -4,7 +4,6 @@ import { type Locale } from "@/i18n.config";
 import { getAboutPage } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About CanNZ Tours | Personalised Guided Tours",

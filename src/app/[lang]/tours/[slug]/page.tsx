@@ -5,7 +5,6 @@ import { getAllTours } from "@/lib/contentful";
 import ImageCarousel from "@/components/ImageCarousel";
 import { i18n, type Locale } from "@/i18n.config";
 import CustomLink from "@/components/CustomLink";
-import { allowedNodeEnvironmentFlags } from "process";
 
 const englishData = {
   highlights: "Highlights",
@@ -97,8 +96,6 @@ export default async function TourPage({
 }) {
   const tour = await fetchTourData(params.slug, params.lang);
   const pageData = params.lang === "en-US" ? englishData : japaneseData;
-
-  console.log("This page is: ", params.lang);
 
   if (!tour) {
     notFound();

@@ -4,7 +4,6 @@ import { getContactPage, getTourOrdering } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { parse } from "path";
 import React from "react";
 
 export const metadata: Metadata = {

@@ -180,8 +180,6 @@ export async function getClientReviewPage(
     `query { clientReviewPageCollection(locale: \"${lang}\") {  items { title blurb viewOurToursButton headlineReview bookNowButton moreReviewsTitle otherReviews } } }`,
   );
 
-  console.log(clientReviewPageResponse?.clientReviewPageCollection.items[0]);
-
   if (!clientReviewPageResponse) {
     return undefined;
   }
