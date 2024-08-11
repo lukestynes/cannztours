@@ -1,7 +1,41 @@
 "use client";
+import { Locale } from "@/i18n.config";
 import { sendContactForm } from "@/lib/api";
+import { TourOrderItem } from "@/types/contentful";
 import Image from "next/image";
 import React, { useState, type ChangeEvent } from "react";
+
+const dataEnglish = {
+  title: "Contact Me",
+  name: "Full Name",
+  email: "Email",
+  messageType: "Message Type",
+  enquiry: "General Enquiry",
+  bookTour: "Book a Tour",
+  tour: "Tour",
+  selectTour: "Select a Tour",
+  custom: "Organise a Custom Tour",
+  yourMessage: "Your Message",
+  sendMessage: "Send Message",
+  success: "Your message has been sent!",
+  fail: "Something went wrong, please try again!",
+};
+
+const dataJapanese = {
+  title: "お問い合わせ",
+  name: "氏名",
+  email: "メール",
+  messageType: "メッセージの種類",
+  enquiry: "一般的な問い合わせ",
+  bookTour: "ツアーを予約する",
+  tour: "ツアー",
+  selectTour: "ツアーを選択",
+  custom: "カスタムツアーを手配する",
+  yourMessage: "メッセージ内容",
+  sendMessage: "メッセージを送る",
+  success: "メッセージが送信されました！",
+  fail: "問題が発生しました。もう一度お試しください！",
+};
 
 const initValues = {
   name: "",
@@ -13,14 +47,22 @@ const initValues = {
 
 const initState = { values: initValues };
 
-export default function ContactForm() {
+export default function ContactForm({
+  lang,
+  tourOrdering,
+}: {
+  lang: Locale;
+  tourOrdering: TourOrderItem[];
+}) {
   const [selectedOption, setSelectedOption] = useState("");
   const [state, setState] = useState(initState);
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFailure, setShowFailure] = useState(false);
-
   const { values } = state;
+
+  const pageData = lang === "en-US" ? dataEnglish : dataJapanese;
+  console.log(tourOrdering);
 
   const handleChange = (
     event: ChangeEvent<
@@ -73,7 +115,9 @@ export default function ContactForm() {
 
   return (
     <div>
-      <h2 className="pb-5 text-center text-4xl font-medium">Contact Me</h2>
+      <h2 className="pb-5 text-center text-4xl font-medium">
+        {pageData.title}
+      </h2>
       <div className="flex  justify-center">
         {showSuccess && (
           <div
@@ -81,7 +125,7 @@ export default function ContactForm() {
             className="alert alert-success max-w-3xl text-white"
           >
             <Image src="/icons/tick-white.svg" alt="" width="24" height="24" />
-            <span>Your message has been sent!</span>
+            <span>{pageData.success}</span>
           </div>
         )}
         {showFailure && (
@@ -99,7 +143,7 @@ export default function ContactForm() {
                 d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span>Something went wrong, please try again!</span>
+            <span>{pageData.fail}</span>
           </div>
         )}
       </div>
@@ -107,7 +151,7 @@ export default function ContactForm() {
       <form className="mx-auto w-full max-w-3xl" onSubmit={onSubmit}>
         <label className="form-control mb-4 w-full">
           <div className="label">
-            <span className="label-text">Full Name</span>
+            <span className="label-text">{pageData.name}</span>
           </div>
           <input
             type="text"
@@ -120,7 +164,7 @@ export default function ContactForm() {
         </label>
         <label className="form-control mb-4 w-full">
           <div className="label">
-            <span className="label-text">Email</span>
+            <span className="label-text">{pageData.email}</span>
           </div>
           <input
             type="email"
@@ -133,7 +177,7 @@ export default function ContactForm() {
         </label>
         <label className="form-control mb-4 w-full">
           <div className="label">
-            <span className="label-text">Message Type</span>
+            <span className="label-text">{pageData.messageType}</span>
           </div>
           <select
             className="select select-bordered select-lg w-full rounded-none"
@@ -145,16 +189,16 @@ export default function ContactForm() {
             }}
             required
           >
-            <option>General Enquiry</option>
-            <option>Book a Tour</option>
-            <option>Organise a Custom Tour</option>
+            <option value="General Enquiry">{pageData.enquiry}</option>
+            <option value="Book a Tour">{pageData.bookTour}</option>
+            <option value="Book a Custom Tour">{pageData.custom}</option>
           </select>
         </label>
 
         {selectedOption === "Book a Tour" && (
           <label className="form-control mb-4 w-full">
             <div className="label">
-              <span className="label-text">Tour</span>
+              <span className="label-text">{pageData.tour}</span>
             </div>
             <select
               className="select select-bordered select-lg w-full rounded-none"
@@ -163,19 +207,20 @@ export default function ContactForm() {
               onChange={handleChange}
             >
               <option value="" disabled>
-                Select a Tour
+                {pageData.selectTour}
               </option>
-              <option>Aoraki Mt Cook Tour</option>
-              <option>Akaroa Tour</option>
-              <option>Christchurch City Tour</option>
-              <option>Shore Excursion</option>
+              {tourOrdering.map((tour) => (
+                <option key={tour.sys.id} value={tour.title}>
+                  {tour.title}
+                </option>
+              ))}
             </select>
           </label>
         )}
 
         <label className="form-control mb-4 w-full">
           <div className="label">
-            <span className="label-text">Your Message</span>
+            <span className="label-text">{pageData.yourMessage}</span>
           </div>
           <textarea
             className="textarea textarea-bordered textarea-lg min-h-40 w-full rounded-none px-4 py-2 placeholder-black focus:outline-none"
@@ -190,10 +235,8 @@ export default function ContactForm() {
             className="btn btn-primary mt-5 rounded-none font-normal text-white"
             disabled={loading}
           >
-            Send Message
-            {loading && (
-              <span className="loading loading loading-spinner"></span>
-            )}
+            {pageData.sendMessage}
+            {loading && <span className="loading loading-spinner"></span>}
           </button>
         </div>
       </form>

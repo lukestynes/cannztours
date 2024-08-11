@@ -19,7 +19,7 @@ export default async function ToursPage({
 }: {
   params: { lang: Locale };
 }) {
-  const tourCards = await getTourCards();
+  const tourCards = await getTourCards(lang);
   const tourOrder = await getTourOrdering();
   const tourPageData = await getTourPage(lang);
 

@@ -14,6 +14,12 @@ import {
   type HomePageResponse,
   type TourPageItem,
   type TourPageResponse,
+  type AboutPageItem,
+  type AboutPageResponse,
+  type ContactPageItem,
+  type ContactPageResponse,
+  type ClientReviewPageResponse,
+  type ClientReviewPageItem,
 } from "@/types/contentful";
 
 async function fetchGraphQl<T>(
@@ -50,10 +56,10 @@ async function fetchGraphQl<T>(
   return jsonResponse.data;
 }
 
-export async function getAllTours(): Promise<Tour[] | undefined> {
+export async function getAllTours(lang: Locale): Promise<Tour[] | undefined> {
   const tours = await fetchGraphQl<TourCollectionResponse>(
     "tours",
-    "query { tourCollection { items { sys { id } title urlSlug blurb highlights timeLength distance price departureLocation departureTime itinerary inclusions optionalExtras pricing description imagesCollection { items { url }}} } }",
+    `query { tourCollection(locale: \"${lang}") { items { sys { id } title urlSlug blurb highlights timeLength distance price departureLocation departureTime itinerary inclusions optionalExtras pricing description imagesCollection(locale: \"en-US\") { items { url }}} } }`,
   );
 
   if (!tours) {
@@ -63,10 +69,12 @@ export async function getAllTours(): Promise<Tour[] | undefined> {
   return tours.tourCollection.items;
 }
 
-export async function getTourCards(): Promise<TourCardItem[] | undefined> {
+export async function getTourCards(
+  lang: Locale,
+): Promise<TourCardItem[] | undefined> {
   const tourCards = await fetchGraphQl<TourCardCollectionResponse>(
     "tours",
-    "query { tourCollection {  items { title urlSlug tagline tags thumbnail { url } price } } }",
+    `query { tourCollection(locale: \"${lang}\") {  items { title urlSlug tagline tags thumbnail { url } price } } }`,
   );
 
   if (!tourCards) {
@@ -76,10 +84,12 @@ export async function getTourCards(): Promise<TourCardItem[] | undefined> {
   return tourCards.tourCollection.items;
 }
 
-export async function getHomestayPage(): Promise<HomestayItem | undefined> {
+export async function getHomestayPage(
+  lang: Locale,
+): Promise<HomestayItem | undefined> {
   const homestay = await fetchGraphQl<HomestayCollectionResponse>(
     "homestay",
-    "query { homestayCollection {  items { blurb description amenities activities guestReview imagesCollection { items { url } } } } } ",
+    `query { homestayCollection(locale: \"${lang}\") {  items { title blurb enquireNowButton ourHome description includedAmenities amenities nearbyActivities activities reviewTitle guestReview imagesCollection(locale: \"en-US\") { items { url } } } } } `,
   );
 
   if (!homestay) {
@@ -130,4 +140,51 @@ export async function getTourPage(
   }
 
   return tourPageResponse?.tourPageCollection.items[0];
+}
+
+export async function getAboutPage(
+  lang: Locale,
+): Promise<AboutPageItem | undefined> {
+  const aboutPageResponse = await fetchGraphQl<AboutPageResponse>(
+    "aboutPage",
+    `query { aboutPageCollection(locale: \"${lang}\") {  items { title blurb myMission missionDescription whyBookWithUs personalisedServiceTitle personalisedServiceBlurb flexibleItinerariesTitle flexibleItinerariesDescription localExpertiseTitle localExpertiseDescription outstandingReputationTitle outstandingReputationDescription viewOurToursButton testimonials viewMoreReviewsButton } } } `,
+  );
+
+  if (!aboutPageResponse) {
+    return undefined;
+  }
+
+  return aboutPageResponse?.aboutPageCollection.items[0];
+}
+
+export async function getContactPage(
+  lang: Locale,
+): Promise<ContactPageItem | undefined> {
+  const contactPageResponse = await fetchGraphQl<ContactPageResponse>(
+    "contactPage",
+    `query { contactPageContentCollection(locale: \"${lang}\") {  items { title blurb emailLabel emailAddress phoneLabel phoneNumber locationLabel location contactMeTitle faqsTitle faqsBlurb faQs } } }`,
+  );
+
+  if (!contactPageResponse) {
+    return undefined;
+  }
+
+  return contactPageResponse?.contactPageContentCollection.items[0];
+}
+
+export async function getClientReviewPage(
+  lang: Locale,
+): Promise<ClientReviewPageItem | undefined> {
+  const clientReviewPageResponse = await fetchGraphQl<ClientReviewPageResponse>(
+    "clientReviewPage",
+    `query { clientReviewPageCollection(locale: \"${lang}\") {  items { title blurb viewOurToursButton headlineReview bookNowButton moreReviewsTitle otherReviews } } }`,
+  );
+
+  console.log(clientReviewPageResponse?.clientReviewPageCollection.items[0]);
+
+  if (!clientReviewPageResponse) {
+    return undefined;
+  }
+
+  return clientReviewPageResponse?.clientReviewPageCollection.items[0];
 }

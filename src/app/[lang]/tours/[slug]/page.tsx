@@ -1,25 +1,71 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import EmblaCarousel from "@/components/ImageCarousel";
 import { type Metadata } from "next";
 import { getAllTours } from "@/lib/contentful";
-import Swiper from "swiper/bundle";
 import ImageCarousel from "@/components/ImageCarousel";
+import { i18n, type Locale } from "@/i18n.config";
+import CustomLink from "@/components/CustomLink";
+import { allowedNodeEnvironmentFlags } from "process";
+
+const englishData = {
+  highlights: "Highlights",
+  price: "Price: ",
+  from: "from",
+  pp: "pp.",
+  bookNow: "Book Now",
+  aboutTour: "About Tour",
+  optionalExtras: "Optional Extras",
+  itinerary: "Itinerary",
+  details: "Details",
+  inclusions: "Inclusions",
+  pricing: "Pricing",
+  departureLocation: "Departure Location:",
+  departureTime: "Departure Time:",
+  duration: "Duration:",
+  distance: "Distance:",
+  priceNote:
+    "Please note that prices may vary depending on specific tour arrangements.",
+};
+
+const japaneseData = {
+  highlights: "ハイライト",
+  price: "価格:",
+  from: "から",
+  pp: "人あたり",
+  bookNow: "今すぐ予約",
+  aboutTour: "ツアーについて",
+  optionalExtras: "オプション",
+  itinerary: "旅程",
+  details: "詳細",
+  inclusions: "含まれるもの",
+  pricing: "料金",
+  departureLocation: "出発場所:",
+  departureTime: "出発時間:",
+  duration: "所要時間:",
+  distance: "距離:",
+  priceNote:
+    "*特定のツアーアレンジによっては料金が変動する場合がありますのでご了承ください。",
+};
 
 export async function generateStaticParams() {
-  const tours = await getAllTours();
-  if (!tours) {
-    return [];
-  }
+  const allTours = await Promise.all(
+    i18n.locales.map(async (lang) => {
+      const tours = await getAllTours(lang);
+      if (!tours) {
+        return [];
+      }
+      return tours.map((tour) => ({
+        slug: tour.urlSlug,
+        lang: lang,
+      }));
+    }),
+  );
 
-  return tours.map((tour) => ({
-    slug: tour.urlSlug,
-  }));
+  return allTours.flat();
 }
 
-const fetchTourData = async (slug: string) => {
-  const tours = await getAllTours();
+const fetchTourData = async (slug: string, lang: Locale) => {
+  const tours = await getAllTours(lang);
   const tour = tours?.find((t) => t.urlSlug === slug);
   return tour || null;
 };
@@ -27,9 +73,9 @@ const fetchTourData = async (slug: string) => {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string; lang: Locale };
 }): Promise<Metadata> {
-  const tour = await fetchTourData(params.slug);
+  const tour = await fetchTourData(params.slug, params.lang);
 
   if (!tour) {
     return {
@@ -47,9 +93,12 @@ export async function generateMetadata({
 export default async function TourPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string; lang: Locale };
 }) {
-  const tour = await fetchTourData(params.slug);
+  const tour = await fetchTourData(params.slug, params.lang);
+  const pageData = params.lang === "en-US" ? englishData : japaneseData;
+
+  console.log("This page is: ", params.lang);
 
   if (!tour) {
     notFound();
@@ -74,7 +123,9 @@ export default async function TourPage({
             <div className="hidden lg:block">
               <p className="mb-5 text-lg lg:pr-10">{tour.blurb}</p>
               <div>
-                <h3 className="my-3 text-2xl font-medium ">Highlights:</h3>
+                <h3 className="my-3 text-2xl font-medium ">
+                  {pageData.highlights}
+                </h3>
                 <ul className="mb-3 list-inside list-disc">
                   {tour.highlights.map((highlight, index) => (
                     <li key={index}>{highlight}</li>
@@ -83,17 +134,18 @@ export default async function TourPage({
               </div>
               <div>
                 <p className="mb-1 text-xl">
-                  <span className="font-medium">Price: </span> from $
-                  {tour.price} pp.
+                  <span className="font-medium">{pageData.price} </span>{" "}
+                  {pageData.from} ${tour.price} {pageData.pp}
                 </p>
               </div>
               <div className="flex justify-center pt-5 lg:justify-start">
-                <Link
+                <CustomLink
+                  lang={params.lang}
                   href="/contact"
                   className="btn mt-3 rounded-none bg-white text-black"
                 >
-                  Book Now!
-                </Link>
+                  {pageData.bookNow}
+                </CustomLink>
               </div>
             </div>
           </div>
@@ -102,7 +154,9 @@ export default async function TourPage({
             <div className="display mt-5 lg:hidden">
               <p className="mb-5 text-lg lg:pr-10">{tour.blurb}</p>
               <div>
-                <h3 className="my-3 text-2xl font-medium">Highlights:</h3>
+                <h3 className="my-3 text-2xl font-medium">
+                  {pageData.highlights}
+                </h3>
                 <ul className="mb-3 list-inside list-disc">
                   {tour.highlights.map((highlight: string, index: number) => (
                     <li key={index}>{highlight}</li>
@@ -111,17 +165,18 @@ export default async function TourPage({
               </div>
               <div>
                 <p className="mb-1 text-xl">
-                  <span className="font-medium">Price: </span> from $
-                  {tour.price} pp.
+                  <span className="font-medium">{pageData.price} </span>{" "}
+                  {pageData.from} ${tour.price} {pageData.pp}
                 </p>
               </div>
               <div className="flex justify-center pt-5 lg:justify-start">
-                <Link
+                <CustomLink
+                  lang={params.lang}
                   href="/contact"
                   className="btn mt-3 rounded-none bg-white text-black"
                 >
-                  Book Now!
-                </Link>
+                  {pageData.bookNow}
+                </CustomLink>
               </div>
             </div>
           </div>
@@ -138,7 +193,7 @@ export default async function TourPage({
               width="30"
               height="30"
             />
-            About Tour:
+            {pageData.aboutTour}
           </h2>
           {tour.description
             .split("\n\n")
@@ -160,7 +215,7 @@ export default async function TourPage({
                 width="30"
                 height="30"
               />
-              Optional Extras:
+              {pageData.optionalExtras}
             </h2>
             <div className="overflow-x-auto">
               <table className="table max-w-2xl">
@@ -186,7 +241,7 @@ export default async function TourPage({
                 width="30"
                 height="30"
               />
-              Itinerary
+              {pageData.itinerary}
             </h2>
             <div className="overflow-x-auto">
               <table className="table max-w-2xl">
@@ -211,25 +266,25 @@ export default async function TourPage({
                 width="30"
                 height="30"
               />
-              Details
+              {pageData.details}
             </h2>
             <div className="overflow-x-auto">
               <table className="table max-w-2xl">
                 <tbody>
                   <tr>
-                    <th>Departure Location:</th>
+                    <th>{pageData.departureLocation}</th>
                     <td>{tour.departureLocation}</td>
                   </tr>
                   <tr>
-                    <th>Departure Time:</th>
+                    <th>{pageData.departureTime}</th>
                     <td>{tour.departureTime}</td>
                   </tr>
                   <tr>
-                    <th>Duration:</th>
+                    <th>{pageData.duration}</th>
                     <td>{tour.timeLength}</td>
                   </tr>
                   <tr>
-                    <th>Distance:</th>
+                    <th>{pageData.distance}</th>
                     <td>{tour.distance}</td>
                   </tr>
                 </tbody>
@@ -247,7 +302,7 @@ export default async function TourPage({
                 width="30"
                 height="30"
               />
-              Inclusions:
+              {pageData.inclusions}
             </h2>
             <div className="overflow-x-auto">
               <table className="table max-w-2xl">
@@ -281,7 +336,7 @@ export default async function TourPage({
                   width="30"
                   height="30"
                 />
-                Pricing:
+                {pageData.pricing}
               </h2>
               <div className="overflow-x-auto">
                 <table className="table max-w-2xl">
@@ -296,10 +351,7 @@ export default async function TourPage({
                 </table>
               </div>
             </div>
-            <p className="end text-sm">
-              * Please note that prices may vary depending on specific tour
-              arrangements.
-            </p>
+            <p className="end text-sm">{pageData.priceNote}</p>
           </div>
         </div>
       </div>

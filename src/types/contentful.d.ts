@@ -22,10 +22,16 @@ export interface ContentfulImage {
 
 // Homestay
 export interface HomestayItem {
+  title: string;
   blurb: string;
+  enquireNowButton: string;
+  ourHome: string;
   description: string;
+  includedAmenities: string;
   amenities: string[];
+  nearbyActivities: string;
   activities: string[];
+  reviewTitle: string;
   guestReview: string;
   imagesCollection: {
     items: ContentfulImage[];
@@ -202,4 +208,72 @@ export interface TourPageItem {
   customToursDescription: string;
   bookACustomTourButton: string;
   tourOptions: string;
+}
+
+export interface AboutPageResponse {
+  aboutPageCollection: AboutPageCollection;
+}
+
+export interface AboutPageCollection {
+  items: Array<AboutPageItem>;
+}
+
+export interface AboutPageItem {
+  title: string;
+  blurb: string;
+  myMission: string;
+  missionDescription: string;
+  whyBookWithUs: string;
+  personalisedServiceTitle: string;
+  personalisedServiceBlurb: string;
+  flexibleItinerariesTitle: string;
+  flexibleItinerariesDescription: string;
+  localExpertiseTitle: string;
+  localExpertiseDescription: string;
+  outstandingReputationTitle: string;
+  outstandingReputationDescription: string;
+  viewOurToursButton: string;
+  testimonials: string;
+  viewMoreReviewsButton: string;
+}
+
+export interface ContactPageResponse {
+  contactPageContentCollection: ContactPageCollection;
+}
+
+export interface ContactPageCollection {
+  items: Array<ContactPageItem>;
+}
+
+export interface ContactPageItem {
+  title: string;
+  blurb: string;
+  emailLabel: string;
+  emailAddress: string;
+  phoneLabel: string;
+  phoneNumber: string;
+  locationLabel: string;
+  location: string;
+  contactMeTitle: string;
+  faqsTitle: string;
+  faqsBlurb: string;
+  faQs: string;
+}
+
+export interface ClientReviewPageResponse {
+  clientReviewPageCollection: ClientReviewPageCollection;
+}
+
+export interface ClientReviewPageCollection {
+  items: Array<ClientReviewPageItem>;
+}
+
+export interface ClientReviewPageItem {
+  title: string;
+  blurb: string;
+  viewOurToursButton: string;
+  headlineReview: string;
+  bookNowButton: string;
+  otherReviews: string;
+  moreReviewsTitle: string;
 }
