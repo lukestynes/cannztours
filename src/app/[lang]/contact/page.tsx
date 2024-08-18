@@ -4,7 +4,7 @@ import { getContactPage, getTourOrdering } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Contact CanNZ Tours | Book Your Guided Tour Today",
@@ -101,7 +101,9 @@ export default async function ContactUsPage({
         </div>
       </div>
       <div id="BOOK" className="px-10 py-10">
-        <ContactForm lang={lang} tourOrdering={tourOrdering} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ContactForm lang={lang} tourOrdering={tourOrdering} />
+        </Suspense>
       </div>
       <div id="FAQs" className="mx-auto max-w-5xl py-20">
         <h2 className="pb-5 text-center text-4xl font-medium">

@@ -3,6 +3,7 @@ import { type Locale } from "@/i18n.config";
 import { sendContactForm } from "@/lib/api";
 import { type TourOrderItem } from "@/types/contentful";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import React, { useState, type ChangeEvent } from "react";
 
 const dataEnglish = {
@@ -37,16 +38,6 @@ const dataJapanese = {
   fail: "問題が発生しました。もう一度お試しください！",
 };
 
-const initValues = {
-  name: "",
-  email: "",
-  messageType: "General Enquiry",
-  tour: "",
-  message: "",
-};
-
-const initState = { values: initValues };
-
 export default function ContactForm({
   lang,
   tourOrdering,
@@ -54,7 +45,20 @@ export default function ContactForm({
   lang: Locale;
   tourOrdering: TourOrderItem[];
 }) {
-  const [selectedOption, setSelectedOption] = useState("");
+  const searchParams = useSearchParams();
+  const enquiryType = searchParams.get("enquiryType");
+  const tourName = searchParams.get("tour");
+
+  const initValues = {
+    name: "",
+    email: "",
+    messageType: enquiryType || "General Enquiry",
+    tour: tourName || "",
+    message: "",
+  };
+  const initState = { values: initValues };
+
+  const [selectedOption, setSelectedOption] = useState(enquiryType);
   const [state, setState] = useState(initState);
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);

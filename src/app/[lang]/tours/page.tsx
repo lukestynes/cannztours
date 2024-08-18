@@ -36,11 +36,11 @@ export default async function ToursPage({
               {tourPageData?.title}
             </h1>
             <div className="hidden md:block">
-              <p>{tourPageData?.blurb}</p>
+              <p className="text-lg">{tourPageData?.blurb}</p>
               <div className="mt-5">
                 <CustomLink
                   lang={lang}
-                  href="/contact#BOOK"
+                  href="/contact?enquiryType=Book a Tour#BOOK"
                   className="btn mr-2 rounded-none bg-white text-black"
                 >
                   {tourPageData?.bookTourButton}
@@ -62,7 +62,7 @@ export default async function ToursPage({
               <div className="mt-10 flex justify-center">
                 <CustomLink
                   lang={lang}
-                  href="/contact#BOOK"
+                  href="/contact?enquiryType=Book a Tour#BOOK"
                   className="btn mr-2 rounded-none bg-white text-black"
                 >
                   {tourPageData?.bookTourButton}
@@ -81,7 +81,7 @@ export default async function ToursPage({
           <div className="mt-5 flex justify-center">
             <CustomLink
               lang={lang}
-              href="/contact"
+              href="/contact?enquiryType=Book a Custom Tour#BOOK"
               className="btn btn-primary mr-2 rounded-none text-white"
             >
               {tourPageData?.bookACustomTourButton}

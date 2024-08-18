@@ -138,7 +138,7 @@ export default async function TourPage({
               <div className="flex justify-center pt-5 lg:justify-start">
                 <CustomLink
                   lang={params.lang}
-                  href="/contact"
+                  href={`/contact?enquiryType=Book a Tour&tour=${tour.title}#BOOK`}
                   className="btn mt-3 rounded-none bg-white text-black"
                 >
                   {pageData.bookNow}
@@ -169,7 +169,7 @@ export default async function TourPage({
               <div className="flex justify-center pt-5 lg:justify-start">
                 <CustomLink
                   lang={params.lang}
-                  href="/contact"
+                  href={`/contact?enquiryType=Book a Tour&tour=${tour.title}#BOOK`}
                   className="btn mt-3 rounded-none bg-white text-black"
                 >
                   {pageData.bookNow}

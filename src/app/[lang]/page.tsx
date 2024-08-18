@@ -91,7 +91,7 @@ export default async function HomePage({
                 <div className="hidden justify-center pt-5 md:flex md:justify-start">
                   <CustomLink
                     lang={lang}
-                    href="/contact"
+                    href="/contact?enquiryType=Book a Tour#BOOK"
                     className="btn btn-primary mr-2 rounded-none text-white"
                   >
                     {homePageData?.bookATourButton}
@@ -119,7 +119,7 @@ export default async function HomePage({
               <div className="flex justify-center pt-5 md:hidden">
                 <CustomLink
                   lang={lang}
-                  href="/contact"
+                  href="/contact?enquiryType=Book a Tour#BOOK"
                   className="btn btn-primary mr-2 rounded-none text-white"
                 >
                   {homePageData?.bookATourButton}
@@ -152,7 +152,9 @@ export default async function HomePage({
               {homePageData?.subHeroTitle}
             </h1>
             <div className="">
-              <p className="py-6 pb-0">{homePageData?.subHeroDescription}</p>
+              <p className="py-6 pb-0 text-lg">
+                {homePageData?.subHeroDescription}
+              </p>
             </div>
             <div className="flex justify-center pt-10 md:justify-center">
               <CustomLink

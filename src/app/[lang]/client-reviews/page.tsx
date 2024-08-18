@@ -105,7 +105,7 @@ export default async function ReviewsPage({
           <div className="mt-5 flex justify-center">
             <CustomLink
               lang={lang}
-              href="/contact#BOOK"
+              href="/contact?enquiryType=Book a Tour#BOOK"
               className="btn btn-primary mr-2 rounded-none text-white"
             >
               {pageData.bookNowButton}
