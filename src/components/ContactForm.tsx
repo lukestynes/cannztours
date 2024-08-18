@@ -62,7 +62,6 @@ export default function ContactForm({
   const { values } = state;
 
   const pageData = lang === "en-US" ? dataEnglish : dataJapanese;
-  console.log(tourOrdering);
 
   const handleChange = (
     event: ChangeEvent<
