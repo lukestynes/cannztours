@@ -279,7 +279,7 @@ export interface ClientReviewPageItem {
 }
 
 export interface CancellationPolicyPageResponse {
-  cancellationPolicyPageCollection: ClientReviewPageCollection;
+  cancellationPolicyPageCollection: CancellationPolicyPageCollection;
 }
 
 export interface CancellationPolicyPageCollection {
