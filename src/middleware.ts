@@ -17,6 +17,13 @@ function getLocale(request: NextRequest): string | undefined {
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
   const locale = matchLocale(languages, locales, i18n.defaultLocale);
+
+  // Prioritize Japanese if the user's IP is from Japan (assuming your deployment platform supports `geo` headers)
+  const country = request.geo?.country;
+  if (country === "JP" && locales.includes("ja")) {
+    return "ja";
+  }
+
   return locale;
 }
 
