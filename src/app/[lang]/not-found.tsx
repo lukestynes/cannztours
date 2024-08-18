@@ -20,7 +20,10 @@ export default function NotFoundPage() {
   const pageData = lang === "en-US" ? englishData : japaneseData;
 
   return (
-    <div style={{ marginTop: "80px" }} className="">
+    <div
+      style={{ marginTop: "80px" }}
+      className="flex min-h-screen items-center"
+    >
       <div className="mx-auto max-w-6xl py-10 text-center">
         <h1 className="mb-4 text-4xl font-medium">{pageData.error}</h1>
         <h2 className="mb-4 text-3xl font-medium">{pageData.oops}</h2>
