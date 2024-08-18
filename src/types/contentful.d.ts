@@ -277,3 +277,16 @@ export interface ClientReviewPageItem {
   otherReviews: string;
   moreReviewsTitle: string;
 }
+
+export interface CancellationPolicyPageResponse {
+  cancellationPolicyPageCollection: ClientReviewPageCollection;
+}
+
+export interface CancellationPolicyPageCollection {
+  items: Array<CancellationPolicyPageItem>;
+}
+
+export interface CancellationPolicyPageItem {
+  title: string;
+  policy: string;
+}

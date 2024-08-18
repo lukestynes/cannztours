@@ -20,6 +20,8 @@ import {
   type ContactPageResponse,
   type ClientReviewPageResponse,
   type ClientReviewPageItem,
+  type CancellationPolicyPageItem,
+  type CancellationPolicyPageResponse,
 } from "@/types/contentful";
 
 async function fetchGraphQl<T>(
@@ -185,4 +187,21 @@ export async function getClientReviewPage(
   }
 
   return clientReviewPageResponse?.clientReviewPageCollection.items[0];
+}
+
+export async function getCancellationPolicyPage(
+  lang: Locale,
+): Promise<CancellationPolicyPageItem | undefined> {
+  const cancellationPolicyPageResponse =
+    await fetchGraphQl<CancellationPolicyPageResponse>(
+      "cancellationPolicyPage",
+      `query { cancellationPolicyPageCollection(locale: \"${lang}\") { items {title policy}} }`,
+    );
+
+  if (!cancellationPolicyPageResponse) {
+    return undefined;
+  }
+
+  return cancellationPolicyPageResponse?.cancellationPolicyPageCollection
+    .items[0];
 }
