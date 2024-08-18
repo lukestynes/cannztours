@@ -51,7 +51,7 @@ export default function Footer({ lang }: { lang: Locale }) {
     <footer className="bg-neutral py-10 text-white">
       <div className="mx-auto max-w-7xl px-4">
         <div className="border-b border-t border-white py-10">
-          <div className="grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-2 lg:grid-cols-3">
             <div>
               <p className="mb-4 text-lg font-semibold">
                 {pageData.aboutTitle}
@@ -78,6 +78,11 @@ export default function Footer({ lang }: { lang: Locale }) {
                     className="link-hover"
                   >
                     {pageData.faqs}
+                  </CustomLink>
+                </li>
+                <li>
+                  <CustomLink lang={lang} href="/cancellation-policy">
+                    {pageData.cancellationPolicy}
                   </CustomLink>
                 </li>
               </ul>
@@ -121,39 +126,7 @@ export default function Footer({ lang }: { lang: Locale }) {
                 </li>
               </ul>
             </div>
-            <div>
-              <p className="mb-4 text-lg font-semibold">
-                {pageData.customerSupportTitle}
-              </p>
-              <ul>
-                <li>
-                  <CustomLink lang={lang} href="/payment-options">
-                    {pageData.paymentOptions}
-                  </CustomLink>
-                </li>
-                <li>
-                  <CustomLink lang={lang} href="/cancellation-policy">
-                    {pageData.cancellationPolicy}
-                  </CustomLink>
-                </li>
-                <li>
-                  <CustomLink lang={lang} href="/refund-policy">
-                    {pageData.refundPolicy}
-                  </CustomLink>
-                </li>
-                <li>
-                  <CustomLink lang={lang} href="/terms-of-service">
-                    {pageData.tos}
-                  </CustomLink>
-                </li>
-                <li>
-                  <CustomLink lang={lang} href="/privacy-policy">
-                    {pageData.privacyPolicy}
-                  </CustomLink>
-                </li>
-              </ul>
-            </div>
-            <div>
+            <div className="">
               <p className="mb-4 text-lg font-semibold">
                 {pageData.connectTitle}
               </p>
