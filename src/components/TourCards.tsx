@@ -92,12 +92,12 @@ export default function TourCards({
                 href={`/tours/${card.urlSlug}`}
                 className="card rounded-none"
               >
-                <figure>
+                <figure className="relative h-[250px] w-full sm:h-[250px] md:h-[250px]">
                   <Image
                     src={card.thumbnail.url}
-                    width="450"
-                    height="300"
                     alt="Tour photo"
+                    fill
+                    objectFit="cover"
                   />
                 </figure>
                 <div className="card-body">
