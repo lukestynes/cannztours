@@ -215,7 +215,7 @@ export default async function TourPage({
               {pageData.optionalExtras}
             </h2>
             <div className="overflow-x-auto">
-              <table className="table max-w-2xl">
+              <table className="table">
                 <tbody>
                   {optionalExtras?.map((row: string[], index: number) => (
                     <tr key={index}>
@@ -241,7 +241,7 @@ export default async function TourPage({
               {pageData.itinerary}
             </h2>
             <div className="overflow-x-auto">
-              <table className="table max-w-2xl">
+              <table className="table">
                 <tbody>
                   {itinerary.map((row: string[], index: number) => (
                     <tr key={index}>
@@ -266,7 +266,7 @@ export default async function TourPage({
               {pageData.details}
             </h2>
             <div className="overflow-x-auto">
-              <table className="table max-w-2xl">
+              <table className="table">
                 <tbody>
                   <tr>
                     <th>{pageData.departureLocation}</th>
@@ -302,7 +302,7 @@ export default async function TourPage({
               {pageData.inclusions}
             </h2>
             <div className="overflow-x-auto">
-              <table className="table max-w-2xl">
+              <table className="table">
                 <tbody>
                   {tour.inclusions.map((inclusion: string, index: number) => (
                     <tr key={index}>
@@ -336,7 +336,7 @@ export default async function TourPage({
                 {pageData.pricing}
               </h2>
               <div className="overflow-x-auto">
-                <table className="table max-w-2xl">
+                <table className="table">
                   <tbody>
                     {pricing.map((row: string[], index: number) => (
                       <tr key={index}>
