@@ -43,9 +43,12 @@ export default async function AboutUsPage({
   ];
 
   return (
-    <div style={{ marginTop: "80px" }} key={1}>
+    <div key={1}>
       <div className="flex justify-center bg-secondary text-white">
-        <div className="max-w-7xl justify-center px-10 py-10">
+        <div
+          className="max-w-7xl justify-center px-10 py-10"
+          style={{ marginTop: "80px" }}
+        >
           <div className="grid gap-10 md:grid-cols-2">
             <div className="order-2 my-auto flex flex-col items-center">
               <h1 className="w-full pb-10 text-center text-5xl font-medium md:text-left">
@@ -62,7 +65,7 @@ export default async function AboutUsPage({
             <div className="order-1 flex justify-center">
               <Image
                 className="mb-3 rounded-none shadow-xl"
-                src="/images/about/hero.png"
+                src={pageData?.heroImage.url || ""}
                 alt="Sunset photo.png"
                 width="1000"
                 height="900"
@@ -85,7 +88,7 @@ export default async function AboutUsPage({
             <div className="justify-right">
               <Image
                 className="shadow-xl"
-                src="/images/about/framed.png"
+                src={pageData?.missionImage.url || ""}
                 alt="Craig Rome in Christchurch City"
                 width="550"
                 height="400"

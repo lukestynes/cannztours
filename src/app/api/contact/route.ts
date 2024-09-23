@@ -44,6 +44,7 @@ export async function POST(request: NextRequest) {
         ...mailOptions,
         ...generateEmailContent(data),
         subject: `Website Contact: ${data.messageType}`,
+        replyTo: data.email,
       });
     } catch (error) {
       console.log(error);

@@ -2,6 +2,7 @@ import ImageCarousel from "@/components/ImageCarousel";
 import { type Locale } from "@/i18n.config";
 import { getHomestayPage } from "@/lib/contentful";
 import { type HomestayItem } from "@/types/contentful";
+import { processLinks } from "@/utils/process-links";
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,10 +49,13 @@ export default async function HomestayPage({
   console.log(imagesCollection);
 
   return (
-    <div style={{ marginTop: "80px" }}>
+    <div>
       {/* Hero Section */}
-      <div className="flex justify-center bg-secondary text-white">
-        <div className="mx-5 my-10 grid max-w-7xl grid-cols-1 py-5 lg:grid-cols-2">
+      <div className="flex justify-center bg-secondary py-10 text-white">
+        <div
+          className="mx-5 my-10 grid max-w-7xl grid-cols-1 py-5 lg:grid-cols-2"
+          style={{ marginTop: "80px" }}
+        >
           <div className="flex flex-col justify-between">
             <div className="">
               <h2 className="pb-10 text-5xl font-medium">{data.title}</h2>
@@ -101,11 +105,11 @@ export default async function HomestayPage({
               width="30"
               height="30"
             />
-            {data.ourHome}
+            {processLinks(data.ourHome)}
           </h2>
           {description.map((paragraph: string, index: number) => (
             <p key={index} className="text-lg md:pr-10">
-              {paragraph}
+              {processLinks(paragraph)}
               <br />
               <br />
             </p>
@@ -165,8 +169,8 @@ export default async function HomestayPage({
                 <tbody>
                   {activities.map((row: string[], index: number) => (
                     <tr key={index}>
-                      <th>{row[0]}</th>
-                      <td>{row[1]}</td>
+                      <th>{processLinks(row[0] || "")}</th>
+                      <td>{processLinks(row[1] || "")}</td>
                     </tr>
                   ))}
                 </tbody>

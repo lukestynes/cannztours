@@ -23,19 +23,19 @@ export default async function HomePage({
   const tourCards = [
     {
       title: homePageData?.fullDayToursCardTitle,
-      imageSrc: "/images/home/full-day.jpg",
+      imageSrc: homePageData?.fullDayTourImage.url,
       description: homePageData?.fullDayToursDescription,
       link: "/tours/#full-day",
     },
     {
       title: homePageData?.halfDayToursCardTitle,
-      imageSrc: "/images/home/half-day.jpg",
+      imageSrc: homePageData?.halfDayToursImage.url,
       description: homePageData?.halfDayToursCardDescription,
       link: "/tours/#half-day",
     },
     {
       title: homePageData?.customToursCardTitle,
-      imageSrc: "/images/tours/custom-tour.png",
+      imageSrc: homePageData?.customTourImage.url,
       description: homePageData?.customToursCardDescription,
       link: "/tours/#custom",
     },
@@ -69,7 +69,10 @@ export default async function HomePage({
       {/* Hero Section min-h-[calc(100vh-80px)]*/}
       <div className="hero flex min-h-screen flex-row items-center justify-center px-7 md:px-20 md:py-10">
         <div className="hero">
-          <div className="max-w-7xl grid-rows-2">
+          <div
+            className="max-w-7xl grid-rows-2 pb-5"
+            style={{ marginTop: "80px" }}
+          >
             <div className="py-5 md:columns-2 md:gap-10">
               <div className="pt-5">
                 <h1 className="mt-3 text-4xl font-medium md:text-6xl">
@@ -88,7 +91,7 @@ export default async function HomePage({
                 <p className="pb-5 pt-3 text-lg md:pb-0 md:text-xl">
                   {homePageData?.subheading}
                 </p>
-                <div className="hidden justify-center pt-5 md:flex md:justify-start">
+                <div className="hidden justify-center py-5 md:flex md:justify-start">
                   <CustomLink
                     lang={lang}
                     href="/contact?enquiryType=Book a Tour#BOOK"
@@ -110,7 +113,7 @@ export default async function HomePage({
             <div className="md:pt-0">
               <Image
                 className="rounded-none"
-                src="/images/home/hero.png"
+                src={homePageData?.heroImage.url || ""}
                 alt="New Zealand mountain range"
                 width="1400"
                 height="800"
@@ -142,7 +145,7 @@ export default async function HomePage({
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
             className="shadow-lg"
-            src="/images/home/craig-mt-cook.png"
+            src={homePageData?.subHeroImage.url || ""}
             alt="Craig Rome"
             width="500"
             height="500"
@@ -183,7 +186,7 @@ export default async function HomePage({
                 <figure>
                   <Image
                     className="rounded-none"
-                    src={card.imageSrc}
+                    src={card.imageSrc || ""}
                     width="450"
                     height="300"
                     alt="Tour photo"

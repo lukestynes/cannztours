@@ -28,9 +28,12 @@ export default async function ToursPage({
   }
 
   return (
-    <div style={{ marginTop: "80px" }} className="min-h-screen">
-      <div className="flex min-h-[calc(100vh-80px)] justify-center bg-secondary px-10 py-10 text-white md:min-h-0">
-        <div className="grid max-w-7xl gap-10 md:grid-cols-2">
+    <div className="min-h-screen">
+      <div className="flex justify-center bg-secondary px-10 py-10 text-white md:min-h-0">
+        <div
+          className="grid max-w-7xl gap-10 py-5 md:grid-cols-2"
+          style={{ marginTop: "80px" }}
+        >
           <div className="my-auto flex flex-col">
             <h1 className="w-full text-left text-5xl font-medium md:pb-10">
               {tourPageData?.title}
@@ -51,7 +54,7 @@ export default async function ToursPage({
           <div className="">
             <Image
               className="shadow-xl"
-              src="/images/tours/hero.jpg"
+              src={tourPageData?.heroImage.url || ""}
               alt="Sunset photo"
               width="1000"
               height="600"

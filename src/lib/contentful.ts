@@ -119,7 +119,7 @@ export async function getHomePage(
 ): Promise<HomePageItem | undefined> {
   const homePageResponse = await fetchGraphQl<HomePageResponse>(
     "homePage",
-    `query { homePageCollection(locale: \"${lang}\") {  items { pageName title subheading bookATourButton learnMoreButton subHeroTitle subHeroDescription toursTitle fullDayToursCardTitle fullDayToursDescription halfDayToursCardTitle halfDayToursCardDescription customToursCardTitle customToursCardDescription viewToursButton whyChooseMeTitle experienceCardTitle experienceCardDescription bilingualCardTitle bilingualCardDescription localKnowledgeCard localKnowledgeDescription customTourCard customTourDescription testimonialTitle testimonialButton } } }`,
+    `query { homePageCollection(locale: \"${lang}\") {  items { pageName title subheading bookATourButton learnMoreButton subHeroTitle subHeroDescription toursTitle fullDayToursCardTitle fullDayToursDescription halfDayToursCardTitle halfDayToursCardDescription customToursCardTitle customToursCardDescription viewToursButton whyChooseMeTitle experienceCardTitle experienceCardDescription bilingualCardTitle bilingualCardDescription localKnowledgeCard localKnowledgeDescription customTourCard customTourDescription testimonialTitle testimonialButton heroImage { url } subHeroImage { url }  fullDayTourImage { url }  halfDayToursImage { url }  customTourImage { url }  } } }`,
   );
 
   if (!homePageResponse) {
@@ -134,7 +134,7 @@ export async function getTourPage(
 ): Promise<TourPageItem | undefined> {
   const tourPageResponse = await fetchGraphQl<TourPageResponse>(
     "tourPage",
-    `query { tourPageCollection(locale: \"${lang}\") {  items { title blurb bookTourButton customTours customToursDescription bookACustomTourButton tourOptions } } }`,
+    `query { tourPageCollection(locale: \"${lang}\") {  items { title blurb bookTourButton customTours customToursDescription bookACustomTourButton tourOptions heroImage { url } } } }`,
   );
 
   if (!tourPageResponse) {
@@ -149,7 +149,7 @@ export async function getAboutPage(
 ): Promise<AboutPageItem | undefined> {
   const aboutPageResponse = await fetchGraphQl<AboutPageResponse>(
     "aboutPage",
-    `query { aboutPageCollection(locale: \"${lang}\") {  items { title blurb myMission missionDescription whyBookWithUs personalisedServiceTitle personalisedServiceBlurb flexibleItinerariesTitle flexibleItinerariesDescription localExpertiseTitle localExpertiseDescription outstandingReputationTitle outstandingReputationDescription viewOurToursButton testimonials viewMoreReviewsButton } } } `,
+    `query { aboutPageCollection(locale: \"${lang}\") {  items { title blurb myMission missionDescription whyBookWithUs personalisedServiceTitle personalisedServiceBlurb flexibleItinerariesTitle flexibleItinerariesDescription localExpertiseTitle localExpertiseDescription outstandingReputationTitle outstandingReputationDescription viewOurToursButton testimonials viewMoreReviewsButton heroImage { url } missionImage { url } } } } `,
   );
 
   if (!aboutPageResponse) {
@@ -179,7 +179,7 @@ export async function getClientReviewPage(
 ): Promise<ClientReviewPageItem | undefined> {
   const clientReviewPageResponse = await fetchGraphQl<ClientReviewPageResponse>(
     "clientReviewPage",
-    `query { clientReviewPageCollection(locale: \"${lang}\") {  items { title blurb viewOurToursButton headlineReview bookNowButton moreReviewsTitle otherReviews } } }`,
+    `query { clientReviewPageCollection(locale: \"${lang}\") {  items { title blurb viewOurToursButton headlineReview bookNowButton moreReviewsTitle otherReviews googleButton tripAdvisorButton heroImage { url } } } }`,
   );
 
   if (!clientReviewPageResponse) {

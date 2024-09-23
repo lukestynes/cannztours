@@ -40,9 +40,12 @@ export default async function ContactUsPage({
   const faqs = parseFAQs(data.faQs);
 
   return (
-    <div style={{ marginTop: "80px" }} key={1} className="pb-10">
+    <div key={1} className="pb-10">
       <div className="flex justify-center bg-secondary text-white">
-        <div className="max-w-7xl justify-center px-10 py-10">
+        <div
+          className="max-w-7xl justify-center px-10 py-10"
+          style={{ marginTop: "80px" }}
+        >
           <div className="grid gap-10 md:grid-cols-2">
             <div className="my-auto flex flex-col items-center">
               <h1 className="w-full pb-10 text-center text-5xl font-medium md:text-left">

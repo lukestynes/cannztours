@@ -141,7 +141,7 @@ export default function Footer({ lang }: { lang: Locale }) {
                     <Image
                       src="/icons/tripadvisor.svg"
                       className="mr-2"
-                      alt="TripAdvisor"
+                      alt=""
                       width="20"
                       height="20"
                     />
@@ -158,7 +158,7 @@ export default function Footer({ lang }: { lang: Locale }) {
                     <Image
                       src="/icons/facebook.svg"
                       className="mr-2"
-                      alt="TripAdvisor"
+                      alt=""
                       width="20"
                       height="20"
                     />
@@ -175,7 +175,7 @@ export default function Footer({ lang }: { lang: Locale }) {
                     <Image
                       src="/icons/instagram.svg"
                       className="mr-2"
-                      alt="TripAdvisor"
+                      alt=""
                       width="20"
                       height="20"
                     />
@@ -192,7 +192,7 @@ export default function Footer({ lang }: { lang: Locale }) {
                     <Image
                       src="/icons/google.svg"
                       className="mr-2"
-                      alt="TripAdvisor"
+                      alt=""
                       width="20"
                       height="20"
                     />

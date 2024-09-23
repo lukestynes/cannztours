@@ -5,6 +5,8 @@ import { getAllTours } from "@/lib/contentful";
 import ImageCarousel from "@/components/ImageCarousel";
 import { i18n, type Locale } from "@/i18n.config";
 import CustomLink from "@/components/CustomLink";
+import Link from "next/link";
+import { processLinks } from "@/utils/process-links";
 
 const englishData = {
   highlights: "Highlights",
@@ -196,7 +198,7 @@ export default async function TourPage({
             .split("\n\n")
             .map((paragraph: string, index: number) => (
               <p key={index}>
-                {paragraph}
+                {processLinks(paragraph)}
                 <br />
                 <br />
               </p>
@@ -219,8 +221,8 @@ export default async function TourPage({
                 <tbody>
                   {optionalExtras?.map((row: string[], index: number) => (
                     <tr key={index}>
-                      <th>{row[0]}</th>
-                      <td>{row[1]}</td>
+                      <th>{processLinks(row[0] || "")}</th>
+                      <td>{processLinks(row[1] || "")}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -245,8 +247,8 @@ export default async function TourPage({
                 <tbody>
                   {itinerary.map((row: string[], index: number) => (
                     <tr key={index}>
-                      <th>{row[0]}</th>
-                      <td>{row[1]}</td>
+                      <th>{processLinks(row[0] || "")}</th>
+                      <td>{processLinks(row[1] || "")}</td>
                     </tr>
                   ))}
                 </tbody>

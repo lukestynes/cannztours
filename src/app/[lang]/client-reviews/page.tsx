@@ -3,6 +3,7 @@ import { type Locale } from "@/i18n.config";
 import { getClientReviewPage } from "@/lib/contentful";
 import { type Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -39,9 +40,12 @@ export default async function ReviewsPage({
   const headlineReview = parseReviews(pageData.headlineReview);
 
   return (
-    <div style={{ marginTop: "80px" }} className="min-h-[calc(100vh-80px)]">
+    <div className="min-h-[calc(100vh-80px)]">
       <div className="flex justify-center bg-secondary px-10 py-10 text-white">
-        <div className="grid max-w-7xl gap-10 md:grid-cols-2">
+        <div
+          className="grid max-w-7xl gap-10 md:grid-cols-2"
+          style={{ paddingTop: "80px" }}
+        >
           <div className="my-auto flex flex-col">
             <Image
               className="card-title my-5"
@@ -113,10 +117,42 @@ export default async function ReviewsPage({
           </div>
         </div>
       </div>
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 p-10">
-        <h2 className="text-medium col-span-2 text-4xl">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-10 pb-10">
+        <h2 className="text-medium col-span-2 pb-3 text-center text-4xl">
           {pageData.moreReviewsTitle}
         </h2>
+        <div className="flex justify-end pb-3">
+          <Link
+            href="https://www.tripadvisor.co.nz/Attraction_Review-g255118-d1600394-Reviews-CanNZ_Tours-Christchurch_Canterbury_Region_South_Island.html"
+            target="_blank"
+            className="btn h-14 rounded-none bg-primary text-white"
+          >
+            <Image
+              src="/icons/tripadvisor.svg"
+              className="mr-1"
+              alt=""
+              width="17"
+              height="17"
+            />
+            Visit TripAdvisor
+          </Link>
+        </div>
+        <div className="pb-3">
+          <Link
+            href="https://maps.app.goo.gl/cjFdsjiWR7xu9N9C9"
+            target="_blank"
+            className="btn h-14 rounded-none bg-primary text-white"
+          >
+            <Image
+              src="/icons/google.svg"
+              className="mr-lg-1"
+              alt=""
+              width="17"
+              height="17"
+            />
+            Google Reviews
+          </Link>
+        </div>
         {otherReviews.map((review, index) => (
           <div key={index} className="col-span-2 md:col-span-1">
             <div>

@@ -36,8 +36,8 @@ export default function NavBar({ lang }: { lang: Locale }) {
   };
 
   return (
-    <nav className="fixed start-0 top-0 z-20 w-full border-b bg-neutral-50">
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+    <nav className="fixed start-0 top-5 z-20 w-full">
+      <div className="mx-3 flex max-w-screen-2xl flex-wrap items-center justify-between rounded-3xl  bg-neutral-100 p-2 shadow-2xl md:p-4">
         <CustomLink
           href="/"
           lang={lang}
@@ -46,7 +46,6 @@ export default function NavBar({ lang }: { lang: Locale }) {
             if (dropdownOpen) {
               handleClick();
             }
-            setDropdownOpen(!dropdownOpen);
           }}
         >
           <Image
@@ -56,10 +55,10 @@ export default function NavBar({ lang }: { lang: Locale }) {
             height="75"
           />
         </CustomLink>
-        <div className="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex items-center space-x-1 md:order-2 md:space-x-0 rtl:space-x-reverse">
           <LocaleSwitcher />
           <CustomLink
-            className="btn btn-primary rounded-none text-white"
+            className="btn btn-primary rounded-2xl text-white"
             href="/contact"
             lang={lang}
           >
@@ -102,12 +101,12 @@ export default function NavBar({ lang }: { lang: Locale }) {
           } w-full items-center justify-between md:order-1 md:flex md:w-auto`}
           id="navbar-sticky"
         >
-          <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-neutral-50 md:p-0 rtl:space-x-reverse">
+          <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-neutral-100 md:p-0 rtl:space-x-reverse">
             <li>
               <CustomLink
                 lang={lang}
                 href="/tours"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
                 onClick={() => setDropdownOpen(false)}
               >
                 {pageData.tours}
@@ -117,7 +116,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
               <CustomLink
                 lang={lang}
                 href="/homestay"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
                 onClick={() => setDropdownOpen(false)}
               >
                 {pageData.homestay}
@@ -127,7 +126,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
               <CustomLink
                 lang={lang}
                 href="/client-reviews"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
                 onClick={() => setDropdownOpen(false)}
               >
                 {pageData.clientReviews}
@@ -137,7 +136,7 @@ export default function NavBar({ lang }: { lang: Locale }) {
               <CustomLink
                 lang={lang}
                 href="/about"
-                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-neutral"
+                className="block rounded px-3 py-2 md:p-0 md:hover:bg-transparent md:hover:text-primary"
                 onClick={() => setDropdownOpen(false)}
               >
                 {pageData.about}

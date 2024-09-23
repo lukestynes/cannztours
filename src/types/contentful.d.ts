@@ -135,24 +135,6 @@ export interface TourOrderItem {
   title: string;
 }
 
-//
-// export interface TourOrderItem {
-//   sys: sys;
-//   title: string;
-// }
-//
-// export interface TourNameCollection {
-//   items: Array<TourOrderItem>;
-// }
-//
-// export interface TourOrderingCollection {
-//   items: Array<TourNameCollection>;
-// }
-//
-// export interface TourOrderingResponse {
-//   tourOrderingCollection: TourOrderingCollection;
-// }
-
 // Home Page
 
 export interface HomePageResponse {
@@ -166,17 +148,32 @@ export interface HomePageCollection {
 export interface HomePageItem {
   pageName: string;
   title: string;
+  heroImage: {
+    url: string;
+  };
   subheading: string;
   bookATourButton: string;
   learnMoreButton: string;
   subHeroTitle: string;
+  subHeroImage: {
+    url: string;
+  };
   subHeroDescription: string;
   toursTitle: string;
   fullDayToursCardTitle: string;
+  fullDayTourImage: {
+    url: string;
+  };
   fullDayToursDescription: string;
   halfDayToursCardTitle: string;
+  halfDayToursImage: {
+    url: string;
+  };
   halfDayToursCardDescription: string;
   customToursCardTitle: string;
+  customTourImage: {
+    url: string;
+  };
   customToursCardDescription: string;
   viewToursButton: string;
   whyChooseMeTitle: string;
@@ -202,6 +199,9 @@ export interface TourPageCollection {
 
 export interface TourPageItem {
   title: string;
+  heroImage: {
+    url: string;
+  };
   blurb: string;
   bookTourButton: string;
   customTours: string;
@@ -220,8 +220,14 @@ export interface AboutPageCollection {
 
 export interface AboutPageItem {
   title: string;
+  heroImage: {
+    url: string;
+  };
   blurb: string;
   myMission: string;
+  missionImage: {
+    url: string;
+  };
   missionDescription: string;
   whyBookWithUs: string;
   personalisedServiceTitle: string;
@@ -270,12 +276,17 @@ export interface ClientReviewPageCollection {
 
 export interface ClientReviewPageItem {
   title: string;
+  heroImage: {
+    url: string;
+  };
   blurb: string;
   viewOurToursButton: string;
   headlineReview: string;
   bookNowButton: string;
   otherReviews: string;
   moreReviewsTitle: string;
+  tripAdvisorButton: string;
+  googleButton: string;
 }
 
 export interface CancellationPolicyPageResponse {
